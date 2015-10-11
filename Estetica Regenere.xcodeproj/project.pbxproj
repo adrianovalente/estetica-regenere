@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215091BC9AE6F00A5F7D1 /* main.m */; };
+		B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150C1BC9AE6F00A5F7D1 /* AppDelegate.m */; };
+		B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150F1BC9AE6F00A5F7D1 /* ViewController.m */; };
+		B9E215131BC9AE6F00A5F7D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E215111BC9AE6F00A5F7D1 /* Main.storyboard */; };
+		B9E215151BC9AE6F00A5F7D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E215141BC9AE6F00A5F7D1 /* Images.xcassets */; };
+		B9E215181BC9AE6F00A5F7D1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E215161BC9AE6F00A5F7D1 /* LaunchScreen.xib */; };
+		B9E215241BC9AE7000A5F7D1 /* Estetica_RegenereTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215231BC9AE7000A5F7D1 /* Estetica_RegenereTests.m */; };
+		B9E215341BC9B0B900A5F7D1 /* BaseComponentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215331BC9B0B900A5F7D1 /* BaseComponentsView.m */; };
+		B9E2153A1BC9B1CF00A5F7D1 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215391BC9B1CF00A5F7D1 /* HomeHeaderView.m */; };
+		B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E2153E1BC9B20D00A5F7D1 /* HomeHeaderView.xib */; };
+		B9E215431BC9B98A00A5F7D1 /* BasicButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215421BC9B98A00A5F7D1 /* BasicButtonView.m */; };
+		B9E215451BC9BEC200A5F7D1 /* BasicButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E215441BC9BEC200A5F7D1 /* BasicButtonView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B9E2151E1BC9AE7000A5F7D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9E214FC1BC9AE6F00A5F7D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9E215031BC9AE6F00A5F7D1;
+			remoteInfo = "Estetica Regenere";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B9E215041BC9AE6F00A5F7D1 /* Estetica Regenere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estetica Regenere.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9E215081BC9AE6F00A5F7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9E215091BC9AE6F00A5F7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B9E2150B1BC9AE6F00A5F7D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B9E2150C1BC9AE6F00A5F7D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B9E2150E1BC9AE6F00A5F7D1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B9E2150F1BC9AE6F00A5F7D1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B9E215121BC9AE6F00A5F7D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B9E215141BC9AE6F00A5F7D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B9E215171BC9AE6F00A5F7D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B9E2151D1BC9AE7000A5F7D1 /* Estetica RegenereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Estetica RegenereTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9E215221BC9AE7000A5F7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9E215231BC9AE7000A5F7D1 /* Estetica_RegenereTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Estetica_RegenereTests.m; sourceTree = "<group>"; };
+		B9E215321BC9B0B900A5F7D1 /* BaseComponentsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseComponentsView.h; sourceTree = "<group>"; };
+		B9E215331BC9B0B900A5F7D1 /* BaseComponentsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseComponentsView.m; sourceTree = "<group>"; };
+		B9E215381BC9B1CF00A5F7D1 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeHeaderView.h; path = Components/HomeHeaderView/HomeHeaderView.h; sourceTree = "<group>"; };
+		B9E215391BC9B1CF00A5F7D1 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeHeaderView.m; path = Components/HomeHeaderView/HomeHeaderView.m; sourceTree = "<group>"; };
+		B9E2153E1BC9B20D00A5F7D1 /* HomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeHeaderView.xib; path = Components/HomeHeaderView/HomeHeaderView.xib; sourceTree = "<group>"; };
+		B9E215411BC9B98A00A5F7D1 /* BasicButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicButtonView.h; path = Components/BasicButtonView/BasicButtonView.h; sourceTree = "<group>"; };
+		B9E215421BC9B98A00A5F7D1 /* BasicButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicButtonView.m; path = Components/BasicButtonView/BasicButtonView.m; sourceTree = "<group>"; };
+		B9E215441BC9BEC200A5F7D1 /* BasicButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BasicButtonView.xib; path = Components/BasicButtonView/BasicButtonView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9E215011BC9AE6F00A5F7D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9E2151A1BC9AE7000A5F7D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B9E214FB1BC9AE6F00A5F7D1 = {
+			isa = PBXGroup;
+			children = (
+				B9E215061BC9AE6F00A5F7D1 /* Estetica Regenere */,
+				B9E215201BC9AE7000A5F7D1 /* Estetica RegenereTests */,
+				B9E215051BC9AE6F00A5F7D1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B9E215051BC9AE6F00A5F7D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215041BC9AE6F00A5F7D1 /* Estetica Regenere.app */,
+				B9E2151D1BC9AE7000A5F7D1 /* Estetica RegenereTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9E215061BC9AE6F00A5F7D1 /* Estetica Regenere */ = {
+			isa = PBXGroup;
+			children = (
+				B9E2152D1BC9AF5300A5F7D1 /* Components */,
+				B9E2150B1BC9AE6F00A5F7D1 /* AppDelegate.h */,
+				B9E2150C1BC9AE6F00A5F7D1 /* AppDelegate.m */,
+				B9E2150E1BC9AE6F00A5F7D1 /* ViewController.h */,
+				B9E2150F1BC9AE6F00A5F7D1 /* ViewController.m */,
+				B9E215111BC9AE6F00A5F7D1 /* Main.storyboard */,
+				B9E215141BC9AE6F00A5F7D1 /* Images.xcassets */,
+				B9E215161BC9AE6F00A5F7D1 /* LaunchScreen.xib */,
+				B9E215071BC9AE6F00A5F7D1 /* Supporting Files */,
+			);
+			path = "Estetica Regenere";
+			sourceTree = "<group>";
+		};
+		B9E215071BC9AE6F00A5F7D1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215081BC9AE6F00A5F7D1 /* Info.plist */,
+				B9E215091BC9AE6F00A5F7D1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9E215201BC9AE7000A5F7D1 /* Estetica RegenereTests */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215231BC9AE7000A5F7D1 /* Estetica_RegenereTests.m */,
+				B9E215211BC9AE7000A5F7D1 /* Supporting Files */,
+			);
+			path = "Estetica RegenereTests";
+			sourceTree = "<group>";
+		};
+		B9E215211BC9AE7000A5F7D1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215221BC9AE7000A5F7D1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9E2152D1BC9AF5300A5F7D1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215401BC9B95200A5F7D1 /* BasicButtonView */,
+				B9E2153B1BC9B1D800A5F7D1 /* HomeHeaderView */,
+				B9E215311BC9B0B900A5F7D1 /* BaseComponentsView */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		B9E215311BC9B0B900A5F7D1 /* BaseComponentsView */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215321BC9B0B900A5F7D1 /* BaseComponentsView.h */,
+				B9E215331BC9B0B900A5F7D1 /* BaseComponentsView.m */,
+			);
+			name = BaseComponentsView;
+			path = Components/BaseComponentsView;
+			sourceTree = "<group>";
+		};
+		B9E2153B1BC9B1D800A5F7D1 /* HomeHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215381BC9B1CF00A5F7D1 /* HomeHeaderView.h */,
+				B9E215391BC9B1CF00A5F7D1 /* HomeHeaderView.m */,
+				B9E2153E1BC9B20D00A5F7D1 /* HomeHeaderView.xib */,
+			);
+			name = HomeHeaderView;
+			sourceTree = "<group>";
+		};
+		B9E215401BC9B95200A5F7D1 /* BasicButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215411BC9B98A00A5F7D1 /* BasicButtonView.h */,
+				B9E215421BC9B98A00A5F7D1 /* BasicButtonView.m */,
+				B9E215441BC9BEC200A5F7D1 /* BasicButtonView.xib */,
+			);
+			name = BasicButtonView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B9E215031BC9AE6F00A5F7D1 /* Estetica Regenere */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9E215271BC9AE7000A5F7D1 /* Build configuration list for PBXNativeTarget "Estetica Regenere" */;
+			buildPhases = (
+				B9E215001BC9AE6F00A5F7D1 /* Sources */,
+				B9E215011BC9AE6F00A5F7D1 /* Frameworks */,
+				B9E215021BC9AE6F00A5F7D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Estetica Regenere";
+			productName = "Estetica Regenere";
+			productReference = B9E215041BC9AE6F00A5F7D1 /* Estetica Regenere.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B9E2151C1BC9AE7000A5F7D1 /* Estetica RegenereTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9E2152A1BC9AE7000A5F7D1 /* Build configuration list for PBXNativeTarget "Estetica RegenereTests" */;
+			buildPhases = (
+				B9E215191BC9AE7000A5F7D1 /* Sources */,
+				B9E2151A1BC9AE7000A5F7D1 /* Frameworks */,
+				B9E2151B1BC9AE7000A5F7D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9E2151F1BC9AE7000A5F7D1 /* PBXTargetDependency */,
+			);
+			name = "Estetica RegenereTests";
+			productName = "Estetica RegenereTests";
+			productReference = B9E2151D1BC9AE7000A5F7D1 /* Estetica RegenereTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9E214FC1BC9AE6F00A5F7D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Adriano;
+				TargetAttributes = {
+					B9E215031BC9AE6F00A5F7D1 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					B9E2151C1BC9AE7000A5F7D1 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = B9E215031BC9AE6F00A5F7D1;
+					};
+				};
+			};
+			buildConfigurationList = B9E214FF1BC9AE6F00A5F7D1 /* Build configuration list for PBXProject "Estetica Regenere" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B9E214FB1BC9AE6F00A5F7D1;
+			productRefGroup = B9E215051BC9AE6F00A5F7D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9E215031BC9AE6F00A5F7D1 /* Estetica Regenere */,
+				B9E2151C1BC9AE7000A5F7D1 /* Estetica RegenereTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B9E215021BC9AE6F00A5F7D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */,
+				B9E215131BC9AE6F00A5F7D1 /* Main.storyboard in Resources */,
+				B9E215451BC9BEC200A5F7D1 /* BasicButtonView.xib in Resources */,
+				B9E215181BC9AE6F00A5F7D1 /* LaunchScreen.xib in Resources */,
+				B9E215151BC9AE6F00A5F7D1 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9E2151B1BC9AE7000A5F7D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9E215001BC9AE6F00A5F7D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9E2153A1BC9B1CF00A5F7D1 /* HomeHeaderView.m in Sources */,
+				B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */,
+				B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */,
+				B9E215431BC9B98A00A5F7D1 /* BasicButtonView.m in Sources */,
+				B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */,
+				B9E215341BC9B0B900A5F7D1 /* BaseComponentsView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9E215191BC9AE7000A5F7D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9E215241BC9AE7000A5F7D1 /* Estetica_RegenereTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B9E2151F1BC9AE7000A5F7D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9E215031BC9AE6F00A5F7D1 /* Estetica Regenere */;
+			targetProxy = B9E2151E1BC9AE7000A5F7D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B9E215111BC9AE6F00A5F7D1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9E215121BC9AE6F00A5F7D1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B9E215161BC9AE6F00A5F7D1 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9E215171BC9AE6F00A5F7D1 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B9E215251BC9AE7000A5F7D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B9E215261BC9AE7000A5F7D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B9E215281BC9AE7000A5F7D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Estetica Regenere/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B9E215291BC9AE7000A5F7D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Estetica Regenere/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B9E2152B1BC9AE7000A5F7D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Estetica RegenereTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Estetica Regenere.app/Estetica Regenere";
+			};
+			name = Debug;
+		};
+		B9E2152C1BC9AE7000A5F7D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Estetica RegenereTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Estetica Regenere.app/Estetica Regenere";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B9E214FF1BC9AE6F00A5F7D1 /* Build configuration list for PBXProject "Estetica Regenere" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9E215251BC9AE7000A5F7D1 /* Debug */,
+				B9E215261BC9AE7000A5F7D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9E215271BC9AE7000A5F7D1 /* Build configuration list for PBXNativeTarget "Estetica Regenere" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9E215281BC9AE7000A5F7D1 /* Debug */,
+				B9E215291BC9AE7000A5F7D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B9E2152A1BC9AE7000A5F7D1 /* Build configuration list for PBXNativeTarget "Estetica RegenereTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9E2152B1BC9AE7000A5F7D1 /* Debug */,
+				B9E2152C1BC9AE7000A5F7D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B9E214FC1BC9AE6F00A5F7D1 /* Project object */;
+}

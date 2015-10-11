@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxe-hd-XRd" customClass="HomeHeaderView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="164"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="uiq-GA-8DJ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfl-FM-w3V">
+                                <rect key="frame" x="0.0" y="400" width="320" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0Jb-T5-jfU"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1WO-HZ-F7T">
+                                <rect key="frame" x="0.0" y="164" width="320" height="236"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="jfl-FM-w3V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0MO-Ka-7Tf"/>
+                            <constraint firstItem="vxe-hd-XRd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="47v-1Q-QIb"/>
+                            <constraint firstAttribute="trailing" secondItem="vxe-hd-XRd" secondAttribute="trailing" id="6Cg-1k-JKs"/>
+                            <constraint firstAttribute="trailing" secondItem="1WO-HZ-F7T" secondAttribute="trailing" id="6Wj-BY-m0V"/>
+                            <constraint firstItem="vxe-hd-XRd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9tJ-bh-plP"/>
+                            <constraint firstItem="1WO-HZ-F7T" firstAttribute="top" secondItem="vxe-hd-XRd" secondAttribute="bottom" id="OV5-th-vzJ"/>
+                            <constraint firstAttribute="centerX" secondItem="vxe-hd-XRd" secondAttribute="centerX" constant="20" id="UGj-VB-aU8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jfl-FM-w3V" secondAttribute="bottom" id="UK6-EM-Hbm"/>
+                            <constraint firstAttribute="trailing" secondItem="jfl-FM-w3V" secondAttribute="trailing" id="Yre-vp-Du6"/>
+                            <constraint firstItem="jfl-FM-w3V" firstAttribute="top" secondItem="1WO-HZ-F7T" secondAttribute="bottom" id="ZfI-Jw-IOu"/>
+                            <constraint firstItem="1WO-HZ-F7T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="htz-dh-Q0Z"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UGj-VB-aU8"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
