@@ -14,11 +14,21 @@
 		B9E215151BC9AE6F00A5F7D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E215141BC9AE6F00A5F7D1 /* Images.xcassets */; };
 		B9E215181BC9AE6F00A5F7D1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E215161BC9AE6F00A5F7D1 /* LaunchScreen.xib */; };
 		B9E215241BC9AE7000A5F7D1 /* Estetica_RegenereTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215231BC9AE7000A5F7D1 /* Estetica_RegenereTests.m */; };
-		B9E215341BC9B0B900A5F7D1 /* BaseComponentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215331BC9B0B900A5F7D1 /* BaseComponentsView.m */; };
 		B9E2153A1BC9B1CF00A5F7D1 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215391BC9B1CF00A5F7D1 /* HomeHeaderView.m */; };
 		B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E2153E1BC9B20D00A5F7D1 /* HomeHeaderView.xib */; };
 		B9E215431BC9B98A00A5F7D1 /* BasicButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215421BC9B98A00A5F7D1 /* BasicButtonView.m */; };
 		B9E215451BC9BEC200A5F7D1 /* BasicButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E215441BC9BEC200A5F7D1 /* BasicButtonView.xib */; };
+		B9E2154B1BCADB9000A5F7D1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215491BCADB9000A5F7D1 /* HomeViewController.m */; };
+		B9E2154C1BCADB9000A5F7D1 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E2154A1BCADB9000A5F7D1 /* HomeViewController.xib */; };
+		B9E215501BCADF5200A5F7D1 /* BaseComponentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2154F1BCADF5200A5F7D1 /* BaseComponentsView.m */; };
+		B9E215551BCADFED00A5F7D1 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215531BCADFED00A5F7D1 /* HomeTableViewCell.m */; };
+		B9E215561BCADFED00A5F7D1 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E215541BCADFED00A5F7D1 /* HomeTableViewCell.xib */; };
+		B9E2155B1BCAE57900A5F7D1 /* BaseTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2155A1BCAE57900A5F7D1 /* BaseTableViewManager.m */; };
+		B9E2155E1BCAE59400A5F7D1 /* HomeTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2155D1BCAE59400A5F7D1 /* HomeTableViewManager.m */; };
+		B9E215621BCAF1FA00A5F7D1 /* RememberMeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215611BCAF1FA00A5F7D1 /* RememberMeView.m */; };
+		B9E215641BCAF20900A5F7D1 /* RememberMeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E215631BCAF20900A5F7D1 /* RememberMeView.xib */; };
+		B9E215691BCAF71100A5F7D1 /* UnderConstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215671BCAF71100A5F7D1 /* UnderConstructionViewController.m */; };
+		B9E2156A1BCAF71100A5F7D1 /* UnderConstructionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E215681BCAF71100A5F7D1 /* UnderConstructionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +55,30 @@
 		B9E2151D1BC9AE7000A5F7D1 /* Estetica RegenereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Estetica RegenereTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E215221BC9AE7000A5F7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9E215231BC9AE7000A5F7D1 /* Estetica_RegenereTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Estetica_RegenereTests.m; sourceTree = "<group>"; };
-		B9E215321BC9B0B900A5F7D1 /* BaseComponentsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseComponentsView.h; sourceTree = "<group>"; };
-		B9E215331BC9B0B900A5F7D1 /* BaseComponentsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseComponentsView.m; sourceTree = "<group>"; };
 		B9E215381BC9B1CF00A5F7D1 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeHeaderView.h; path = Components/HomeHeaderView/HomeHeaderView.h; sourceTree = "<group>"; };
 		B9E215391BC9B1CF00A5F7D1 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeHeaderView.m; path = Components/HomeHeaderView/HomeHeaderView.m; sourceTree = "<group>"; };
 		B9E2153E1BC9B20D00A5F7D1 /* HomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeHeaderView.xib; path = Components/HomeHeaderView/HomeHeaderView.xib; sourceTree = "<group>"; };
 		B9E215411BC9B98A00A5F7D1 /* BasicButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicButtonView.h; path = Components/BasicButtonView/BasicButtonView.h; sourceTree = "<group>"; };
 		B9E215421BC9B98A00A5F7D1 /* BasicButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicButtonView.m; path = Components/BasicButtonView/BasicButtonView.m; sourceTree = "<group>"; };
 		B9E215441BC9BEC200A5F7D1 /* BasicButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BasicButtonView.xib; path = Components/BasicButtonView/BasicButtonView.xib; sourceTree = "<group>"; };
+		B9E215481BCADB9000A5F7D1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Modules/HomeViewController/HomeViewController.h; sourceTree = "<group>"; };
+		B9E215491BCADB9000A5F7D1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Modules/HomeViewController/HomeViewController.m; sourceTree = "<group>"; };
+		B9E2154A1BCADB9000A5F7D1 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Modules/HomeViewController/HomeViewController.xib; sourceTree = "<group>"; };
+		B9E2154E1BCADF5200A5F7D1 /* BaseComponentsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseComponentsView.h; sourceTree = "<group>"; };
+		B9E2154F1BCADF5200A5F7D1 /* BaseComponentsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseComponentsView.m; sourceTree = "<group>"; };
+		B9E215521BCADFED00A5F7D1 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTableViewCell.h; path = Components/HomeTableViewCell/HomeTableViewCell.h; sourceTree = "<group>"; };
+		B9E215531BCADFED00A5F7D1 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTableViewCell.m; path = Components/HomeTableViewCell/HomeTableViewCell.m; sourceTree = "<group>"; };
+		B9E215541BCADFED00A5F7D1 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeTableViewCell.xib; path = Components/HomeTableViewCell/HomeTableViewCell.xib; sourceTree = "<group>"; };
+		B9E215591BCAE57900A5F7D1 /* BaseTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewManager.h; sourceTree = "<group>"; };
+		B9E2155A1BCAE57900A5F7D1 /* BaseTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewManager.m; sourceTree = "<group>"; };
+		B9E2155C1BCAE59400A5F7D1 /* HomeTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTableViewManager.h; path = Components/HomeTableViewManager/HomeTableViewManager.h; sourceTree = "<group>"; };
+		B9E2155D1BCAE59400A5F7D1 /* HomeTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTableViewManager.m; path = Components/HomeTableViewManager/HomeTableViewManager.m; sourceTree = "<group>"; };
+		B9E215601BCAF1FA00A5F7D1 /* RememberMeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RememberMeView.h; path = Components/RememberMeView/RememberMeView.h; sourceTree = "<group>"; };
+		B9E215611BCAF1FA00A5F7D1 /* RememberMeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RememberMeView.m; path = Components/RememberMeView/RememberMeView.m; sourceTree = "<group>"; };
+		B9E215631BCAF20900A5F7D1 /* RememberMeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RememberMeView.xib; path = Components/RememberMeView/RememberMeView.xib; sourceTree = "<group>"; };
+		B9E215661BCAF71100A5F7D1 /* UnderConstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnderConstructionViewController.h; path = Modules/UnderConstructionViewController/UnderConstructionViewController.h; sourceTree = "<group>"; };
+		B9E215671BCAF71100A5F7D1 /* UnderConstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderConstructionViewController.m; path = Modules/UnderConstructionViewController/UnderConstructionViewController.m; sourceTree = "<group>"; };
+		B9E215681BCAF71100A5F7D1 /* UnderConstructionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UnderConstructionViewController.xib; path = Modules/UnderConstructionViewController/UnderConstructionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +120,7 @@
 		B9E215061BC9AE6F00A5F7D1 /* Estetica Regenere */ = {
 			isa = PBXGroup;
 			children = (
+				B9E215461BCADB6000A5F7D1 /* Modules */,
 				B9E2152D1BC9AF5300A5F7D1 /* Components */,
 				B9E2150B1BC9AE6F00A5F7D1 /* AppDelegate.h */,
 				B9E2150C1BC9AE6F00A5F7D1 /* AppDelegate.m */,
@@ -136,21 +163,15 @@
 		B9E2152D1BC9AF5300A5F7D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B9E2155F1BCAF1D100A5F7D1 /* RememberMeView */,
+				B9E215581BCAE57900A5F7D1 /* BaseTableViewManager */,
+				B9E215571BCAE55800A5F7D1 /* HomeTableViewManager */,
+				B9E215511BCADFC100A5F7D1 /* HomeTableViewCell */,
+				B9E2154D1BCADF5200A5F7D1 /* BaseComponentsView */,
 				B9E215401BC9B95200A5F7D1 /* BasicButtonView */,
 				B9E2153B1BC9B1D800A5F7D1 /* HomeHeaderView */,
-				B9E215311BC9B0B900A5F7D1 /* BaseComponentsView */,
 			);
 			name = Components;
-			sourceTree = "<group>";
-		};
-		B9E215311BC9B0B900A5F7D1 /* BaseComponentsView */ = {
-			isa = PBXGroup;
-			children = (
-				B9E215321BC9B0B900A5F7D1 /* BaseComponentsView.h */,
-				B9E215331BC9B0B900A5F7D1 /* BaseComponentsView.m */,
-			);
-			name = BaseComponentsView;
-			path = Components/BaseComponentsView;
 			sourceTree = "<group>";
 		};
 		B9E2153B1BC9B1D800A5F7D1 /* HomeHeaderView */ = {
@@ -171,6 +192,84 @@
 				B9E215441BC9BEC200A5F7D1 /* BasicButtonView.xib */,
 			);
 			name = BasicButtonView;
+			sourceTree = "<group>";
+		};
+		B9E215461BCADB6000A5F7D1 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215651BCAF6EC00A5F7D1 /* UnderConstructionViewController */,
+				B9E215471BCADB6900A5F7D1 /* HomeViewController */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		B9E215471BCADB6900A5F7D1 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215481BCADB9000A5F7D1 /* HomeViewController.h */,
+				B9E215491BCADB9000A5F7D1 /* HomeViewController.m */,
+				B9E2154A1BCADB9000A5F7D1 /* HomeViewController.xib */,
+			);
+			name = HomeViewController;
+			sourceTree = "<group>";
+		};
+		B9E2154D1BCADF5200A5F7D1 /* BaseComponentsView */ = {
+			isa = PBXGroup;
+			children = (
+				B9E2154E1BCADF5200A5F7D1 /* BaseComponentsView.h */,
+				B9E2154F1BCADF5200A5F7D1 /* BaseComponentsView.m */,
+			);
+			name = BaseComponentsView;
+			path = Components/BaseComponentsView;
+			sourceTree = "<group>";
+		};
+		B9E215511BCADFC100A5F7D1 /* HomeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215521BCADFED00A5F7D1 /* HomeTableViewCell.h */,
+				B9E215531BCADFED00A5F7D1 /* HomeTableViewCell.m */,
+				B9E215541BCADFED00A5F7D1 /* HomeTableViewCell.xib */,
+			);
+			name = HomeTableViewCell;
+			sourceTree = "<group>";
+		};
+		B9E215571BCAE55800A5F7D1 /* HomeTableViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				B9E2155C1BCAE59400A5F7D1 /* HomeTableViewManager.h */,
+				B9E2155D1BCAE59400A5F7D1 /* HomeTableViewManager.m */,
+			);
+			name = HomeTableViewManager;
+			sourceTree = "<group>";
+		};
+		B9E215581BCAE57900A5F7D1 /* BaseTableViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215591BCAE57900A5F7D1 /* BaseTableViewManager.h */,
+				B9E2155A1BCAE57900A5F7D1 /* BaseTableViewManager.m */,
+			);
+			name = BaseTableViewManager;
+			path = Components/BaseTableViewManager;
+			sourceTree = "<group>";
+		};
+		B9E2155F1BCAF1D100A5F7D1 /* RememberMeView */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215601BCAF1FA00A5F7D1 /* RememberMeView.h */,
+				B9E215611BCAF1FA00A5F7D1 /* RememberMeView.m */,
+				B9E215631BCAF20900A5F7D1 /* RememberMeView.xib */,
+			);
+			name = RememberMeView;
+			sourceTree = "<group>";
+		};
+		B9E215651BCAF6EC00A5F7D1 /* UnderConstructionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B9E215661BCAF71100A5F7D1 /* UnderConstructionViewController.h */,
+				B9E215671BCAF71100A5F7D1 /* UnderConstructionViewController.m */,
+				B9E215681BCAF71100A5F7D1 /* UnderConstructionViewController.xib */,
+			);
+			name = UnderConstructionViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,10 +353,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */,
+				B9E215561BCADFED00A5F7D1 /* HomeTableViewCell.xib in Resources */,
 				B9E215131BC9AE6F00A5F7D1 /* Main.storyboard in Resources */,
 				B9E215451BC9BEC200A5F7D1 /* BasicButtonView.xib in Resources */,
 				B9E215181BC9AE6F00A5F7D1 /* LaunchScreen.xib in Resources */,
 				B9E215151BC9AE6F00A5F7D1 /* Images.xcassets in Resources */,
+				B9E2154C1BCADB9000A5F7D1 /* HomeViewController.xib in Resources */,
+				B9E215641BCAF20900A5F7D1 /* RememberMeView.xib in Resources */,
+				B9E2156A1BCAF71100A5F7D1 /* UnderConstructionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,12 +378,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9E215691BCAF71100A5F7D1 /* UnderConstructionViewController.m in Sources */,
+				B9E2155B1BCAE57900A5F7D1 /* BaseTableViewManager.m in Sources */,
 				B9E2153A1BC9B1CF00A5F7D1 /* HomeHeaderView.m in Sources */,
 				B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */,
 				B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */,
+				B9E2155E1BCAE59400A5F7D1 /* HomeTableViewManager.m in Sources */,
+				B9E215501BCADF5200A5F7D1 /* BaseComponentsView.m in Sources */,
+				B9E215621BCAF1FA00A5F7D1 /* RememberMeView.m in Sources */,
 				B9E215431BC9B98A00A5F7D1 /* BasicButtonView.m in Sources */,
+				B9E215551BCADFED00A5F7D1 /* HomeTableViewCell.m in Sources */,
 				B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */,
-				B9E215341BC9B0B900A5F7D1 /* BaseComponentsView.m in Sources */,
+				B9E2154B1BCADB9000A5F7D1 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +586,7 @@
 				B9E215291BC9AE7000A5F7D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9E2152A1BC9AE7000A5F7D1 /* Build configuration list for PBXNativeTarget "Estetica RegenereTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +595,7 @@
 				B9E2152C1BC9AE7000A5F7D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

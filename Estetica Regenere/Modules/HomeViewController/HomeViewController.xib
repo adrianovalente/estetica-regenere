@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
+            <connections>
+                <outlet property="consultasTableView" destination="2gd-E6-H6b" id="lcV-4x-KUA"/>
+                <outlet property="header" destination="PmN-E8-lmK" id="x8X-B7-5En"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmN-E8-lmK" customClass="HomeHeaderView">
+                    <rect key="frame" x="0.0" y="18" width="320" height="164"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="164" id="eca-Br-nYJ"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2gd-E6-H6b">
+                    <rect key="frame" x="0.0" y="182" width="320" height="218"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDf-v3-0dA" customClass="RememberMeView">
+                    <rect key="frame" x="0.0" y="400" width="320" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Q2g-5p-R9u"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="PmN-E8-lmK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="3Gg-aF-Zvw"/>
+                <constraint firstItem="2gd-E6-H6b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7jC-LI-uCr"/>
+                <constraint firstItem="tDf-v3-0dA" firstAttribute="top" secondItem="2gd-E6-H6b" secondAttribute="bottom" id="HiR-uB-fDa"/>
+                <constraint firstAttribute="trailing" secondItem="PmN-E8-lmK" secondAttribute="trailing" id="ItV-n3-UMu"/>
+                <constraint firstAttribute="bottom" secondItem="tDf-v3-0dA" secondAttribute="bottom" id="QC2-FG-HGb"/>
+                <constraint firstItem="PmN-E8-lmK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xjc-9S-ST5"/>
+                <constraint firstAttribute="trailing" secondItem="2gd-E6-H6b" secondAttribute="trailing" id="afq-YT-hRx"/>
+                <constraint firstItem="2gd-E6-H6b" firstAttribute="top" secondItem="PmN-E8-lmK" secondAttribute="bottom" id="dqS-IL-vyh"/>
+                <constraint firstItem="tDf-v3-0dA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="l8n-FO-YUi"/>
+                <constraint firstAttribute="trailing" secondItem="tDf-v3-0dA" secondAttribute="trailing" id="ue9-hP-KiL"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

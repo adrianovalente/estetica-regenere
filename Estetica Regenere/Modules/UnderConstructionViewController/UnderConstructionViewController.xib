@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UnderConstructionViewController">
+            <connections>
+                <outlet property="button" destination="Lwx-VQ-AHv" id="MAc-Q5-UK1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="regenere-logo" translatesAutoresizingMaskIntoConstraints="NO" id="K9a-Xs-D6Y">
+                    <rect key="frame" x="70" y="115" width="180" height="110"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="U9A-qu-c4O"/>
+                        <constraint firstAttribute="width" constant="180" id="eml-fw-11C"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ops! Ainda não fizemos essa tela!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtl-Mk-aIC">
+                    <rect key="frame" x="30" y="227" width="260" height="20"/>
+                    <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="16"/>
+                    <color key="textColor" red="0.23529411764705882" green="0.58431372549019611" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry (:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXV-eR-GHj">
+                    <rect key="frame" x="30" y="262" width="260" height="33"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="28"/>
+                    <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lwx-VQ-AHv" customClass="BasicButtonView">
+                    <rect key="frame" x="80" y="320" width="160" height="25"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="2cx-lC-Qqb"/>
+                        <constraint firstAttribute="width" constant="160" id="OLx-eA-QsN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="K9a-Xs-D6Y" secondAttribute="centerX" id="AB9-Zx-O1J"/>
+                <constraint firstItem="Mtl-Mk-aIC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Bcz-fC-Kaz"/>
+                <constraint firstAttribute="trailing" secondItem="Mtl-Mk-aIC" secondAttribute="trailing" constant="30" id="F3P-sZ-NEB"/>
+                <constraint firstAttribute="trailing" secondItem="NXV-eR-GHj" secondAttribute="trailing" constant="30" id="MJK-ux-Edn"/>
+                <constraint firstAttribute="centerY" secondItem="K9a-Xs-D6Y" secondAttribute="centerY" constant="70" id="NGJ-SZ-tir"/>
+                <constraint firstAttribute="centerX" secondItem="Lwx-VQ-AHv" secondAttribute="centerX" id="Ssd-0B-rJ4"/>
+                <constraint firstItem="Mtl-Mk-aIC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="297" id="bTS-Zf-f9q"/>
+                <constraint firstItem="Mtl-Mk-aIC" firstAttribute="top" secondItem="K9a-Xs-D6Y" secondAttribute="bottom" constant="2" id="dDZ-ij-oYp"/>
+                <constraint firstItem="NXV-eR-GHj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="gub-4a-BLt"/>
+                <constraint firstItem="Lwx-VQ-AHv" firstAttribute="top" secondItem="NXV-eR-GHj" secondAttribute="bottom" constant="25" id="o3X-7w-UYU"/>
+                <constraint firstItem="NXV-eR-GHj" firstAttribute="top" secondItem="Mtl-Mk-aIC" secondAttribute="bottom" constant="15" id="ocq-63-vyt"/>
+                <constraint firstAttribute="bottom" secondItem="NXV-eR-GHj" secondAttribute="bottom" constant="122" id="sUQ-6P-hBE"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="bTS-Zf-f9q"/>
+                    <exclude reference="sUQ-6P-hBE"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="regenere-logo" width="482" height="301"/>
+    </resources>
+</document>

@@ -35,7 +35,7 @@
 #pragma mark - Basic Button Delegate
 - (void)buttonTapped:(id)button
 {
-    NSLog(@"MARCAR CONSULTA");
+    [self.delegate didSelectMarcarConsulta];
 }
 
 @end

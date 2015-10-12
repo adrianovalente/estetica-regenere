@@ -8,6 +8,10 @@
 
 #import "BaseComponentsView.h"
 
-@interface HomeHeaderView : BaseComponentsView
+@protocol HomeHeaderViewDelegate
+- (void)didSelectMarcarConsulta;
+@end
 
+@interface HomeHeaderView : BaseComponentsView
+@property (nonatomic) id<HomeHeaderViewDelegate> delegate;
 @end
