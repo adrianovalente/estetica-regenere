@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseProvider.h"
 
-@protocol LoginProviderDelegate <NSObject>
+@protocol LoginProviderDelegate <BaseProviderCallback>
 
 -(void) onLoginSuccessWithToken:(NSString *)token;
 -(void) onLoginFailure;
--(void) onNetworkFailure;
--(void) onResponseFailure;
 
 @end
 
-@interface LoginProvider : NSObject
+@interface LoginProvider : BaseProvider
 
 @property (nonatomic) id<LoginProviderDelegate> delegate;
 

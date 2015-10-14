@@ -14,6 +14,7 @@
 		B96520E31BCED26F0039E466 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96520E21BCED26F0039E466 /* LoadingView.xib */; };
 		B96520E81BCED8FB0039E466 /* LoginProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520E71BCED8FB0039E466 /* LoginProvider.m */; };
 		B96520EC1BCF017B0039E466 /* BaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520EB1BCF017B0039E466 /* BaseProvider.m */; };
+		B96520F01BCF0BC70039E466 /* HomeProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520EF1BCF0BC70039E466 /* HomeProvider.m */; };
 		B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215091BC9AE6F00A5F7D1 /* main.m */; };
 		B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150C1BC9AE6F00A5F7D1 /* AppDelegate.m */; };
 		B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150F1BC9AE6F00A5F7D1 /* ViewController.m */; };
@@ -62,6 +63,8 @@
 		B96520E71BCED8FB0039E466 /* LoginProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginProvider.m; path = Providers/LoginProvider/LoginProvider.m; sourceTree = "<group>"; };
 		B96520EA1BCF017B0039E466 /* BaseProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseProvider.h; path = Providers/BaseProvider/BaseProvider.h; sourceTree = "<group>"; };
 		B96520EB1BCF017B0039E466 /* BaseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseProvider.m; path = Providers/BaseProvider/BaseProvider.m; sourceTree = "<group>"; };
+		B96520EE1BCF0BC60039E466 /* HomeProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeProvider.h; path = Providers/HomeProvider/HomeProvider.h; sourceTree = "<group>"; };
+		B96520EF1BCF0BC70039E466 /* HomeProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeProvider.m; path = Providers/HomeProvider/HomeProvider.m; sourceTree = "<group>"; };
 		B9E215041BC9AE6F00A5F7D1 /* Estetica Regenere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estetica Regenere.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E215081BC9AE6F00A5F7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9E215091BC9AE6F00A5F7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 		B96520E41BCED8B30039E466 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				B96520ED1BCF0BA60039E466 /* HomeProvider */,
 				B96520E91BCF015C0039E466 /* BaseProvider */,
 				B96520E51BCED8C20039E466 /* LoginProvider */,
 			);
@@ -187,6 +191,15 @@
 				B96520EB1BCF017B0039E466 /* BaseProvider.m */,
 			);
 			name = BaseProvider;
+			sourceTree = "<group>";
+		};
+		B96520ED1BCF0BA60039E466 /* HomeProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B96520EE1BCF0BC60039E466 /* HomeProvider.h */,
+				B96520EF1BCF0BC70039E466 /* HomeProvider.m */,
+			);
+			name = HomeProvider;
 			sourceTree = "<group>";
 		};
 		B9E214FB1BC9AE6F00A5F7D1 = {
@@ -539,6 +552,7 @@
 				B96520E81BCED8FB0039E466 /* LoginProvider.m in Sources */,
 				B96520EC1BCF017B0039E466 /* BaseProvider.m in Sources */,
 				B9E2154B1BCADB9000A5F7D1 /* HomeViewController.m in Sources */,
+				B96520F01BCF0BC70039E466 /* HomeProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,5 +13,8 @@
 @end
 
 @interface HomeHeaderView : BaseComponentsView
+
 @property (nonatomic) id<HomeHeaderViewDelegate> delegate;
+-(void) updateWithName:(NSString *)name appointments:(NSNumber *)appointments;
+
 @end

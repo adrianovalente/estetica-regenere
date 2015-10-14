@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeHeaderView">
             <connections>
+                <outlet property="appointmentsLabel" destination="laI-Zf-moH" id="b0e-Lt-yeF"/>
+                <outlet property="helloLabel" destination="ahe-mp-nSl" id="0RO-BK-vxl"/>
                 <outlet property="marcarConsultaBasicButton" destination="1K3-4J-Njv" id="KXv-ZZ-ymW"/>
             </connections>
         </placeholder>

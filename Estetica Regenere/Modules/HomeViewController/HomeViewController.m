@@ -10,19 +10,27 @@
 #import "HomeHeaderView.h"
 #import "HomeTableViewManager.h"
 #import "UnderConstructionViewController.h"
+#import "HomeProvider.h"
+#import "LoadingView.h"
+#import "LoginViewController.h"
 
-@interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate>
+@interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate, HomeProviderCallback, UIAlertViewDelegate>
 
+@property (weak, nonatomic) IBOutlet LoadingView *loadingView;
 @property (weak, nonatomic) IBOutlet UITableView *consultasTableView;
 @property (weak, nonatomic) IBOutlet HomeHeaderView *header;
 @property (strong, nonatomic) HomeTableViewManager *homeTableViewManager;
 @end
 
-@implementation HomeViewController
+@implementation HomeViewController {
+    BOOL _hasToPushToLogin;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
+    [[HomeProvider new] performHomeRequestWithCallback:self];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -35,6 +43,7 @@
 # pragma mark - Setup methods
 - (void)setup
 {
+    _hasToPushToLogin = NO;
     [self.header setDelegate:self];
     [self setupNavBar];
     [self setupTableView];
@@ -49,10 +58,6 @@
 - (void) setupNavBar
 {
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    //[self.navigationController.navigationBar setBackgroundImage:[[UINavigationBar appearance] backgroundImageForBarMetrics:UIBarMetricsDefault] forBarMetrics:UIBarMetricsDefault];
-    //[self.navigationController.navigationBar setTranslucent:[[UINavigationBar appearance] isTranslucent]];
-    //[self.navigationController.navigationBar setShadowImage:[[UINavigationBar appearance] shadowImage]];
-    
 }
 
 - (void)pushUnderConstructionVC
@@ -81,6 +86,52 @@
 -(void) didSelectMarcarConsulta
 {
     [self pushUnderConstructionVC];
+}
+
+#pragma mark - HomeProviderCallback
+-(void)onTokenMissing
+{
+    [self displayAlertWithTitle:@"Falha na autenticação" message:@"Ops! Você precisa fazer login denovo."];
+    _hasToPushToLogin = YES;
+}
+
+-(void)onNetworkFailure
+{
+    [self displayAlertWithTitle:@"Erro na rede" message:@"Não possível se conectar à Internet"];
+}
+
+-(void)onResponseFailure
+{
+    [self displayAlertWithTitle:@"Erro na rede" message:@"Não foi possível caregar os dados. Por favor tente mais tarde."];
+}
+
+
+-(void)onHomeRequestSuccessWithName:(NSString *)name
+                       appointments:(NSArray *)appointments
+                           thisWeek:(NSNumber *)thisWeek
+{
+    [self.header updateWithName:name appointments:thisWeek];
+}
+
+-(void)onHomeRequestFailure
+{
+    [self displayAlertWithTitle:@"Erro na rede" message:@"Não foi possível caregar os dados. Por favor tente mais tarde."];
+}
+
+#pragma mark - UIAlertView Delegate
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.loadingView stopLoading];
+    if (_hasToPushToLogin) {
+        [self.navigationController presentViewController:[LoginViewController new] animated:YES completion:^{}];
+    }
+}
+
+#pragma mark - other private methods
+-(void) displayAlertWithTitle:(NSString *)title message:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
 }
 
 #pragma mark - Lazy instantiation

@@ -17,4 +17,10 @@
 
 @interface BaseProvider : NSObject
 
+-(void)performRequestWithPath:(NSString *)path
+                      headers:(NSDictionary *)headers
+                         data:(NSDictionary *)data
+                       method:(NSString *)method
+                     callback:(id<BaseProviderCallback>)callback;
+
 @end

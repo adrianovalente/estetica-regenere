@@ -12,7 +12,6 @@
 @implementation BaseProvider
 
 #pragma mark - abstract methods
-
 -(void)handleSuccesfulResponse:(NSDictionary *)response callback:(id)callback
 {
     
@@ -24,12 +23,11 @@
 }
 
 #pragma mark - methods to be inherited
-
 -(void)performRequestWithPath:(NSString *)path
                       headers:(NSDictionary *)headers
                          data:(NSDictionary *)data
                        method:(NSString *)method
-                     delegate:(id<BaseProviderCallback>)delegate
+                     callback:(id<BaseProviderCallback>)callback
 {
     
     NSURLRequest *request = [self buildRequestWithPath:path
@@ -40,15 +38,15 @@
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self verifyResponse:(NSDictionary *)responseObject delegate:delegate];
+        [self verifyResponse:(NSDictionary *)responseObject delegate:callback];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         if ([[self noConnectionErrorCodes] containsObject:[NSNumber numberWithLongLong:error.code]]) {
-            [delegate onNetworkFailure];
+            [callback onNetworkFailure];
             return;
         }
-        [self verifyResponse:(NSDictionary *)operation.responseObject delegate:delegate];
+        [self verifyResponse:(NSDictionary *)operation.responseObject delegate:callback];
         
     }];
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];

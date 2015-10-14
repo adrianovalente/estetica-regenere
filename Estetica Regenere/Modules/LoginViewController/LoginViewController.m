@@ -11,8 +11,9 @@
 #import "BasicButtonView.h"
 #import "LoadingView.h"
 #import "LoginProvider.h"
+#import "HomeViewController.h"
 
-@interface LoginViewController () <BasicButtonProtocol, LoginProviderDelegate>
+@interface LoginViewController () <BasicButtonProtocol, LoginProviderDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet RegenereTextField *emailRegenereTextFiel;
 @property (weak, nonatomic) IBOutlet RegenereTextField *passwordRegenereTextField;
@@ -52,11 +53,21 @@
     
 }
 
+-(void) displayAlertWithTitle:(NSString *)title message:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+}
+
+-(void)pushHomeVC
+{
+    [self.navigationController pushViewController:[HomeViewController new] animated:YES];
+}
+
 #pragma mark - BasicButtonDelegate
 -(void)buttonTapped:(id)button
 {
     if (button == self.performLoginBasicButton) {
-        NSLog(@"FAZER LOGIN");
         [self.loadingView startLoading];
         [[LoginProvider new] performLoginWithEmail:[self.emailRegenereTextFiel getText] passord:[self.passwordRegenereTextField getText] delegate:self];
     }
@@ -65,22 +76,28 @@
 #pragma mark - LoginProviderDelegate
 -(void)onLoginSuccessWithToken:(NSString *)token
 {
-    
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"user-token"];
+    [self pushHomeVC];
 }
 
 -(void)onLoginFailure
 {
-    
+    [self displayAlertWithTitle:@"Erro no login" message:@"Verifique se o e-mail e a senha estão certos"];
 }
 
 -(void)onNetworkFailure
 {
-    
+    [self displayAlertWithTitle:@"Erro na rede" message:@"Não possível se conectar à Internet"];
 }
 
 -(void)onResponseFailure
 {
-    
+    [self displayAlertWithTitle:@"Erro na rede" message:@"Não foi possível efetuar login. Por favor tente mais tarde."];
 }
 
+#pragma mark - AlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.loadingView stopLoading];
+}
 @end
