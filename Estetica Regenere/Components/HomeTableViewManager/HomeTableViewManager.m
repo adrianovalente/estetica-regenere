@@ -36,10 +36,9 @@ static const int kHomeTableViewCellHeight = 72;
                           time:@"07 de novembro, às 21:00"];
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.delegate didSelectConsulta:1];
 }
-
 
 @end

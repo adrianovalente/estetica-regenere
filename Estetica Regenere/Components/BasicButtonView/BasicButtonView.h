@@ -16,9 +16,15 @@
 
 @interface BasicButtonView : BaseComponentsView
 
-@property (weak, nonatomic) IBOutlet UIView *bckView;
+typedef enum BasicButtonType : int {
+    BasicButtonTypeNormal,
+    BasicButtonTypeCallToAction
+} BasicButtonType;
+
 @property id<BasicButtonProtocol> delegate;
+
 - (void) setTitle:(NSString *)txt;
+- (void) setType:(BasicButtonType)type;
 
 @end
 

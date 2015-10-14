@@ -21,6 +21,7 @@
     self.checkView.layer.shadowOffset = CGSizeMake(-15, 20);
     self.checkView.layer.shadowRadius = 5;
     self.checkView.layer.shadowOpacity = 0.5;
+    self.checkView.layer.shadowColor = [[UIColor blackColor] CGColor];
     
     // Do any additional setup after loading the view, typically from a nib.
 }

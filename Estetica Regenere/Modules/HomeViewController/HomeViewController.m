@@ -23,13 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self unselectAllCells];
 }
+
 
 # pragma mark - Setup methods
 - (void)setup
@@ -57,6 +58,17 @@
 - (void)pushUnderConstructionVC
 {
     [self.navigationController pushViewController:[UnderConstructionViewController new] animated:YES];
+}
+
+- (void)unselectAllCells
+{
+    for (int section = 0; section < [self.consultasTableView numberOfSections]; section++) {
+        for (int row = 0; row < [self.consultasTableView numberOfRowsInSection:section]; row++) {
+            NSIndexPath* cellPath = [NSIndexPath indexPathForRow:row inSection:section];
+            UITableViewCell* cell = [self.consultasTableView cellForRowAtIndexPath:cellPath];
+            [cell setSelected:NO];
+        }
+    }
 }
 
 #pragma mark - HomeTableViewManagerDelegate
