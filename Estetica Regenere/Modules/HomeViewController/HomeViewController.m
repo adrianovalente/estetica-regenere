@@ -14,6 +14,7 @@
 #import "LoadingView.h"
 #import "LoginViewController.h"
 #import "AppointmentsList.h"
+#import "JASidePanelController.h"
 
 @interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate, HomeProviderCallback, UIAlertViewDelegate>
 
@@ -54,7 +55,6 @@
 - (void) setupTableView
 {
     [self.homeTableViewManager setDelegate:self];
-    //[self.homeTableViewManager updateWithData:@[@"", @"", @"", @"", @"", @"", @""]];
 }
 
 - (void) setupNavBar
@@ -90,6 +90,11 @@
     [self pushUnderConstructionVC];
 }
 
+-(void) didSelectMais
+{
+    [(JASidePanelController *) self.navigationController.parentViewController toggleLeftPanel:self];
+}
+
 #pragma mark - HomeProviderCallback
 -(void)onTokenMissing
 {
@@ -112,7 +117,7 @@
                        appointments:(NSArray *)appointments
                            thisWeek:(NSNumber *)thisWeek
 {
-    [self.header updateWithName:name appointments:thisWeek];
+    [self.header updateWithName:name appointments:[NSNumber numberWithInt:[appointments count]]];
     [self.homeTableViewManager updateWithData:appointments];
     [self.loadingView stopLoading];
 }

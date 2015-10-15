@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "LoginViewController.h"
+#import "JASidePanelController.h"
 
 @interface AppDelegate ()
 
@@ -21,8 +22,13 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    JASidePanelController *panel = [[JASidePanelController alloc] init];
+    
     UIViewController* viewController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
-    self.window.rootViewController = viewController;
+    [panel setCenterPanel:viewController];
+    [panel setLeftPanel:[UIViewController new]];
+    self.window.rootViewController = panel;
     [self.window makeKeyAndVisible];
     
     return YES;

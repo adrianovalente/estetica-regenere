@@ -13,16 +13,24 @@
 
 - (void) drawRect:(CGRect)rect
 {
-    self.layer.masksToBounds = NO;
-    self.layer.shadowOffset = CGSizeMake(-15, 20);
-    self.layer.shadowRadius = 5;
-    self.layer.shadowOpacity = 0.5;
-    [self setup];
+    [super drawRect:rect];
+    [self setupShadow];
 }
 
-- (void) setup
+-(void)awakeFromNib
 {
+    [super awakeFromNib];
+    [self setupShadow];
+}
 
+- (void) setupShadow
+{
+    self.layer.masksToBounds = NO;
+    self.layer.shadowOffset = CGSizeMake(0, -5);
+    self.layer.shadowRadius = 5;
+    self.layer.shadowOpacity = 0.5;
+    self.layer.shadowColor = [[UIColor blackColor] CGColor];
+    
 }
 
 @end

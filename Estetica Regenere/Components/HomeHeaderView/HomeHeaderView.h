@@ -10,6 +10,7 @@
 
 @protocol HomeHeaderViewDelegate
 - (void)didSelectMarcarConsulta;
+- (void)didSelectMais;
 @end
 
 @interface HomeHeaderView : BaseComponentsView

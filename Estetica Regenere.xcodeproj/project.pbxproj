@@ -16,6 +16,10 @@
 		B96520EC1BCF017B0039E466 /* BaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520EB1BCF017B0039E466 /* BaseProvider.m */; };
 		B96520F01BCF0BC70039E466 /* HomeProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520EF1BCF0BC70039E466 /* HomeProvider.m */; };
 		B96520F61BCF30680039E466 /* AppointmentsList.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520F51BCF30680039E466 /* AppointmentsList.m */; };
+		B96520FA1BCF42D50039E466 /* MoreButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520F91BCF42D50039E466 /* MoreButtonView.m */; };
+		B96520FC1BCF42EE0039E466 /* MoreButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96520FB1BCF42EE0039E466 /* MoreButtonView.xib */; };
+		B96521021BCFF3380039E466 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520FF1BCFF3380039E466 /* JASidePanelController.m */; };
+		B96521031BCFF3380039E466 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = B96521011BCFF3380039E466 /* UIViewController+JASidePanel.m */; };
 		B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215091BC9AE6F00A5F7D1 /* main.m */; };
 		B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150C1BC9AE6F00A5F7D1 /* AppDelegate.m */; };
 		B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150F1BC9AE6F00A5F7D1 /* ViewController.m */; };
@@ -68,6 +72,13 @@
 		B96520EF1BCF0BC70039E466 /* HomeProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeProvider.m; path = Providers/HomeProvider/HomeProvider.m; sourceTree = "<group>"; };
 		B96520F41BCF30680039E466 /* AppointmentsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentsList.h; sourceTree = "<group>"; };
 		B96520F51BCF30680039E466 /* AppointmentsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentsList.m; sourceTree = "<group>"; };
+		B96520F81BCF42D50039E466 /* MoreButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreButtonView.h; path = Components/MoreButtonView/MoreButtonView.h; sourceTree = "<group>"; };
+		B96520F91BCF42D50039E466 /* MoreButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreButtonView.m; path = Components/MoreButtonView/MoreButtonView.m; sourceTree = "<group>"; };
+		B96520FB1BCF42EE0039E466 /* MoreButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MoreButtonView.xib; path = Components/MoreButtonView/MoreButtonView.xib; sourceTree = "<group>"; };
+		B96520FE1BCFF3380039E466 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
+		B96520FF1BCFF3380039E466 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
+		B96521001BCFF3380039E466 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
+		B96521011BCFF3380039E466 /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
 		B9E215041BC9AE6F00A5F7D1 /* Estetica Regenere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estetica Regenere.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E215081BC9AE6F00A5F7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9E215091BC9AE6F00A5F7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -214,6 +225,28 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B96520F71BCF42A80039E466 /* MoreButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				B96520F81BCF42D50039E466 /* MoreButtonView.h */,
+				B96520F91BCF42D50039E466 /* MoreButtonView.m */,
+				B96520FB1BCF42EE0039E466 /* MoreButtonView.xib */,
+			);
+			name = MoreButtonView;
+			sourceTree = "<group>";
+		};
+		B96520FD1BCFF3380039E466 /* SidePanel */ = {
+			isa = PBXGroup;
+			children = (
+				B96520FE1BCFF3380039E466 /* JASidePanelController.h */,
+				B96520FF1BCFF3380039E466 /* JASidePanelController.m */,
+				B96521001BCFF3380039E466 /* UIViewController+JASidePanel.h */,
+				B96521011BCFF3380039E466 /* UIViewController+JASidePanel.m */,
+			);
+			name = SidePanel;
+			path = Components/SidePanel;
+			sourceTree = "<group>";
+		};
 		B9E214FB1BC9AE6F00A5F7D1 = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +315,8 @@
 		B9E2152D1BC9AF5300A5F7D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B96520FD1BCFF3380039E466 /* SidePanel */,
+				B96520F71BCF42A80039E466 /* MoreButtonView */,
 				B96520DE1BCED2360039E466 /* LoadingView */,
 				B96520D81BCDADAE0039E466 /* RegenereTextField */,
 				B9E2155F1BCAF1D100A5F7D1 /* RememberMeView */,
@@ -490,6 +525,7 @@
 				B96520DD1BCDAE010039E466 /* RegenereTextField.xib in Resources */,
 				B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */,
 				B9E215561BCADFED00A5F7D1 /* HomeTableViewCell.xib in Resources */,
+				B96520FC1BCF42EE0039E466 /* MoreButtonView.xib in Resources */,
 				B9E215131BC9AE6F00A5F7D1 /* Main.storyboard in Resources */,
 				B9E215451BC9BEC200A5F7D1 /* BasicButtonView.xib in Resources */,
 				B9E215181BC9AE6F00A5F7D1 /* LaunchScreen.xib in Resources */,
@@ -549,9 +585,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9E215691BCAF71100A5F7D1 /* UnderConstructionViewController.m in Sources */,
+				B96520FA1BCF42D50039E466 /* MoreButtonView.m in Sources */,
 				B96520E11BCED25F0039E466 /* LoadingView.m in Sources */,
 				B9E2155B1BCAE57900A5F7D1 /* BaseTableViewManager.m in Sources */,
 				B9E2156F1BCC016700A5F7D1 /* LoginViewController.m in Sources */,
+				B96521031BCFF3380039E466 /* UIViewController+JASidePanel.m in Sources */,
+				B96521021BCFF3380039E466 /* JASidePanelController.m in Sources */,
 				B9E2153A1BC9B1CF00A5F7D1 /* HomeHeaderView.m in Sources */,
 				B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */,
 				B96520F61BCF30680039E466 /* AppointmentsList.m in Sources */,

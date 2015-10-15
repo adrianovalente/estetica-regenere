@@ -10,6 +10,7 @@
                 <outlet property="appointmentsLabel" destination="laI-Zf-moH" id="b0e-Lt-yeF"/>
                 <outlet property="helloLabel" destination="ahe-mp-nSl" id="0RO-BK-vxl"/>
                 <outlet property="marcarConsultaBasicButton" destination="1K3-4J-Njv" id="KXv-ZZ-ymW"/>
+                <outlet property="moreButtonView" destination="snk-PE-vd4" id="fHp-9p-rAX"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -43,19 +44,34 @@
                         <constraint firstAttribute="width" constant="150" id="g4W-TY-4LI"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snk-PE-vd4" customClass="MoreButtonView">
+                    <rect key="frame" x="20" y="22" width="22" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="7b9-Ze-5gm"/>
+                        <constraint firstAttribute="height" constant="18" id="UJL-bk-Ezq"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="laI-Zf-moH" firstAttribute="top" secondItem="ahe-mp-nSl" secondAttribute="bottom" constant="5" id="DFY-bW-PEB"/>
+                <constraint firstAttribute="trailing" secondItem="snk-PE-vd4" secondAttribute="trailing" constant="15" id="F06-gn-ndr"/>
                 <constraint firstAttribute="centerX" secondItem="ahe-mp-nSl" secondAttribute="centerX" id="O3W-Ht-BeS"/>
                 <constraint firstAttribute="bottom" secondItem="1K3-4J-Njv" secondAttribute="bottom" constant="15" id="Qgt-p7-r0K"/>
                 <constraint firstAttribute="centerX" secondItem="1K3-4J-Njv" secondAttribute="centerX" id="R2C-lT-rHm"/>
+                <constraint firstItem="snk-PE-vd4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="fNX-gp-9QE"/>
                 <constraint firstAttribute="centerX" secondItem="laI-Zf-moH" secondAttribute="centerX" id="op5-24-8am"/>
                 <constraint firstAttribute="centerX" secondItem="VzJ-R4-T37" secondAttribute="centerX" id="qbI-1p-iUu"/>
+                <constraint firstItem="snk-PE-vd4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="22" id="qnp-cT-DxC"/>
                 <constraint firstItem="VzJ-R4-T37" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="shy-Mo-wPi"/>
                 <constraint firstItem="ahe-mp-nSl" firstAttribute="top" secondItem="VzJ-R4-T37" secondAttribute="bottom" constant="7" id="tEL-B2-uVL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="F06-gn-ndr"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>

@@ -8,10 +8,12 @@
 
 #import "HomeHeaderView.h"
 #import "BasicButtonView.h"
+#import "MoreButtonView.h"
 
-@interface HomeHeaderView ()<BasicButtonProtocol>
+@interface HomeHeaderView ()<BasicButtonProtocol, MoreButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet BasicButtonView *marcarConsultaBasicButton;
+@property (weak, nonatomic) IBOutlet MoreButtonView *moreButtonView;
 @property (weak, nonatomic) IBOutlet UILabel *helloLabel;
 @property (weak, nonatomic) IBOutlet UILabel *appointmentsLabel;
 
@@ -23,7 +25,7 @@
 -(void)updateWithName:(NSString *)name appointments:(NSNumber *)appointments
 {
     [self.helloLabel setText:[NSString stringWithFormat:@"Olá, %@", name]];
-    [self.appointmentsLabel setText:[NSString stringWithFormat:@"Essa semana você tem %@ consultas marcadas", appointments]];
+    [self.appointmentsLabel setText:[NSString stringWithFormat:@"Você tem %@ consultas marcadas", appointments]];
 }
 
 
@@ -38,6 +40,8 @@
 {
     [self.marcarConsultaBasicButton setTitle:@"Marcar consulta"];
     [self.marcarConsultaBasicButton setDelegate:self];
+    [self.moreButtonView setDelegate:self];
+
 }
 
 
@@ -47,4 +51,9 @@
     [self.delegate didSelectMarcarConsulta];
 }
 
+#pragma mark - More Button Delegate
+-(void)didTapMoreButton
+{
+    [self.delegate didSelectMais];
+}
 @end
