@@ -13,6 +13,7 @@
 #import "HomeProvider.h"
 #import "LoadingView.h"
 #import "LoginViewController.h"
+#import "AppointmentsList.h"
 
 @interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate, HomeProviderCallback, UIAlertViewDelegate>
 
@@ -30,6 +31,7 @@
     [super viewDidLoad];
     [self setup];
     [[HomeProvider new] performHomeRequestWithCallback:self];
+    [self.loadingView startLoading];
     
 }
 
@@ -52,7 +54,7 @@
 - (void) setupTableView
 {
     [self.homeTableViewManager setDelegate:self];
-    [self.homeTableViewManager updateWithData:@[@"", @"", @"", @"", @"", @"", @""]];
+    //[self.homeTableViewManager updateWithData:@[@"", @"", @"", @"", @"", @"", @""]];
 }
 
 - (void) setupNavBar
@@ -111,6 +113,8 @@
                            thisWeek:(NSNumber *)thisWeek
 {
     [self.header updateWithName:name appointments:thisWeek];
+    [self.homeTableViewManager updateWithData:appointments];
+    [self.loadingView stopLoading];
 }
 
 -(void)onHomeRequestFailure

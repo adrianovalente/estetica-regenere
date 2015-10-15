@@ -5,6 +5,7 @@ target 'Estetica Regenere' do
 
 pod 'JVFloatLabeledTextField'
 pod "AFNetworking", "~> 2.0"
+pod 'JSONModel'
 
 end
 

@@ -8,6 +8,7 @@
 
 #import "HomeTableViewManager.h"
 #import "HomeTableViewCell.h"
+#import "AppointmentsList.h"
 
 static const int kHomeTableViewCellHeight = 72;
 
@@ -30,15 +31,36 @@ static const int kHomeTableViewCellHeight = 72;
 
 -(void)setDataToCell:(id)cell withData:(id)item
 {
+    ConsultasModel *consulta = (ConsultasModel *)item;
+    DateModel *date = [consulta date];
     HomeTableViewCell *homeCell = (HomeTableViewCell *) cell;
-    [homeCell fillCellWithName:@"Limpeza de pele"
+    [homeCell fillCellWithName:[consulta service]
                       subtitle:@"Dra. Olga Fernanda"
-                          time:@"07 de novembro, às 21:00"];
+                          time:[NSString stringWithFormat:@"%@ de %@, às %@:%@", [date day], [self monthString:[date month]], [date hour], [date minute]]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.delegate didSelectConsulta:1];
+}
+
+-(NSString *)monthString:(NSNumber *)month
+{
+    return [@[
+              @"",
+              @"janeiro",
+              @"fevereiro",
+              @"março",
+              @"abril",
+              @"maio",
+              @"junho",
+              @"julho",
+              @"agosto",
+              @"setembro",
+              @"outubro",
+              @"novembro",
+              @"dezembro"
+              ] objectAtIndex:[month integerValue]];
 }
 
 @end

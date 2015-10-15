@@ -20,14 +20,17 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - JSONModel (1.1.0)
   - JVFloatLabeledTextField (1.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - JSONModel
   - JVFloatLabeledTextField
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
   JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
 
 COCOAPODS: 0.37.2

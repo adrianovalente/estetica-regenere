@@ -7,6 +7,7 @@
 //
 
 #import "HomeProvider.h"
+#import "AppointmentsList.h"
 
 @implementation HomeProvider
 
@@ -34,9 +35,10 @@
 -(void)handleSuccesfulResponse:(NSDictionary *)response callback:(id)callback
 {
     NSDictionary *data = [response objectForKey:@"content"];
+    AppointmentsList *list = [[AppointmentsList alloc] initWithDictionary:data error:nil];
     [callback onHomeRequestSuccessWithName:data[@"name"]
-                              appointments:@[]
-                                  thisWeek:@0];
+                              appointments:[list consultas]
+                                  thisWeek:@9];
 }
 
 -(void)handleFailedResponse:(NSDictionary *)response callback:(id)callback
