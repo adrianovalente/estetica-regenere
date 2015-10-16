@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuViewController : UIViewController
-
+-(void)resetMenu;
 @end

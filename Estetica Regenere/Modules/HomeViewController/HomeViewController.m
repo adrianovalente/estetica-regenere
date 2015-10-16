@@ -15,8 +15,9 @@
 #import "LoginViewController.h"
 #import "AppointmentsList.h"
 #import "JASidePanelController.h"
+#import "MenuViewController.h"
 
-@interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate, HomeProviderCallback, UIAlertViewDelegate>
+@interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate, HomeProviderCallback, UIAlertViewDelegate, LoginViewControllerCallback>
 
 @property (weak, nonatomic) IBOutlet LoadingView *loadingView;
 @property (weak, nonatomic) IBOutlet UITableView *consultasTableView;
@@ -27,20 +28,28 @@
 @implementation HomeViewController {
     BOOL _hasToPushToLogin;
     BOOL _isShowingCenterPanel;
+    BOOL _noNeedToShowAlerts;
+}
+
+-(instancetype)initFromLogout
+{
+    self = [super init];
+    _noNeedToShowAlerts = YES;
+    return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
-    [[HomeProvider new] performHomeRequestWithCallback:self];
-    [self.loadingView startLoading];
+    [self updateData];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self unselectAllCells];
+    [self unselectAllHomeTBVCells];
+    [self resetMenuOptions];
 }
 
 
@@ -68,7 +77,7 @@
     [self.navigationController pushViewController:[UnderConstructionViewController new] animated:YES];
 }
 
-- (void)unselectAllCells
+- (void)unselectAllHomeTBVCells
 {
     for (int section = 0; section < [self.consultasTableView numberOfSections]; section++) {
         for (int row = 0; row < [self.consultasTableView numberOfRowsInSection:section]; row++) {
@@ -104,8 +113,8 @@
 #pragma mark - HomeProviderCallback
 -(void)onTokenMissing
 {
-    [self displayAlertWithTitle:@"Falha na autenticação" message:@"Ops! Você precisa fazer login denovo."];
     _hasToPushToLogin = YES;
+    [self displayAlertWithTitle:@"Falha na autenticação" message:@"Ops! Você precisa fazer login denovo."];
 }
 
 -(void)onNetworkFailure
@@ -133,20 +142,43 @@
     [self displayAlertWithTitle:@"Erro na rede" message:@"Não foi possível caregar os dados. Por favor tente mais tarde."];
 }
 
+#pragma mark - Login VC Callback
+-(void)dismissLoginViewController
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self updateData];
+    
+}
+
 #pragma mark - UIAlertView Delegate
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     [self.loadingView stopLoading];
     if (_hasToPushToLogin) {
-        [self.navigationController presentViewController:[LoginViewController new] animated:YES completion:^{}];
+        [self.navigationController presentViewController:[[LoginViewController alloc] initWithDelegate:self] animated:YES completion:^{}];
     }
 }
 
 #pragma mark - other private methods
 -(void) displayAlertWithTitle:(NSString *)title message:(NSString *)message
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
+    if (!_noNeedToShowAlerts) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    [self alertView:nil clickedButtonAtIndex:0];
+}
+
+-(void)updateData
+{
+    [[HomeProvider new] performHomeRequestWithCallback:self];
+    [self.loadingView startLoading];
+}
+
+-(void)resetMenuOptions
+{
+    JASidePanelController *panel = (JASidePanelController *)self.navigationController.parentViewController;
+    [(MenuViewController *)panel.leftPanel resetMenu];
 }
 
 #pragma mark - Lazy instantiation

@@ -8,6 +8,10 @@
 
 #import "ViewController.h"
 
-@interface LoginViewController : ViewController
+@protocol LoginViewControllerCallback <NSObject>
+-(void)dismissLoginViewController;
+@end
 
+@interface LoginViewController : ViewController
+-(instancetype)initWithDelegate:(id<LoginViewControllerCallback>)delegate;
 @end

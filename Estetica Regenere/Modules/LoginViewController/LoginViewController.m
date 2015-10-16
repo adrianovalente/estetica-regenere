@@ -19,10 +19,18 @@
 @property (weak, nonatomic) IBOutlet RegenereTextField *passwordRegenereTextField;
 @property (weak, nonatomic) IBOutlet BasicButtonView *performLoginBasicButton;
 @property (weak, nonatomic) IBOutlet LoadingView *loadingView;
+@property (strong, nonatomic) id<LoginViewControllerCallback> delegate;
 
 @end
 
 @implementation LoginViewController
+
+-(instancetype)initWithDelegate:(id<LoginViewControllerCallback>)delegate
+{
+    self = [super init];
+    [self setDelegate:delegate];
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,11 +67,6 @@
     [alert show];
 }
 
--(void)pushHomeVC
-{
-    [self.navigationController pushViewController:[HomeViewController new] animated:YES];
-}
-
 #pragma mark - BasicButtonDelegate
 -(void)buttonTapped:(id)button
 {
@@ -77,7 +80,9 @@
 -(void)onLoginSuccessWithToken:(NSString *)token
 {
     [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"user-token"];
-    [self pushHomeVC];
+    [self.loadingView stopLoading];
+    [self.delegate dismissLoginViewController];
+
 }
 
 -(void)onLoginFailure

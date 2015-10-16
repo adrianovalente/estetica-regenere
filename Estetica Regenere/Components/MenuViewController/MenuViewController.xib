@@ -24,7 +24,7 @@
                     </constraints>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tW6-OY-mTp">
-                    <rect key="frame" x="0.0" y="178" width="258" height="302"/>
+                    <rect key="frame" x="0.0" y="182" width="258" height="298"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
@@ -33,6 +33,7 @@
                 <constraint firstAttribute="bottom" secondItem="tW6-OY-mTp" secondAttribute="bottom" id="7BJ-NE-u8h"/>
                 <constraint firstAttribute="trailing" secondItem="tW6-OY-mTp" secondAttribute="trailing" id="8Ml-iJ-HQB"/>
                 <constraint firstItem="Jjv-uI-aBp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="8qb-gk-tgv"/>
+                <constraint firstItem="tW6-OY-mTp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="182" id="QCB-vD-goD"/>
                 <constraint firstItem="tW6-OY-mTp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="arB-3S-lQu"/>
                 <constraint firstItem="Jjv-uI-aBp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="fjS-se-FoZ"/>
                 <constraint firstAttribute="centerY" secondItem="Jjv-uI-aBp" secondAttribute="centerY" constant="103" id="l7v-53-EO9"/>
@@ -44,6 +45,7 @@
                 <mask key="constraints">
                     <exclude reference="l7v-53-EO9"/>
                     <exclude reference="q5a-55-VDS"/>
+                    <exclude reference="wgf-9B-p2U"/>
                 </mask>
             </variation>
         </view>

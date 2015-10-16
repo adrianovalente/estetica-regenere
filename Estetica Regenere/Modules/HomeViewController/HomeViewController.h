@@ -9,5 +9,5 @@
 #import "ViewController.h"
 
 @interface HomeViewController : ViewController
-
+-(instancetype)initFromLogout;
 @end

@@ -10,59 +10,48 @@
 
 @interface MenuTableViewCell ()
 
-@property (weak, nonatomic) IBOutlet UIView *bckView;
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *selectedIconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
 @end
 
-@implementation MenuTableViewCell
 
-#pragma mark - public api
+@implementation MenuTableViewCell {
+    __weak IBOutlet UIImageView *_iconImage;
+    __weak IBOutlet UIView *_bckView;
+    __weak IBOutlet UILabel *_titleLabel;
+    __strong NSString *_iconImageName;
+}
+
 -(void)fillWithMenuOption:(MenuOption *)option
 {
-    [self fillWithName:option.name
-                 image:option.imageName
-         selectedImage:option.selectedImageName];
-}
-
-#pragma mark - hidden methods
--(void)fillWithName:(NSString *)name
-              image:(NSString *)image
-      selectedImage:(NSString *)selectedImage
-{
-    [self.titleLabel setText:name];
-    [self.iconImageView setImage:[UIImage imageNamed:image]];
-    [self.selectedIconImageView setImage:[UIImage imageNamed:selectedImage]];
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    //[self setSelectionStyle:UITableViewCellSelectionStyleNone];
-    //[self setUnselected];
+    [_titleLabel setText:option.name];
+    _iconImageName = option.imageName;
     
 }
 
+- (void)awakeFromNib {
+    // Initialization code
+    [super awakeFromNib];
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+}
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    selected ? [self setSelected] : [self setUnselected];
-
+    //selected ? [self setSelected] : [self setUnselected];
 }
 
--(void)setSelected
+#pragma mark - private methods
+-(void) setSelected
 {
-    [self.titleLabel setTextColor:[UIColor whiteColor]];
-    [self.iconImageView setHidden:YES];
-    [self.selectedIconImageView setHidden:NO];
+    [_bckView setBackgroundColor:[UIColor colorWithRed:61/255.0f green:145/255.0f blue:107/255.0f alpha:1.0]];
+    [_titleLabel setTextColor:[UIColor whiteColor]];
+    [_iconImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@-selected", _iconImageName]]];
 }
 
--(void)setUnselected
+-(void) setUnselected
 {
-    [self.titleLabel setTextColor:[UIColor colorWithRed:61/255.0f green:145/255.0f blue:107.0f alpha:1.0]];
-    [self.iconImageView setHidden:YES];
-    [self.selectedIconImageView setHidden:NO];
+    [_bckView setBackgroundColor:[UIColor colorWithRed:245/255.0f green:245/255.0f blue:245/255.0f alpha:1.0]];
+    [_titleLabel setTextColor:[UIColor colorWithRed:61/255.0f green:145/255.0f blue:107/255.0f alpha:1.0]];
+    [_iconImage setImage:[UIImage imageNamed:_iconImageName]];
 }
-
 
 @end

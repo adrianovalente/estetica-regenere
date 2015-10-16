@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuProvider.h"
+
 @interface MenuTableViewCell : UITableViewCell
 
 -(void)fillWithMenuOption:(MenuOption *)option;
+-(void)setSelected;
+-(void)setUnselected;
 
 @end

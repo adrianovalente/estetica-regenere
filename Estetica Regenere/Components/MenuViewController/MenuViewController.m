@@ -9,11 +9,17 @@
 #import "MenuViewController.h"
 #import "MenuTableViewManager.h"
 #import "MenuProvider.h"
+#import "JASidePanelController.h"
+#import "HomeViewController.h"
+#import "UnderConstructionViewController.h"
+#import "LoginViewController.h"
+#import "MenuTableViewCell.h"
 
-@interface MenuViewController () <MenuTableViewDelegate>
+@interface MenuViewController () <MenuTableViewDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *menuTableView;
 @property (strong, nonatomic) MenuTableViewManager *manager;
+@property (nonatomic) UIAlertView *logoutAlertView;
 
 @end
 
@@ -23,13 +29,73 @@
     [super viewDidLoad];
     NSArray *menuOptions = [[MenuProvider new] getMenuOptions];
     [self.manager updateWithData:menuOptions];
+    [self.manager setDelegate:self];
+    [self resetMenu];
 }
 
+#pragma mark - public api
+-(void)resetMenu
+{
+    [self selectCell:0];
+    
+}
 
 #pragma mark - Menu table view delegate
 -(void)didSelectMenuOption:(NSInteger)option
 {
-    NSLog([NSString stringWithFormat:@"OPÇÃO: %d", option]);
+    JASidePanelController *panelController = (JASidePanelController *)self.parentViewController;
+    if (option == 0) {
+        panelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
+    }
+    if (option == 1) {
+        [self selectCell:1];
+        [(UINavigationController *)panelController.centerPanel pushViewController:[UnderConstructionViewController new] animated:YES];
+    }
+    [panelController showCenterPanelAnimated:YES];
+    
+    if (option == 5) {
+        [self selectCell:5];
+        [self.logoutAlertView show];
+    }
+}
+
+#pragma mark - Alert View Delegate
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView == self.logoutAlertView) {
+        if (buttonIndex == 1) {
+            [self performLogout];
+        }
+        [self resetMenu];
+    }
+}
+
+#pragma mark - private methods
+-(void) performLogout
+{
+    JASidePanelController *panelController = (JASidePanelController *)self.parentViewController;
+    [panelController showCenterPanelAnimated:YES];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"user-token"];
+    panelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] initFromLogout]];
+}
+
+- (void)unselectAllCells
+{
+    for (int section = 0; section < [self.menuTableView numberOfSections]; section++) {
+        for (int row = 0; row < [self.menuTableView numberOfRowsInSection:section]; row++) {
+            NSIndexPath* cellPath = [NSIndexPath indexPathForRow:row inSection:section];
+            MenuTableViewCell* cell = (MenuTableViewCell *)[self.menuTableView cellForRowAtIndexPath:cellPath];
+            [cell setUnselected];
+        }
+    }
+}
+
+-(void)selectCell:(NSInteger)row
+{
+    [self unselectAllCells];
+    NSIndexPath* cellPath = [NSIndexPath indexPathForRow:row inSection:0];
+    MenuTableViewCell* cell = (MenuTableViewCell *)[self.menuTableView cellForRowAtIndexPath:cellPath];
+    [cell setSelected];
 }
 
 #pragma mark - lazy instatiantions
@@ -37,6 +103,12 @@
 {
     if (!_manager) _manager = [[MenuTableViewManager alloc] initWithTableView:self.menuTableView];
     return _manager;
+}
+
+-(UIAlertView *)logoutAlertView
+{
+    if (!_logoutAlertView) _logoutAlertView = [[UIAlertView alloc] initWithTitle:@"Fazer logout" message:@"Tem certeza que deseja sair do aplicativo?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles: @"Sim", nil];
+    return _logoutAlertView;
 }
 
 @end

@@ -38,19 +38,4 @@ static const int kMenuTableViewCellHeight = 50;
     [self.delegate didSelectMenuOption:indexPath.row];
 }
 
-#pragma mark - override
--(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // TODO: Tirar esse migue
-    id item = [self getItem:indexPath];
-    id cell = [tableView dequeueReusableCellWithIdentifier:@"IDENTIFIER_MenuTableViewCell"];
-    if (cell == nil) {
-        NSLog(@"nil");
-    }
-    [self setDataToCell:cell withData:item];
-
-    
-    return cell;
-}
-
 @end
