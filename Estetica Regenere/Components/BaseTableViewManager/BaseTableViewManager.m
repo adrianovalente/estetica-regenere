@@ -88,7 +88,6 @@
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id item = [self getItem:indexPath];
-    
     id cell = [tableView dequeueReusableCellWithIdentifier:[self cellIdentifierForClass:[[self classForItem:item] description]]];
     [self setDataToCell:cell withData:item];
     

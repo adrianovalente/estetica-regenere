@@ -10,6 +10,8 @@
 #import "HomeViewController.h"
 #import "LoginViewController.h"
 #import "JASidePanelController.h"
+#import "UnderConstructionViewController.h"
+#import "MenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,7 +29,7 @@
     
     UIViewController* viewController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
     [panel setCenterPanel:viewController];
-    [panel setLeftPanel:[UIViewController new]];
+    [panel setLeftPanel:[MenuViewController new]];
     self.window.rootViewController = panel;
     [self.window makeKeyAndVisible];
     

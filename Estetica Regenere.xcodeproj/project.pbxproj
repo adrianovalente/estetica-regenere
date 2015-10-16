@@ -20,6 +20,12 @@
 		B96520FC1BCF42EE0039E466 /* MoreButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96520FB1BCF42EE0039E466 /* MoreButtonView.xib */; };
 		B96521021BCFF3380039E466 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520FF1BCFF3380039E466 /* JASidePanelController.m */; };
 		B96521031BCFF3380039E466 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = B96521011BCFF3380039E466 /* UIViewController+JASidePanel.m */; };
+		B983A4BF1BD060CA009569CD /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4BD1BD060CA009569CD /* MenuViewController.m */; };
+		B983A4C01BD060CA009569CD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4BE1BD060CA009569CD /* MenuViewController.xib */; };
+		B983A4C51BD0662A009569CD /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4C31BD0662A009569CD /* MenuTableViewCell.m */; };
+		B983A4C61BD0662A009569CD /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4C41BD0662A009569CD /* MenuTableViewCell.xib */; };
+		B983A4CA1BD06B14009569CD /* MenuProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4C91BD06B14009569CD /* MenuProvider.m */; };
+		B983A4CE1BD06DA9009569CD /* MenuTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4CD1BD06DA9009569CD /* MenuTableViewManager.m */; };
 		B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215091BC9AE6F00A5F7D1 /* main.m */; };
 		B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150C1BC9AE6F00A5F7D1 /* AppDelegate.m */; };
 		B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150F1BC9AE6F00A5F7D1 /* ViewController.m */; };
@@ -79,6 +85,16 @@
 		B96520FF1BCFF3380039E466 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		B96521001BCFF3380039E466 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
 		B96521011BCFF3380039E466 /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
+		B983A4BC1BD060CA009569CD /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = Components/MenuViewController/MenuViewController.h; sourceTree = "<group>"; };
+		B983A4BD1BD060CA009569CD /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = Components/MenuViewController/MenuViewController.m; sourceTree = "<group>"; };
+		B983A4BE1BD060CA009569CD /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = Components/MenuViewController/MenuViewController.xib; sourceTree = "<group>"; };
+		B983A4C21BD0662A009569CD /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuTableViewCell.h; path = Components/MenuTableViewCell/MenuTableViewCell.h; sourceTree = "<group>"; };
+		B983A4C31BD0662A009569CD /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuTableViewCell.m; path = Components/MenuTableViewCell/MenuTableViewCell.m; sourceTree = "<group>"; };
+		B983A4C41BD0662A009569CD /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuTableViewCell.xib; path = Components/MenuTableViewCell/MenuTableViewCell.xib; sourceTree = "<group>"; };
+		B983A4C81BD06B14009569CD /* MenuProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuProvider.h; path = Providers/MenuProvider/MenuProvider.h; sourceTree = "<group>"; };
+		B983A4C91BD06B14009569CD /* MenuProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuProvider.m; path = Providers/MenuProvider/MenuProvider.m; sourceTree = "<group>"; };
+		B983A4CC1BD06DA9009569CD /* MenuTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuTableViewManager.h; path = Components/MenuTableViewManager/MenuTableViewManager.h; sourceTree = "<group>"; };
+		B983A4CD1BD06DA9009569CD /* MenuTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuTableViewManager.m; path = Components/MenuTableViewManager/MenuTableViewManager.m; sourceTree = "<group>"; };
 		B9E215041BC9AE6F00A5F7D1 /* Estetica Regenere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estetica Regenere.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E215081BC9AE6F00A5F7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9E215091BC9AE6F00A5F7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -182,6 +198,7 @@
 		B96520E41BCED8B30039E466 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				B983A4C71BD06AF4009569CD /* MenuProvider */,
 				B96520ED1BCF0BA60039E466 /* HomeProvider */,
 				B96520E91BCF015C0039E466 /* BaseProvider */,
 				B96520E51BCED8C20039E466 /* LoginProvider */,
@@ -245,6 +262,44 @@
 			);
 			name = SidePanel;
 			path = Components/SidePanel;
+			sourceTree = "<group>";
+		};
+		B983A4BB1BD0609D009569CD /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B983A4BC1BD060CA009569CD /* MenuViewController.h */,
+				B983A4BD1BD060CA009569CD /* MenuViewController.m */,
+				B983A4BE1BD060CA009569CD /* MenuViewController.xib */,
+			);
+			name = MenuViewController;
+			sourceTree = "<group>";
+		};
+		B983A4C11BD06606009569CD /* MenuTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B983A4C21BD0662A009569CD /* MenuTableViewCell.h */,
+				B983A4C31BD0662A009569CD /* MenuTableViewCell.m */,
+				B983A4C41BD0662A009569CD /* MenuTableViewCell.xib */,
+			);
+			name = MenuTableViewCell;
+			sourceTree = "<group>";
+		};
+		B983A4C71BD06AF4009569CD /* MenuProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B983A4C81BD06B14009569CD /* MenuProvider.h */,
+				B983A4C91BD06B14009569CD /* MenuProvider.m */,
+			);
+			name = MenuProvider;
+			sourceTree = "<group>";
+		};
+		B983A4CB1BD06D83009569CD /* MenuTableViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				B983A4CC1BD06DA9009569CD /* MenuTableViewManager.h */,
+				B983A4CD1BD06DA9009569CD /* MenuTableViewManager.m */,
+			);
+			name = MenuTableViewManager;
 			sourceTree = "<group>";
 		};
 		B9E214FB1BC9AE6F00A5F7D1 = {
@@ -315,6 +370,8 @@
 		B9E2152D1BC9AF5300A5F7D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B983A4CB1BD06D83009569CD /* MenuTableViewManager */,
+				B983A4C11BD06606009569CD /* MenuTableViewCell */,
 				B96520FD1BCFF3380039E466 /* SidePanel */,
 				B96520F71BCF42A80039E466 /* MoreButtonView */,
 				B96520DE1BCED2360039E466 /* LoadingView */,
@@ -353,6 +410,7 @@
 		B9E215461BCADB6000A5F7D1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B983A4BB1BD0609D009569CD /* MenuViewController */,
 				B9E2156B1BCC014D00A5F7D1 /* LoginViewController */,
 				B9E215651BCAF6EC00A5F7D1 /* UnderConstructionViewController */,
 				B9E215471BCADB6900A5F7D1 /* HomeViewController */,
@@ -524,8 +582,10 @@
 				B9E215701BCC016700A5F7D1 /* LoginViewController.xib in Resources */,
 				B96520DD1BCDAE010039E466 /* RegenereTextField.xib in Resources */,
 				B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */,
+				B983A4C61BD0662A009569CD /* MenuTableViewCell.xib in Resources */,
 				B9E215561BCADFED00A5F7D1 /* HomeTableViewCell.xib in Resources */,
 				B96520FC1BCF42EE0039E466 /* MoreButtonView.xib in Resources */,
+				B983A4C01BD060CA009569CD /* MenuViewController.xib in Resources */,
 				B9E215131BC9AE6F00A5F7D1 /* Main.storyboard in Resources */,
 				B9E215451BC9BEC200A5F7D1 /* BasicButtonView.xib in Resources */,
 				B9E215181BC9AE6F00A5F7D1 /* LaunchScreen.xib in Resources */,
@@ -590,6 +650,7 @@
 				B9E2155B1BCAE57900A5F7D1 /* BaseTableViewManager.m in Sources */,
 				B9E2156F1BCC016700A5F7D1 /* LoginViewController.m in Sources */,
 				B96521031BCFF3380039E466 /* UIViewController+JASidePanel.m in Sources */,
+				B983A4CE1BD06DA9009569CD /* MenuTableViewManager.m in Sources */,
 				B96521021BCFF3380039E466 /* JASidePanelController.m in Sources */,
 				B9E2153A1BC9B1CF00A5F7D1 /* HomeHeaderView.m in Sources */,
 				B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */,
@@ -606,6 +667,9 @@
 				B96520EC1BCF017B0039E466 /* BaseProvider.m in Sources */,
 				B9E2154B1BCADB9000A5F7D1 /* HomeViewController.m in Sources */,
 				B96520F01BCF0BC70039E466 /* HomeProvider.m in Sources */,
+				B983A4CA1BD06B14009569CD /* MenuProvider.m in Sources */,
+				B983A4C51BD0662A009569CD /* MenuTableViewCell.m in Sources */,
+				B983A4BF1BD060CA009569CD /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

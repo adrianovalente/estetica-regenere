@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController">
+            <connections>
+                <outlet property="menuTableView" destination="tW6-OY-mTp" id="PuY-B0-Kge"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="258" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="regenere-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Jjv-uI-aBp">
+                    <rect key="frame" x="60" y="60" width="138" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="138" id="JX2-Hz-KFc"/>
+                        <constraint firstAttribute="height" constant="80" id="NRq-mE-NuD"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tW6-OY-mTp">
+                    <rect key="frame" x="0.0" y="178" width="258" height="302"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="tW6-OY-mTp" secondAttribute="bottom" id="7BJ-NE-u8h"/>
+                <constraint firstAttribute="trailing" secondItem="tW6-OY-mTp" secondAttribute="trailing" id="8Ml-iJ-HQB"/>
+                <constraint firstItem="Jjv-uI-aBp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="8qb-gk-tgv"/>
+                <constraint firstItem="tW6-OY-mTp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="arB-3S-lQu"/>
+                <constraint firstItem="Jjv-uI-aBp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="fjS-se-FoZ"/>
+                <constraint firstAttribute="centerY" secondItem="Jjv-uI-aBp" secondAttribute="centerY" constant="103" id="l7v-53-EO9"/>
+                <constraint firstAttribute="centerX" secondItem="Jjv-uI-aBp" secondAttribute="centerX" id="q5a-55-VDS"/>
+                <constraint firstItem="tW6-OY-mTp" firstAttribute="top" secondItem="Jjv-uI-aBp" secondAttribute="bottom" constant="38" id="wgf-9B-p2U"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="l7v-53-EO9"/>
+                    <exclude reference="q5a-55-VDS"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="regenere-logo" width="482" height="301"/>
+    </resources>
+</document>

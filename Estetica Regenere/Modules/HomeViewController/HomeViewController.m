@@ -26,6 +26,7 @@
 
 @implementation HomeViewController {
     BOOL _hasToPushToLogin;
+    BOOL _isShowingCenterPanel;
 }
 
 - (void)viewDidLoad {
@@ -92,7 +93,12 @@
 
 -(void) didSelectMais
 {
-    [(JASidePanelController *) self.navigationController.parentViewController toggleLeftPanel:self];
+    _isShowingCenterPanel = !_isShowingCenterPanel;
+    if (_isShowingCenterPanel) {
+        [(JASidePanelController *) self.navigationController.parentViewController toggleLeftPanel:self];
+    } else {
+        [(JASidePanelController *)self.navigationController.parentViewController showCenterPanelAnimated:YES];
+    }
 }
 
 #pragma mark - HomeProviderCallback
