@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeTableViewCell"/>
@@ -32,26 +33,39 @@
                         <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tbv-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Ddi-w8-OuX">
-                        <rect key="frame" x="299" y="32" width="8" height="13"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTR-4U-gzg">
+                        <rect key="frame" x="272" y="8" width="40" height="55"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ddi-w8-OuX">
+                                <rect key="frame" x="13" y="19" width="15" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="Grw-3F-Iu3"/>
+                                    <constraint firstAttribute="height" constant="18" id="ZJg-rU-KQn"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="8" id="Grw-3F-Iu3"/>
-                            <constraint firstAttribute="height" constant="13" id="ZJg-rU-KQn"/>
+                            <constraint firstAttribute="centerY" secondItem="Ddi-w8-OuX" secondAttribute="centerY" id="HPo-SP-qZ2"/>
+                            <constraint firstAttribute="width" constant="40" id="fuL-nw-nvz"/>
+                            <constraint firstAttribute="centerX" secondItem="Ddi-w8-OuX" secondAttribute="centerX" id="lh3-ny-w9b"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Ddi-w8-OuX" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-13" id="4qk-rL-Zq3"/>
-                    <constraint firstAttribute="bottom" secondItem="Ddi-w8-OuX" secondAttribute="bottom" constant="26" id="AbZ-mb-Nc8"/>
                     <constraint firstItem="WbU-T6-DAR" firstAttribute="top" secondItem="wQm-bg-ZWp" secondAttribute="bottom" constant="3" id="F8a-F2-icG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="VTR-4U-gzg" secondAttribute="trailing" id="IVz-vP-uJp"/>
+                    <constraint firstItem="VTR-4U-gzg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="QNI-fm-79e"/>
                     <constraint firstItem="QeK-hg-IrM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="T08-s6-HpY"/>
                     <constraint firstItem="wQm-bg-ZWp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="W3R-X7-fa6"/>
                     <constraint firstItem="WbU-T6-DAR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="p5c-Uk-mXh"/>
                     <constraint firstItem="QeK-hg-IrM" firstAttribute="top" secondItem="WbU-T6-DAR" secondAttribute="bottom" constant="2" id="pYq-Zj-NkG"/>
                     <constraint firstItem="wQm-bg-ZWp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="qZo-yk-ph8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="VTR-4U-gzg" secondAttribute="bottom" id="vhC-5T-DTz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="_trashView" destination="VTR-4U-gzg" id="asd-ja-HUT"/>
                 <outlet property="serviceNameLabel" destination="wQm-bg-ZWp" id="Dqc-ib-Nsl"/>
                 <outlet property="subtitleLabel" destination="WbU-T6-DAR" id="bpX-ru-q5y"/>
                 <outlet property="timeLabel" destination="QeK-hg-IrM" id="dZh-28-1KY"/>
@@ -59,6 +73,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="tbv-arrow" width="15" height="26"/>
+        <image name="trash-icon" width="29" height="40"/>
     </resources>
 </document>

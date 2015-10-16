@@ -12,6 +12,10 @@
 
 static const int kHomeTableViewCellHeight = 72;
 
+@interface HomeTableViewManager ()<HomeTableViewCellDelegate>
+
+@end
+
 @implementation HomeTableViewManager
 
 -(Class)classForItem:(id)item
@@ -34,6 +38,7 @@ static const int kHomeTableViewCellHeight = 72;
     ConsultasModel *consulta = (ConsultasModel *)item;
     DateModel *date = [consulta date];
     HomeTableViewCell *homeCell = (HomeTableViewCell *) cell;
+    [homeCell setTrashDelegate:self];
     [homeCell fillCellWithName:[consulta service]
                       subtitle:@"Dra. Olga Fernanda"
                           time:[NSString stringWithFormat:@"%@ de %@, às %@:%@", [date day], [self monthString:[date month]], [date hour], [date minute]]];
@@ -41,7 +46,7 @@ static const int kHomeTableViewCellHeight = 72;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.delegate didSelectConsulta:1];
+
 }
 
 -(NSString *)monthString:(NSNumber *)month
@@ -61,6 +66,12 @@ static const int kHomeTableViewCellHeight = 72;
               @"novembro",
               @"dezembro"
               ] objectAtIndex:[month integerValue]];
+}
+
+#pragma mark - Home Table View Cell Delegate
+-(void)didTapTrashIcon:(NSInteger)appointmentId
+{
+    [self.delegate didSelectConsulta:appointmentId];
 }
 
 @end

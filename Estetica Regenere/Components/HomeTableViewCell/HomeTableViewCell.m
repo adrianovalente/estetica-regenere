@@ -18,7 +18,9 @@
 
 @end
 
-@implementation HomeTableViewCell
+@implementation HomeTableViewCell {
+    __weak IBOutlet UIView *_trashView;
+}
 
 - (void)fillCellWithName:(NSString *)name subtitle:(NSString *)subtitle time:(NSString *)time
 {
@@ -30,7 +32,20 @@
 - (void)awakeFromNib {
     // Initialization code
     [super awakeFromNib];
+    [self addRecognizerToTrashView];
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
 }
 
+#pragma mark - private methods
+-(void)addRecognizerToTrashView
+{
+    [_trashView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(trashTapped:)]];
+}
+
+-(void)trashTapped:(id)event
+{
+    //TODO: Add logic to send appointment ID as well
+    [self.trashDelegate didTapTrashIcon:0];
+}
 @end

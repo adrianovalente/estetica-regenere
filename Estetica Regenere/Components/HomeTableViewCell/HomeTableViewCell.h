@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol HomeTableViewCellDelegate <NSObject>
+
+-(void)didTapTrashIcon:(NSInteger)appointmentId;
+
+@end
+
 @interface HomeTableViewCell : UITableViewCell
 
+@property (nonatomic) id<HomeTableViewCellDelegate> trashDelegate;
 - (void)fillCellWithName:(NSString *)name subtitle:(NSString *)subtitle time:(NSString *)time;
 
 @end
