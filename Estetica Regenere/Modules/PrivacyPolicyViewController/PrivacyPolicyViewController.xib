@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrivacyPolicyViewController">
+            <connections>
+                <outlet property="header" destination="FN1-xm-7jU" id="0Ey-NL-7Vg"/>
+                <outlet property="textView" destination="SqM-fz-q3v" id="LiA-jb-1i2"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FN1-xm-7jU" customClass="BaseHeaderView">
+                    <rect key="frame" x="0.0" y="18" width="320" height="120"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="oTD-Sw-NHW"/>
+                    </constraints>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqM-fz-q3v">
+                    <rect key="frame" x="0.0" y="138" width="320" height="430"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="contentStretch" x="1.3877787807814457e-17" y="0.0" width="1" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" placeholder="YES" id="te9-mF-OVN"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="te9-mF-OVN"/>
+                        </mask>
+                    </variation>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="SqM-fz-q3v" secondAttribute="bottom" id="0PH-X2-26x"/>
+                <constraint firstItem="SqM-fz-q3v" firstAttribute="top" secondItem="FN1-xm-7jU" secondAttribute="bottom" id="DlB-J1-sDF"/>
+                <constraint firstItem="FN1-xm-7jU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="Isf-cs-8E7"/>
+                <constraint firstAttribute="trailing" secondItem="FN1-xm-7jU" secondAttribute="trailing" id="KOn-W9-TP0"/>
+                <constraint firstItem="SqM-fz-q3v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R2x-DI-BFO"/>
+                <constraint firstAttribute="trailing" secondItem="SqM-fz-q3v" secondAttribute="trailing" id="YIQ-Pq-W8u"/>
+                <constraint firstItem="FN1-xm-7jU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZIU-mS-ex0"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

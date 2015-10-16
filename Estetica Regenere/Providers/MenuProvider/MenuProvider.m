@@ -46,9 +46,6 @@
              [MenuOption menuOptionWithName:@"Política de Privaciade"
                                   imageName:@"menu-privacy"
                           selectedImageName:@"menu-privacy-selected"],
-             [MenuOption menuOptionWithName:@"Sobre o aplicativo"
-                                  imageName:@"menu-about"
-                          selectedImageName:@"menu-about-selected"],
              [MenuOption menuOptionWithName:@"Fale Conosco"
                                   imageName:@"menu-contact"
                           selectedImageName:@"menu-contact-selected"],

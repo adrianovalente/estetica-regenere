@@ -10,4 +10,5 @@
 
 @interface MenuViewController : UIViewController
 -(void)resetMenu;
+-(void)selectCell:(NSInteger)row;
 @end

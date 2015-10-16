@@ -39,21 +39,21 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o46-vW-yEE" customClass="RegenereTextField">
-                    <rect key="frame" x="25" y="242" width="270" height="43"/>
+                    <rect key="frame" x="60" y="242" width="200" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="43" id="6gW-DT-EsZ"/>
-                        <constraint firstAttribute="width" constant="270" id="cL1-Zj-MSo"/>
+                        <constraint firstAttribute="height" constant="50" id="6gW-DT-EsZ"/>
+                        <constraint firstAttribute="width" constant="200" id="cL1-Zj-MSo"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XA2-eu-8SW" customClass="RegenereTextField">
-                    <rect key="frame" x="25" y="303" width="270" height="43"/>
+                    <rect key="frame" x="60" y="310" width="200" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="43" id="7rY-1Q-peq"/>
-                        <constraint firstAttribute="width" constant="270" id="kuN-Uf-mhT"/>
+                        <constraint firstAttribute="height" constant="50" id="7rY-1Q-peq"/>
+                        <constraint firstAttribute="width" constant="200" id="kuN-Uf-mhT"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2w-JF-QCj" customClass="BasicButtonView">
-                    <rect key="frame" x="85" y="361" width="150" height="26"/>
+                    <rect key="frame" x="85" y="375" width="150" height="26"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="47s-B1-7Gu"/>
                         <constraint firstAttribute="height" constant="26" id="Zdc-jr-kIT"/>

@@ -17,6 +17,7 @@
 #import "JASidePanelController.h"
 #import "MenuViewController.h"
 #import "DeleteAppointmentProvider.h"
+#import "ScheduleAppointmentViewController.h"
 
 @interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate, HomeProviderCallback, UIAlertViewDelegate, LoginViewControllerCallback, DeleteAppointmentCallback>
 
@@ -101,7 +102,9 @@
 #pragma mark - HomeHeaderViewDelegate
 -(void) didSelectMarcarConsulta
 {
-    [self pushUnderConstructionVC];
+    // Pushando só pra dar ideia de continuidade par ao usuário.
+    // Na verdade não tem como dar pop nesta VC
+    [self.navigationController pushViewController:[ScheduleAppointmentViewController new] animated:YES];
 }
 
 -(void) didSelectMais

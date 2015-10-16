@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *txtField;
 @property (weak, nonatomic) IBOutlet UIView *bckView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -26,7 +27,8 @@
 
 -(void)setTitle:(NSString *)title
 {
-    [self.txtField setPlaceholder:title floatingTitle:title];
+    [self.titleLabel setText:title];
+    //[self.txtField setPlaceholder:title floatingTitle:title];
 }
 
 -(void)setSecure:(BOOL)secure
@@ -44,7 +46,7 @@
 -(void)setup
 {
     [self setupBackgroundView];
-    [self setupJVTextField];
+    //[self setupJVTextField];
 }
 
 -(void)setupBackgroundView

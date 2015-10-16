@@ -24,20 +24,32 @@
                     </constraints>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tW6-OY-mTp">
-                    <rect key="frame" x="0.0" y="182" width="258" height="298"/>
+                    <rect key="frame" x="0.0" y="182" width="258" height="248"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWW-Iq-mfG" customClass="FooterView">
+                    <rect key="frame" x="0.0" y="430" width="258" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Qub-H9-Mmr"/>
+                        <constraint firstAttribute="width" constant="258" id="kTt-Kr-Rmv"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="tW6-OY-mTp" secondAttribute="bottom" id="7BJ-NE-u8h"/>
+                <constraint firstAttribute="trailing" secondItem="cWW-Iq-mfG" secondAttribute="trailing" id="25H-I9-Z54"/>
+                <constraint firstAttribute="bottom" secondItem="tW6-OY-mTp" secondAttribute="bottom" constant="50" id="7BJ-NE-u8h"/>
                 <constraint firstAttribute="trailing" secondItem="tW6-OY-mTp" secondAttribute="trailing" id="8Ml-iJ-HQB"/>
                 <constraint firstItem="Jjv-uI-aBp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="8qb-gk-tgv"/>
+                <constraint firstItem="cWW-Iq-mfG" firstAttribute="top" secondItem="tW6-OY-mTp" secondAttribute="bottom" id="FxU-fb-XeE"/>
+                <constraint firstAttribute="bottom" secondItem="cWW-Iq-mfG" secondAttribute="bottom" constant="10" id="MD6-fZ-H6f"/>
                 <constraint firstItem="tW6-OY-mTp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="182" id="QCB-vD-goD"/>
                 <constraint firstItem="tW6-OY-mTp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="arB-3S-lQu"/>
                 <constraint firstItem="Jjv-uI-aBp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="fjS-se-FoZ"/>
                 <constraint firstAttribute="centerY" secondItem="Jjv-uI-aBp" secondAttribute="centerY" constant="103" id="l7v-53-EO9"/>
+                <constraint firstAttribute="centerY" secondItem="cWW-Iq-mfG" secondAttribute="centerY" id="pBb-YW-hRR"/>
                 <constraint firstAttribute="centerX" secondItem="Jjv-uI-aBp" secondAttribute="centerX" id="q5a-55-VDS"/>
+                <constraint firstItem="cWW-Iq-mfG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="reI-6c-bA0"/>
                 <constraint firstItem="tW6-OY-mTp" firstAttribute="top" secondItem="Jjv-uI-aBp" secondAttribute="bottom" constant="38" id="wgf-9B-p2U"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -45,7 +57,10 @@
                 <mask key="constraints">
                     <exclude reference="l7v-53-EO9"/>
                     <exclude reference="q5a-55-VDS"/>
+                    <exclude reference="7BJ-NE-u8h"/>
                     <exclude reference="wgf-9B-p2U"/>
+                    <exclude reference="25H-I9-Z54"/>
+                    <exclude reference="pBb-YW-hRR"/>
                 </mask>
             </variation>
         </view>

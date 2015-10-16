@@ -39,6 +39,7 @@
     [callback onHomeRequestSuccessWithName:data[@"name"]
                               appointments:[list consultas]
                                   thisWeek:@9];
+    [[NSUserDefaults standardUserDefaults] setObject:data[@"name"] forKey:@"user-name"];
 }
 
 -(void)handleFailedResponse:(NSDictionary *)response callback:(id)callback

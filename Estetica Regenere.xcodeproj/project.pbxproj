@@ -27,6 +27,16 @@
 		B983A4D31BD08213009569CD /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4D11BD08213009569CD /* MenuTableViewCell.m */; };
 		B983A4D41BD08213009569CD /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4D21BD08213009569CD /* MenuTableViewCell.xib */; };
 		B983A4D81BD14B3D009569CD /* DeleteAppointmentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4D71BD14B3D009569CD /* DeleteAppointmentProvider.m */; };
+		B983A4DD1BD16855009569CD /* ScheduleAppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4DB1BD16855009569CD /* ScheduleAppointmentViewController.m */; };
+		B983A4DE1BD16855009569CD /* ScheduleAppointmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4DC1BD16855009569CD /* ScheduleAppointmentViewController.xib */; };
+		B983A4E21BD168D2009569CD /* BaseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4E11BD168D2009569CD /* BaseHeaderView.m */; };
+		B983A4E41BD168E4009569CD /* BaseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4E31BD168E4009569CD /* BaseHeaderView.xib */; };
+		B983A4E91BD17B34009569CD /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4E71BD17B34009569CD /* PrivacyPolicyViewController.m */; };
+		B983A4EA1BD17B34009569CD /* PrivacyPolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4E81BD17B34009569CD /* PrivacyPolicyViewController.xib */; };
+		B983A4EF1BD18293009569CD /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4ED1BD18293009569CD /* ContactViewController.m */; };
+		B983A4F01BD18293009569CD /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4EE1BD18293009569CD /* ContactViewController.xib */; };
+		B983A4F41BD18D7F009569CD /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4F31BD18D7F009569CD /* FooterView.m */; };
+		B983A4F61BD18D9B009569CD /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4F51BD18D9B009569CD /* FooterView.xib */; };
 		B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215091BC9AE6F00A5F7D1 /* main.m */; };
 		B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150C1BC9AE6F00A5F7D1 /* AppDelegate.m */; };
 		B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150F1BC9AE6F00A5F7D1 /* ViewController.m */; };
@@ -98,6 +108,21 @@
 		B983A4D21BD08213009569CD /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuTableViewCell.xib; path = Components/MenuTableViewCell/MenuTableViewCell.xib; sourceTree = "<group>"; };
 		B983A4D61BD14B3D009569CD /* DeleteAppointmentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeleteAppointmentProvider.h; path = Providers/DeleteAppointmentProvider/DeleteAppointmentProvider.h; sourceTree = "<group>"; };
 		B983A4D71BD14B3D009569CD /* DeleteAppointmentProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeleteAppointmentProvider.m; path = Providers/DeleteAppointmentProvider/DeleteAppointmentProvider.m; sourceTree = "<group>"; };
+		B983A4DA1BD16855009569CD /* ScheduleAppointmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleAppointmentViewController.h; path = Modules/ScheduleAppointmentViewController/ScheduleAppointmentViewController.h; sourceTree = "<group>"; };
+		B983A4DB1BD16855009569CD /* ScheduleAppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleAppointmentViewController.m; path = Modules/ScheduleAppointmentViewController/ScheduleAppointmentViewController.m; sourceTree = "<group>"; };
+		B983A4DC1BD16855009569CD /* ScheduleAppointmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScheduleAppointmentViewController.xib; path = Modules/ScheduleAppointmentViewController/ScheduleAppointmentViewController.xib; sourceTree = "<group>"; };
+		B983A4E01BD168D2009569CD /* BaseHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseHeaderView.h; path = Components/BaseHeaderView/BaseHeaderView.h; sourceTree = "<group>"; };
+		B983A4E11BD168D2009569CD /* BaseHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseHeaderView.m; path = Components/BaseHeaderView/BaseHeaderView.m; sourceTree = "<group>"; };
+		B983A4E31BD168E4009569CD /* BaseHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseHeaderView.xib; path = Components/BaseHeaderView/BaseHeaderView.xib; sourceTree = "<group>"; };
+		B983A4E61BD17B34009569CD /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrivacyPolicyViewController.h; path = Modules/PrivacyPolicyViewController/PrivacyPolicyViewController.h; sourceTree = "<group>"; };
+		B983A4E71BD17B34009569CD /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrivacyPolicyViewController.m; path = Modules/PrivacyPolicyViewController/PrivacyPolicyViewController.m; sourceTree = "<group>"; };
+		B983A4E81BD17B34009569CD /* PrivacyPolicyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PrivacyPolicyViewController.xib; path = Modules/PrivacyPolicyViewController/PrivacyPolicyViewController.xib; sourceTree = "<group>"; };
+		B983A4EC1BD18293009569CD /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactViewController.h; path = Modules/ContactViewContoller/ContactViewController.h; sourceTree = "<group>"; };
+		B983A4ED1BD18293009569CD /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactViewController.m; path = Modules/ContactViewContoller/ContactViewController.m; sourceTree = "<group>"; };
+		B983A4EE1BD18293009569CD /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactViewController.xib; path = Modules/ContactViewContoller/ContactViewController.xib; sourceTree = "<group>"; };
+		B983A4F21BD18D7F009569CD /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FooterView.h; path = Components/FooterView/FooterView.h; sourceTree = "<group>"; };
+		B983A4F31BD18D7F009569CD /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FooterView.m; path = Components/FooterView/FooterView.m; sourceTree = "<group>"; };
+		B983A4F51BD18D9B009569CD /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FooterView.xib; path = Components/FooterView/FooterView.xib; sourceTree = "<group>"; };
 		B9E215041BC9AE6F00A5F7D1 /* Estetica Regenere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estetica Regenere.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E215081BC9AE6F00A5F7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9E215091BC9AE6F00A5F7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -315,6 +340,56 @@
 			name = DeleteAppointmentProvider;
 			sourceTree = "<group>";
 		};
+		B983A4D91BD1682A009569CD /* ScheduleAppointmentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B983A4DA1BD16855009569CD /* ScheduleAppointmentViewController.h */,
+				B983A4DB1BD16855009569CD /* ScheduleAppointmentViewController.m */,
+				B983A4DC1BD16855009569CD /* ScheduleAppointmentViewController.xib */,
+			);
+			name = ScheduleAppointmentViewController;
+			sourceTree = "<group>";
+		};
+		B983A4DF1BD168B6009569CD /* BaseHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				B983A4E01BD168D2009569CD /* BaseHeaderView.h */,
+				B983A4E11BD168D2009569CD /* BaseHeaderView.m */,
+				B983A4E31BD168E4009569CD /* BaseHeaderView.xib */,
+			);
+			name = BaseHeaderView;
+			sourceTree = "<group>";
+		};
+		B983A4E51BD17B10009569CD /* PrivacyPolicyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B983A4E61BD17B34009569CD /* PrivacyPolicyViewController.h */,
+				B983A4E71BD17B34009569CD /* PrivacyPolicyViewController.m */,
+				B983A4E81BD17B34009569CD /* PrivacyPolicyViewController.xib */,
+			);
+			name = PrivacyPolicyViewController;
+			sourceTree = "<group>";
+		};
+		B983A4EB1BD18270009569CD /* ContactViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B983A4EC1BD18293009569CD /* ContactViewController.h */,
+				B983A4ED1BD18293009569CD /* ContactViewController.m */,
+				B983A4EE1BD18293009569CD /* ContactViewController.xib */,
+			);
+			name = ContactViewController;
+			sourceTree = "<group>";
+		};
+		B983A4F11BD18D59009569CD /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				B983A4F21BD18D7F009569CD /* FooterView.h */,
+				B983A4F31BD18D7F009569CD /* FooterView.m */,
+				B983A4F51BD18D9B009569CD /* FooterView.xib */,
+			);
+			name = FooterView;
+			sourceTree = "<group>";
+		};
 		B9E214FB1BC9AE6F00A5F7D1 = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +458,8 @@
 		B9E2152D1BC9AF5300A5F7D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B983A4F11BD18D59009569CD /* FooterView */,
+				B983A4DF1BD168B6009569CD /* BaseHeaderView */,
 				B983A4CF1BD081EB009569CD /* MenuTableViewCell */,
 				B983A4CB1BD06D83009569CD /* MenuTableViewManager */,
 				B96520FD1BCFF3380039E466 /* SidePanel */,
@@ -423,6 +500,9 @@
 		B9E215461BCADB6000A5F7D1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B983A4EB1BD18270009569CD /* ContactViewController */,
+				B983A4E51BD17B10009569CD /* PrivacyPolicyViewController */,
+				B983A4D91BD1682A009569CD /* ScheduleAppointmentViewController */,
 				B983A4BB1BD0609D009569CD /* MenuViewController */,
 				B9E2156B1BCC014D00A5F7D1 /* LoginViewController */,
 				B9E215651BCAF6EC00A5F7D1 /* UnderConstructionViewController */,
@@ -593,20 +673,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9E215701BCC016700A5F7D1 /* LoginViewController.xib in Resources */,
+				B983A4DE1BD16855009569CD /* ScheduleAppointmentViewController.xib in Resources */,
 				B96520DD1BCDAE010039E466 /* RegenereTextField.xib in Resources */,
 				B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */,
 				B983A4D41BD08213009569CD /* MenuTableViewCell.xib in Resources */,
 				B9E215561BCADFED00A5F7D1 /* HomeTableViewCell.xib in Resources */,
+				B983A4F01BD18293009569CD /* ContactViewController.xib in Resources */,
 				B96520FC1BCF42EE0039E466 /* MoreButtonView.xib in Resources */,
 				B983A4C01BD060CA009569CD /* MenuViewController.xib in Resources */,
 				B9E215131BC9AE6F00A5F7D1 /* Main.storyboard in Resources */,
 				B9E215451BC9BEC200A5F7D1 /* BasicButtonView.xib in Resources */,
 				B9E215181BC9AE6F00A5F7D1 /* LaunchScreen.xib in Resources */,
 				B9E215151BC9AE6F00A5F7D1 /* Images.xcassets in Resources */,
+				B983A4F61BD18D9B009569CD /* FooterView.xib in Resources */,
+				B983A4E41BD168E4009569CD /* BaseHeaderView.xib in Resources */,
 				B9E2154C1BCADB9000A5F7D1 /* HomeViewController.xib in Resources */,
 				B96520E31BCED26F0039E466 /* LoadingView.xib in Resources */,
 				B9E215641BCAF20900A5F7D1 /* RememberMeView.xib in Resources */,
 				B9E2156A1BCAF71100A5F7D1 /* UnderConstructionViewController.xib in Resources */,
+				B983A4EA1BD17B34009569CD /* PrivacyPolicyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +743,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9E215691BCAF71100A5F7D1 /* UnderConstructionViewController.m in Sources */,
+				B983A4DD1BD16855009569CD /* ScheduleAppointmentViewController.m in Sources */,
 				B96520FA1BCF42D50039E466 /* MoreButtonView.m in Sources */,
 				B96520E11BCED25F0039E466 /* LoadingView.m in Sources */,
 				B9E2155B1BCAE57900A5F7D1 /* BaseTableViewManager.m in Sources */,
@@ -673,9 +759,13 @@
 				B96520DB1BCDADDE0039E466 /* RegenereTextField.m in Sources */,
 				B9E2155E1BCAE59400A5F7D1 /* HomeTableViewManager.m in Sources */,
 				B9E215501BCADF5200A5F7D1 /* BaseComponentsView.m in Sources */,
+				B983A4F41BD18D7F009569CD /* FooterView.m in Sources */,
+				B983A4EF1BD18293009569CD /* ContactViewController.m in Sources */,
 				B9E215621BCAF1FA00A5F7D1 /* RememberMeView.m in Sources */,
 				B9E215431BC9B98A00A5F7D1 /* BasicButtonView.m in Sources */,
 				B9E215551BCADFED00A5F7D1 /* HomeTableViewCell.m in Sources */,
+				B983A4E21BD168D2009569CD /* BaseHeaderView.m in Sources */,
+				B983A4E91BD17B34009569CD /* PrivacyPolicyViewController.m in Sources */,
 				B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */,
 				B96520E81BCED8FB0039E466 /* LoginProvider.m in Sources */,
 				B96520EC1BCF017B0039E466 /* BaseProvider.m in Sources */,

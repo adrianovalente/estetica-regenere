@@ -14,6 +14,9 @@
 #import "UnderConstructionViewController.h"
 #import "LoginViewController.h"
 #import "MenuTableViewCell.h"
+#import "ScheduleAppointmentViewController.h"
+#import "PrivacyPolicyViewController.h"
+#import "ContactViewController.h"
 
 @interface MenuViewController () <MenuTableViewDelegate, UIAlertViewDelegate>
 
@@ -23,7 +26,9 @@
 
 @end
 
-@implementation MenuViewController
+@implementation MenuViewController {
+    NSInteger _selectedOption;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,15 +51,43 @@
     JASidePanelController *panelController = (JASidePanelController *)self.parentViewController;
     if (option == 0) {
         panelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
+        [self selectCell:0];
+        _selectedOption = 0;
     }
     if (option == 1) {
+        if (_selectedOption != 0) {
+            panelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
+        }
+            [(UINavigationController *)panelController.centerPanel pushViewController:[ScheduleAppointmentViewController new] animated:NO];
+        
         [self selectCell:1];
-        [(UINavigationController *)panelController.centerPanel pushViewController:[UnderConstructionViewController new] animated:YES];
+        _selectedOption = 1;
     }
+    if (option == 2) {
+        if (_selectedOption != 0) {
+            panelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
+        }
+        [(UINavigationController *)panelController.centerPanel pushViewController:[PrivacyPolicyViewController new] animated:NO];
+        
+        [self selectCell:2];
+        _selectedOption = 2;
+        
+    }
+    if (option == 3) {
+        if (_selectedOption != 0) {
+            panelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
+        }
+        [(UINavigationController *)panelController.centerPanel pushViewController:[ContactViewController new] animated:NO];
+        
+        [self selectCell:3];
+        _selectedOption = 3;
+        
+    }
+    
     [panelController showCenterPanelAnimated:YES];
     
-    if (option == 5) {
-        [self selectCell:5];
+    if (option == 4) {
+        [self selectCell:4];
         [self.logoutAlertView show];
     }
 }
@@ -65,8 +98,9 @@
     if (alertView == self.logoutAlertView) {
         if (buttonIndex == 1) {
             [self performLogout];
+            [self resetMenu];
         }
-        [self resetMenu];
+        [self selectCell:_selectedOption];
     }
 }
 
