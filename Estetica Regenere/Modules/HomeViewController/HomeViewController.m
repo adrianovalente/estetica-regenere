@@ -16,19 +16,22 @@
 #import "AppointmentsList.h"
 #import "JASidePanelController.h"
 #import "MenuViewController.h"
+#import "DeleteAppointmentProvider.h"
 
-@interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate, HomeProviderCallback, UIAlertViewDelegate, LoginViewControllerCallback>
+@interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate, HomeProviderCallback, UIAlertViewDelegate, LoginViewControllerCallback, DeleteAppointmentCallback>
 
 @property (weak, nonatomic) IBOutlet LoadingView *loadingView;
 @property (weak, nonatomic) IBOutlet UITableView *consultasTableView;
 @property (weak, nonatomic) IBOutlet HomeHeaderView *header;
 @property (strong, nonatomic) HomeTableViewManager *homeTableViewManager;
+@property (nonatomic) UIAlertView *deleteAlertView;
 @end
 
 @implementation HomeViewController {
     BOOL _hasToPushToLogin;
     BOOL _isShowingCenterPanel;
     BOOL _noNeedToShowAlerts;
+    int _appointmentToDelete;
 }
 
 -(instancetype)initFromLogout
@@ -89,9 +92,10 @@
 }
 
 #pragma mark - HomeTableViewManagerDelegate
--(void) didSelectConsulta:(NSInteger)consultaId
+-(void) didSelectConsulta:(int)consultaId
 {
-    [self pushUnderConstructionVC];
+    _appointmentToDelete = consultaId;
+    [self.deleteAlertView show];
 }
 
 #pragma mark - HomeHeaderViewDelegate
@@ -150,9 +154,27 @@
     
 }
 
+#pragma mark - Delete Appointment Callback
+-(void)onDeleteAppointmentFailure
+{
+    [self displayAlertWithTitle:@"Erro na rede" message:@"Não foi possível deletar a consulta. Por favor tente mais tarde."];
+}
+
+-(void)onDeleteAppointmentSuccess
+{
+    [self updateData];
+}
+
 #pragma mark - UIAlertView Delegate
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if (alertView == self.deleteAlertView) {
+        if (buttonIndex == 1) {
+            [[DeleteAppointmentProvider new] deleteAppointmentWithId:_appointmentToDelete callback:self];
+        }
+        return;
+    }
+    
     [self.loadingView stopLoading];
     if (_hasToPushToLogin) {
         [self.navigationController presentViewController:[[LoginViewController alloc] initWithDelegate:self] animated:YES completion:^{}];
@@ -186,6 +208,12 @@
 {
     if (!_homeTableViewManager) _homeTableViewManager = [[HomeTableViewManager alloc] initWithTableView:self.consultasTableView];
     return _homeTableViewManager;
+}
+
+-(UIAlertView *)deleteAlertView
+{
+    if (!_deleteAlertView) _deleteAlertView = [[UIAlertView alloc] initWithTitle:@"Confirmar exclusão" message:@"Tem certeza que deseja desmarcar essa consulta?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim, desmarque", nil];
+    return _deleteAlertView;
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @protocol HomeTableViewManagerDelegate
 
-- (void)didSelectConsulta:(NSInteger)consultaId;
+- (void)didSelectConsulta:(int)consultaId;
 
 @end
 

@@ -41,7 +41,7 @@ static const int kHomeTableViewCellHeight = 72;
     [homeCell setTrashDelegate:self];
     [homeCell fillCellWithName:[consulta service]
                       subtitle:@"Dra. Olga Fernanda"
-                          time:[NSString stringWithFormat:@"%@ de %@, às %@:%@", [date day], [self monthString:[date month]], [date hour], [date minute]]];
+                          time:[NSString stringWithFormat:@"%@ de %@, às %@:%@", [date day], [self monthString:[date month]], [date hour], [date minute]] consultaId:(int)[[consulta consultaId] integerValue]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,7 +69,7 @@ static const int kHomeTableViewCellHeight = 72;
 }
 
 #pragma mark - Home Table View Cell Delegate
--(void)didTapTrashIcon:(NSInteger)appointmentId
+-(void)didTapTrashIcon:(int)appointmentId
 {
     [self.delegate didSelectConsulta:appointmentId];
 }

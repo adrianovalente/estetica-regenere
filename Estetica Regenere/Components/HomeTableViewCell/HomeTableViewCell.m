@@ -22,11 +22,12 @@
     __weak IBOutlet UIView *_trashView;
 }
 
-- (void)fillCellWithName:(NSString *)name subtitle:(NSString *)subtitle time:(NSString *)time
+- (void)fillCellWithName:(NSString *)name subtitle:(NSString *)subtitle time:(NSString *)time consultaId:(int)consultaId
 {
     [self.serviceNameLabel setText:name];
     [self.subtitleLabel setText:subtitle];
     [self.timeLabel setText:time];
+    [self setAppointmentId:consultaId];
 }
 
 - (void)awakeFromNib {
@@ -46,6 +47,6 @@
 -(void)trashTapped:(id)event
 {
     //TODO: Add logic to send appointment ID as well
-    [self.trashDelegate didTapTrashIcon:0];
+    [self.trashDelegate didTapTrashIcon:self.appointmentId];
 }
 @end

@@ -24,6 +24,8 @@
 @interface ConsultasModel : JSONModel
 @property (nonatomic, strong) DateModel *date;
 @property (nonatomic, strong) NSString *service;
+@property (nonatomic, strong) NSNumber *consultaId;
+
 @end
 
 

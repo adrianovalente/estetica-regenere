@@ -26,6 +26,7 @@
 		B983A4CE1BD06DA9009569CD /* MenuTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4CD1BD06DA9009569CD /* MenuTableViewManager.m */; };
 		B983A4D31BD08213009569CD /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4D11BD08213009569CD /* MenuTableViewCell.m */; };
 		B983A4D41BD08213009569CD /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4D21BD08213009569CD /* MenuTableViewCell.xib */; };
+		B983A4D81BD14B3D009569CD /* DeleteAppointmentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4D71BD14B3D009569CD /* DeleteAppointmentProvider.m */; };
 		B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215091BC9AE6F00A5F7D1 /* main.m */; };
 		B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150C1BC9AE6F00A5F7D1 /* AppDelegate.m */; };
 		B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150F1BC9AE6F00A5F7D1 /* ViewController.m */; };
@@ -95,6 +96,8 @@
 		B983A4D01BD08213009569CD /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuTableViewCell.h; path = Components/MenuTableViewCell/MenuTableViewCell.h; sourceTree = "<group>"; };
 		B983A4D11BD08213009569CD /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuTableViewCell.m; path = Components/MenuTableViewCell/MenuTableViewCell.m; sourceTree = "<group>"; };
 		B983A4D21BD08213009569CD /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuTableViewCell.xib; path = Components/MenuTableViewCell/MenuTableViewCell.xib; sourceTree = "<group>"; };
+		B983A4D61BD14B3D009569CD /* DeleteAppointmentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeleteAppointmentProvider.h; path = Providers/DeleteAppointmentProvider/DeleteAppointmentProvider.h; sourceTree = "<group>"; };
+		B983A4D71BD14B3D009569CD /* DeleteAppointmentProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeleteAppointmentProvider.m; path = Providers/DeleteAppointmentProvider/DeleteAppointmentProvider.m; sourceTree = "<group>"; };
 		B9E215041BC9AE6F00A5F7D1 /* Estetica Regenere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estetica Regenere.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E215081BC9AE6F00A5F7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9E215091BC9AE6F00A5F7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -198,6 +201,7 @@
 		B96520E41BCED8B30039E466 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				B983A4D51BD14B16009569CD /* DeleteAppointmentProvider */,
 				B983A4C71BD06AF4009569CD /* MenuProvider */,
 				B96520ED1BCF0BA60039E466 /* HomeProvider */,
 				B96520E91BCF015C0039E466 /* BaseProvider */,
@@ -300,6 +304,15 @@
 				B983A4D21BD08213009569CD /* MenuTableViewCell.xib */,
 			);
 			name = MenuTableViewCell;
+			sourceTree = "<group>";
+		};
+		B983A4D51BD14B16009569CD /* DeleteAppointmentProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B983A4D61BD14B3D009569CD /* DeleteAppointmentProvider.h */,
+				B983A4D71BD14B3D009569CD /* DeleteAppointmentProvider.m */,
+			);
+			name = DeleteAppointmentProvider;
 			sourceTree = "<group>";
 		};
 		B9E214FB1BC9AE6F00A5F7D1 = {
@@ -651,6 +664,7 @@
 				B9E2156F1BCC016700A5F7D1 /* LoginViewController.m in Sources */,
 				B96521031BCFF3380039E466 /* UIViewController+JASidePanel.m in Sources */,
 				B983A4CE1BD06DA9009569CD /* MenuTableViewManager.m in Sources */,
+				B983A4D81BD14B3D009569CD /* DeleteAppointmentProvider.m in Sources */,
 				B96521021BCFF3380039E466 /* JASidePanelController.m in Sources */,
 				B9E2153A1BC9B1CF00A5F7D1 /* HomeHeaderView.m in Sources */,
 				B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */,

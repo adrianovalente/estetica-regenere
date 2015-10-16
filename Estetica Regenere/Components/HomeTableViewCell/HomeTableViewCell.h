@@ -10,13 +10,14 @@
 
 @protocol HomeTableViewCellDelegate <NSObject>
 
--(void)didTapTrashIcon:(NSInteger)appointmentId;
+-(void)didTapTrashIcon:(int)appointmentId;
 
 @end
 
 @interface HomeTableViewCell : UITableViewCell
 
+@property (nonatomic) int appointmentId;
 @property (nonatomic) id<HomeTableViewCellDelegate> trashDelegate;
-- (void)fillCellWithName:(NSString *)name subtitle:(NSString *)subtitle time:(NSString *)time;
+- (void)fillCellWithName:(NSString *)name subtitle:(NSString *)subtitle time:(NSString *)time consultaId:(int)consultaId;
 
 @end
