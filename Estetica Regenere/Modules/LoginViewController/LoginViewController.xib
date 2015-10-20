@@ -7,9 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
-                <outlet property="emailRegenereTextFiel" destination="o46-vW-yEE" id="mXD-GZ-Ldu"/>
                 <outlet property="loadingView" destination="ZPj-bC-iCF" id="z7L-1k-7UL"/>
-                <outlet property="passwordRegenereTextField" destination="XA2-eu-8SW" id="iDU-EV-pjR"/>
+                <outlet property="loginFormView" destination="LSI-dy-bpp" id="inl-hP-VxC"/>
                 <outlet property="performLoginBasicButton" destination="G2w-JF-QCj" id="MEs-Vt-ShP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -38,18 +37,11 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o46-vW-yEE" customClass="RegenereTextField">
-                    <rect key="frame" x="60" y="242" width="200" height="50"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSI-dy-bpp" customClass="LoginFormView">
+                    <rect key="frame" x="25" y="242" width="270" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="6gW-DT-EsZ"/>
-                        <constraint firstAttribute="width" constant="200" id="cL1-Zj-MSo"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XA2-eu-8SW" customClass="RegenereTextField">
-                    <rect key="frame" x="60" y="310" width="200" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="7rY-1Q-peq"/>
-                        <constraint firstAttribute="width" constant="200" id="kuN-Uf-mhT"/>
+                        <constraint firstAttribute="height" constant="80" id="kKi-kB-7Al"/>
+                        <constraint firstAttribute="width" constant="270" id="oqZ-Dv-86L"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2w-JF-QCj" customClass="BasicButtonView">
@@ -66,31 +58,23 @@
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="X9G-LG-6x5" secondAttribute="trailing" constant="15" id="4UX-aj-eMI"/>
-                <constraint firstAttribute="centerX" secondItem="o46-vW-yEE" secondAttribute="centerX" id="A2S-cB-WcM"/>
+                <constraint firstItem="LSI-dy-bpp" firstAttribute="top" secondItem="zgu-db-6So" secondAttribute="bottom" constant="20" id="7OH-hQ-oBX"/>
                 <constraint firstAttribute="centerY" secondItem="X9G-LG-6x5" secondAttribute="centerY" constant="56.5" id="DDB-1G-4bq"/>
                 <constraint firstAttribute="centerX" secondItem="kEJ-fM-Cfi" secondAttribute="centerX" id="QAj-bY-E03"/>
                 <constraint firstItem="zgu-db-6So" firstAttribute="top" secondItem="X9G-LG-6x5" secondAttribute="bottom" id="RRA-re-x5k"/>
-                <constraint firstAttribute="centerX" secondItem="XA2-eu-8SW" secondAttribute="centerX" id="Uhb-bb-Zky"/>
-                <constraint firstItem="o46-vW-yEE" firstAttribute="top" secondItem="zgu-db-6So" secondAttribute="bottom" constant="20" id="Y6L-bc-XqD"/>
-                <constraint firstItem="XA2-eu-8SW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="87" id="aOO-8y-Jaf"/>
-                <constraint firstAttribute="bottom" secondItem="XA2-eu-8SW" secondAttribute="bottom" constant="120" id="cXC-ck-b8f"/>
+                <constraint firstAttribute="centerX" secondItem="LSI-dy-bpp" secondAttribute="centerX" id="bD4-Fa-vtv"/>
                 <constraint firstItem="kEJ-fM-Cfi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="cd5-Gb-veZ"/>
                 <constraint firstItem="X9G-LG-6x5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="dee-ZX-fwM"/>
-                <constraint firstItem="G2w-JF-QCj" firstAttribute="top" secondItem="XA2-eu-8SW" secondAttribute="bottom" constant="15" id="kPb-LZ-9dp"/>
                 <constraint firstAttribute="centerX" secondItem="G2w-JF-QCj" secondAttribute="centerX" id="mKo-t1-ksb"/>
                 <constraint firstItem="zgu-db-6So" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="owf-WH-u2T"/>
                 <constraint firstItem="X9G-LG-6x5" firstAttribute="top" secondItem="kEJ-fM-Cfi" secondAttribute="bottom" constant="20" id="plP-w9-vev"/>
                 <constraint firstAttribute="trailing" secondItem="zgu-db-6So" secondAttribute="trailing" constant="15" id="sD5-Qv-Shh"/>
-                <constraint firstItem="XA2-eu-8SW" firstAttribute="top" secondItem="o46-vW-yEE" secondAttribute="bottom" constant="18" id="tN4-Fn-NCd"/>
-                <constraint firstAttribute="trailing" secondItem="XA2-eu-8SW" secondAttribute="trailing" constant="73" id="xBe-jI-TR5"/>
+                <constraint firstItem="G2w-JF-QCj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="375" id="vR6-JX-bbg"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="DDB-1G-4bq"/>
-                    <exclude reference="aOO-8y-Jaf"/>
-                    <exclude reference="cXC-ck-b8f"/>
-                    <exclude reference="xBe-jI-TR5"/>
                 </mask>
             </variation>
         </view>

@@ -12,11 +12,11 @@
 #import "LoadingView.h"
 #import "LoginProvider.h"
 #import "HomeViewController.h"
+#import "LoginFormView.h"
 
 @interface LoginViewController () <BasicButtonProtocol, LoginProviderDelegate, UIAlertViewDelegate>
 
-@property (weak, nonatomic) IBOutlet RegenereTextField *emailRegenereTextFiel;
-@property (weak, nonatomic) IBOutlet RegenereTextField *passwordRegenereTextField;
+@property (weak, nonatomic) IBOutlet LoginFormView *loginFormView;
 @property (weak, nonatomic) IBOutlet BasicButtonView *performLoginBasicButton;
 @property (weak, nonatomic) IBOutlet LoadingView *loadingView;
 @property (strong, nonatomic) id<LoginViewControllerCallback> delegate;
@@ -35,7 +35,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavigationBar];
-    [self setupForms];
     [self setupButtons];
 
 }
@@ -44,13 +43,6 @@
 - (void) setupNavigationBar
 {
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-}
-
-- (void)setupForms
-{
-    [self.emailRegenereTextFiel setTitle:@"Email"];
-    [self.passwordRegenereTextField setTitle:@"Senha"];
-    [self.passwordRegenereTextField setSecure:YES];
 }
 
 -(void) setupButtons
@@ -72,7 +64,7 @@
 {
     if (button == self.performLoginBasicButton) {
         [self.loadingView startLoading];
-        [[LoginProvider new] performLoginWithEmail:[self.emailRegenereTextFiel getText] passord:[self.passwordRegenereTextField getText] delegate:self];
+        [[LoginProvider new] performLoginWithEmail:[self.loginFormView getEmail] passord:[self.loginFormView getPassword] delegate:self];
     }
 }
 

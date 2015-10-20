@@ -121,7 +121,7 @@
 -(void)onTokenMissing
 {
     _hasToPushToLogin = YES;
-    [self displayAlertWithTitle:@"Falha na autenticação" message:@"Ops! Você precisa fazer login denovo."];
+    [self displayAlertWithTitle:@"Falha na autenticação" message:@"Ops! Você precisa fazer login de novo."];
 }
 
 -(void)onNetworkFailure
@@ -139,7 +139,7 @@
                        appointments:(NSArray *)appointments
                            thisWeek:(NSNumber *)thisWeek
 {
-    [self.header updateWithName:name appointments:[NSNumber numberWithInt:[appointments count]]];
+    [self.header updateWithName:name appointments:[NSNumber numberWithInteger:[appointments count]]];
     [self.homeTableViewManager updateWithData:appointments];
     [self.loadingView stopLoading];
 }

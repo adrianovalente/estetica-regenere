@@ -37,6 +37,8 @@
 		B983A4F01BD18293009569CD /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4EE1BD18293009569CD /* ContactViewController.xib */; };
 		B983A4F41BD18D7F009569CD /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4F31BD18D7F009569CD /* FooterView.m */; };
 		B983A4F61BD18D9B009569CD /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4F51BD18D9B009569CD /* FooterView.xib */; };
+		B9CAF5271BD65D9E0035C127 /* LoginFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CAF5261BD65D9E0035C127 /* LoginFormView.m */; };
+		B9CAF5291BD65DBD0035C127 /* LoginFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CAF5281BD65DBD0035C127 /* LoginFormView.xib */; };
 		B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E215091BC9AE6F00A5F7D1 /* main.m */; };
 		B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150C1BC9AE6F00A5F7D1 /* AppDelegate.m */; };
 		B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2150F1BC9AE6F00A5F7D1 /* ViewController.m */; };
@@ -123,6 +125,9 @@
 		B983A4F21BD18D7F009569CD /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FooterView.h; path = Components/FooterView/FooterView.h; sourceTree = "<group>"; };
 		B983A4F31BD18D7F009569CD /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FooterView.m; path = Components/FooterView/FooterView.m; sourceTree = "<group>"; };
 		B983A4F51BD18D9B009569CD /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FooterView.xib; path = Components/FooterView/FooterView.xib; sourceTree = "<group>"; };
+		B9CAF5251BD65D9E0035C127 /* LoginFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginFormView.h; path = Components/LoginFormView/LoginFormView.h; sourceTree = "<group>"; };
+		B9CAF5261BD65D9E0035C127 /* LoginFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginFormView.m; path = Components/LoginFormView/LoginFormView.m; sourceTree = "<group>"; };
+		B9CAF5281BD65DBD0035C127 /* LoginFormView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginFormView.xib; path = Components/LoginFormView/LoginFormView.xib; sourceTree = "<group>"; };
 		B9E215041BC9AE6F00A5F7D1 /* Estetica Regenere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estetica Regenere.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E215081BC9AE6F00A5F7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9E215091BC9AE6F00A5F7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -390,6 +395,16 @@
 			name = FooterView;
 			sourceTree = "<group>";
 		};
+		B9CAF5241BD65D760035C127 /* LoginFormView */ = {
+			isa = PBXGroup;
+			children = (
+				B9CAF5251BD65D9E0035C127 /* LoginFormView.h */,
+				B9CAF5261BD65D9E0035C127 /* LoginFormView.m */,
+				B9CAF5281BD65DBD0035C127 /* LoginFormView.xib */,
+			);
+			name = LoginFormView;
+			sourceTree = "<group>";
+		};
 		B9E214FB1BC9AE6F00A5F7D1 = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +473,7 @@
 		B9E2152D1BC9AF5300A5F7D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B9CAF5241BD65D760035C127 /* LoginFormView */,
 				B983A4F11BD18D59009569CD /* FooterView */,
 				B983A4DF1BD168B6009569CD /* BaseHeaderView */,
 				B983A4CF1BD081EB009569CD /* MenuTableViewCell */,
@@ -678,6 +694,7 @@
 				B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */,
 				B983A4D41BD08213009569CD /* MenuTableViewCell.xib in Resources */,
 				B9E215561BCADFED00A5F7D1 /* HomeTableViewCell.xib in Resources */,
+				B9CAF5291BD65DBD0035C127 /* LoginFormView.xib in Resources */,
 				B983A4F01BD18293009569CD /* ContactViewController.xib in Resources */,
 				B96520FC1BCF42EE0039E466 /* MoreButtonView.xib in Resources */,
 				B983A4C01BD060CA009569CD /* MenuViewController.xib in Resources */,
@@ -773,6 +790,7 @@
 				B96520F01BCF0BC70039E466 /* HomeProvider.m in Sources */,
 				B983A4CA1BD06B14009569CD /* MenuProvider.m in Sources */,
 				B983A4D31BD08213009569CD /* MenuTableViewCell.m in Sources */,
+				B9CAF5271BD65D9E0035C127 /* LoginFormView.m in Sources */,
 				B983A4BF1BD060CA009569CD /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
