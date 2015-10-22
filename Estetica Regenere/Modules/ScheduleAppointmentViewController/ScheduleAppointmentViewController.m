@@ -14,12 +14,17 @@
 #import "RegenerePickerView.h"
 #import "AreasProvider.h"
 #import "ServicesProvider.h"
+#import "BasicButtonView.h"
 
 @interface ScheduleAppointmentViewController () <BaseHeaderViewDelegate, AreasProviderCallback, ServicesProviderCallback, UIAlertViewDelegate, RegenerePickerViewDelegate>
 @property (weak, nonatomic) IBOutlet BaseHeaderView *header;
 @property (weak, nonatomic) IBOutlet LoadingView *loadingView;
 @property (weak, nonatomic) IBOutlet RegenerePickerView *areaPickerView;
 @property (weak, nonatomic) IBOutlet RegenerePickerView *servicePickerView;
+@property (weak, nonatomic) IBOutlet RegenerePickerView *datePickerView;
+@property (weak, nonatomic) IBOutlet RegenerePickerView *timePickerView;
+@property (weak, nonatomic) IBOutlet BasicButtonView *button;
+
 @end
 
 @implementation ScheduleAppointmentViewController
@@ -45,6 +50,7 @@
     [self setupNavBar];
     [self setupHeader];
     [self setupPickers];
+    [self setupButton];
 }
 
 - (void) setupNavBar
@@ -64,6 +70,15 @@
     [self.areaPickerView setPlaceholder:@"Área de atendimento"];
     [self.areaPickerView setDelegate:self];
     [self.servicePickerView setPlaceholder:@"Serviço"];
+    [self.areaPickerView setDelegate:self];
+    [self.datePickerView setPlaceholder:@"Data"];
+    [self.datePickerView setDelegate:self];
+}
+
+-(void)setupButton
+{
+    [self.button setTitle:@"Marcar"];
+    [self.button setType:BasicButtonTypeCallToAction];
 }
 
 #pragma mark - Private Methods
