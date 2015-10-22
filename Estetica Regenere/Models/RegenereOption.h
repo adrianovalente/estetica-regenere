@@ -11,6 +11,9 @@
 @interface RegenereOption : JSONModel
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSNumber *optionId;
+@property (nonatomic, strong) NSString *optionId;
+
++ (RegenereOption *)optionWithValue:(NSString *)value
+                               name:(NSString *)name;
 
 @end

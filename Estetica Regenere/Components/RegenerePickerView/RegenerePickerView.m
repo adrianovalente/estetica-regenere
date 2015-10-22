@@ -92,6 +92,7 @@
     if (!_pickerView) _pickerView = [UIPickerView new];
     [_pickerView setDelegate:self];
     [_pickerView setDataSource:self];
+    [_pickerView setBackgroundColor:[UIColor colorWithRed:245/255.0f green:245/255.0f blue:245/255.0f alpha:1.0]];
     return _pickerView;
 }
 

@@ -68,6 +68,8 @@
 		B9F94E281BD93FC1001A55AE /* AreasProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E271BD93FC1001A55AE /* AreasProvider.m */; };
 		B9F94E2C1BD956E5001A55AE /* TextFieldWithoutCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E2B1BD956E5001A55AE /* TextFieldWithoutCursor.m */; };
 		B9F94E301BD966B5001A55AE /* ServicesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E2F1BD966B5001A55AE /* ServicesProvider.m */; };
+		B9F94E341BD98453001A55AE /* AvailableTimesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E331BD98453001A55AE /* AvailableTimesProvider.m */; };
+		B9F94E3B1BD99775001A55AE /* DatesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E3A1BD99775001A55AE /* DatesProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +185,10 @@
 		B9F94E2B1BD956E5001A55AE /* TextFieldWithoutCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFieldWithoutCursor.m; path = Components/TextFieldWithoutCursor/TextFieldWithoutCursor.m; sourceTree = "<group>"; };
 		B9F94E2E1BD966B5001A55AE /* ServicesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServicesProvider.h; path = Providers/ServicesProvider/ServicesProvider.h; sourceTree = "<group>"; };
 		B9F94E2F1BD966B5001A55AE /* ServicesProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServicesProvider.m; path = Providers/ServicesProvider/ServicesProvider.m; sourceTree = "<group>"; };
+		B9F94E321BD98453001A55AE /* AvailableTimesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AvailableTimesProvider.h; path = Providers/AvailableTimesProvider/AvailableTimesProvider.h; sourceTree = "<group>"; };
+		B9F94E331BD98453001A55AE /* AvailableTimesProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AvailableTimesProvider.m; path = Providers/AvailableTimesProvider/AvailableTimesProvider.m; sourceTree = "<group>"; };
+		B9F94E391BD99775001A55AE /* DatesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatesProvider.h; path = Providers/DatesProvider/DatesProvider.h; sourceTree = "<group>"; };
+		B9F94E3A1BD99775001A55AE /* DatesProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatesProvider.m; path = Providers/DatesProvider/DatesProvider.m; sourceTree = "<group>"; };
 		BC13F1E66E10FF3D73B3CAF8 /* libPods-Estetica Regenere.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Estetica Regenere.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4731EBA12AF5906AED394E3 /* Pods-Estetica Regenere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Estetica Regenere.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Estetica Regenere/Pods-Estetica Regenere.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +242,8 @@
 		B96520E41BCED8B30039E466 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				B9F94E351BD99742001A55AE /* DatesProvider */,
+				B9F94E311BD98425001A55AE /* AvailableTimesProvider */,
 				B9F94E2D1BD96698001A55AE /* ServicesProvider */,
 				B9F94E251BD93FA2001A55AE /* AreasProvider */,
 				B9F94E1B1BD938DA001A55AE /* ScheduleAppointmentProvider */,
@@ -663,6 +671,24 @@
 			name = ServicesProvider;
 			sourceTree = "<group>";
 		};
+		B9F94E311BD98425001A55AE /* AvailableTimesProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E321BD98453001A55AE /* AvailableTimesProvider.h */,
+				B9F94E331BD98453001A55AE /* AvailableTimesProvider.m */,
+			);
+			name = AvailableTimesProvider;
+			sourceTree = "<group>";
+		};
+		B9F94E351BD99742001A55AE /* DatesProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E391BD99775001A55AE /* DatesProvider.h */,
+				B9F94E3A1BD99775001A55AE /* DatesProvider.m */,
+			);
+			name = DatesProvider;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -837,6 +863,7 @@
 				B9E215501BCADF5200A5F7D1 /* BaseComponentsView.m in Sources */,
 				B983A4F41BD18D7F009569CD /* FooterView.m in Sources */,
 				B983A4EF1BD18293009569CD /* ContactViewController.m in Sources */,
+				B9F94E341BD98453001A55AE /* AvailableTimesProvider.m in Sources */,
 				B9E215621BCAF1FA00A5F7D1 /* RememberMeView.m in Sources */,
 				B9F94E2C1BD956E5001A55AE /* TextFieldWithoutCursor.m in Sources */,
 				B9E215431BC9B98A00A5F7D1 /* BasicButtonView.m in Sources */,
@@ -845,6 +872,7 @@
 				B9F94E301BD966B5001A55AE /* ServicesProvider.m in Sources */,
 				B983A4E91BD17B34009569CD /* PrivacyPolicyViewController.m in Sources */,
 				B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */,
+				B9F94E3B1BD99775001A55AE /* DatesProvider.m in Sources */,
 				B96520E81BCED8FB0039E466 /* LoginProvider.m in Sources */,
 				B96520EC1BCF017B0039E466 /* BaseProvider.m in Sources */,
 				B9E2154B1BCADB9000A5F7D1 /* HomeViewController.m in Sources */,

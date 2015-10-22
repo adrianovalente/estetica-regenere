@@ -145,11 +145,16 @@
                     </constraints>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hor-Bg-v4U" customClass="LoadingView">
-                    <rect key="frame" x="0.0" y="479" width="320" height="1"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="riZ-Vt-f2n"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="riZ-Vt-f2n"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,6 +166,7 @@
                 <constraint firstItem="hor-Bg-v4U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="400" id="OPG-uu-mSf"/>
                 <constraint firstItem="qFk-rK-uFN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OR3-HZ-eMF"/>
                 <constraint firstItem="qFk-rK-uFN" firstAttribute="top" secondItem="Lg3-8V-bt6" secondAttribute="bottom" id="QrG-wh-vcx"/>
+                <constraint firstItem="hor-Bg-v4U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ccg-Gs-Zid"/>
                 <constraint firstAttribute="bottom" secondItem="qFk-rK-uFN" secondAttribute="bottom" id="gF9-Ku-lXu"/>
                 <constraint firstItem="Lg3-8V-bt6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="hEg-y8-q4y"/>
                 <constraint firstItem="Lg3-8V-bt6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lGZ-8H-SMv"/>

@@ -10,6 +10,19 @@
 
 @implementation RegenereOption
 
++ (RegenereOption *)optionWithValue:(NSString *)value
+                               name:(NSString *)name
+{
+    NSDictionary *dic = @{
+                          @"name": name,
+                          @"id": value
+                          };
+    return [[RegenereOption alloc] initWithDictionary:dic
+                                                error:nil];
+    
+}
+
+
 + (JSONKeyMapper *)keyMapper
 {
     return [[JSONKeyMapper alloc] initWithDictionary:@{

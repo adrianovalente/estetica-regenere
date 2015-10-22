@@ -14,9 +14,10 @@
 #import "RegenerePickerView.h"
 #import "AreasProvider.h"
 #import "ServicesProvider.h"
+#import "AvailableTimesProvider.h"
 #import "BasicButtonView.h"
 
-@interface ScheduleAppointmentViewController () <BaseHeaderViewDelegate, AreasProviderCallback, ServicesProviderCallback, UIAlertViewDelegate, RegenerePickerViewDelegate>
+@interface ScheduleAppointmentViewController () <BaseHeaderViewDelegate, AreasProviderCallback, ServicesProviderCallback, AvailableTimesProviderCallback, UIAlertViewDelegate, RegenerePickerViewDelegate>
 @property (weak, nonatomic) IBOutlet BaseHeaderView *header;
 @property (weak, nonatomic) IBOutlet LoadingView *loadingView;
 @property (weak, nonatomic) IBOutlet RegenerePickerView *areaPickerView;
@@ -24,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet RegenerePickerView *datePickerView;
 @property (weak, nonatomic) IBOutlet RegenerePickerView *timePickerView;
 @property (weak, nonatomic) IBOutlet BasicButtonView *button;
+
+// It has to be a property because we're intersted in holding this pointer 4ever o.O
+@property (strong, nonatomic) AvailableTimesProvider *timesProvider;
 
 @end
 
@@ -70,9 +74,11 @@
     [self.areaPickerView setPlaceholder:@"Área de atendimento"];
     [self.areaPickerView setDelegate:self];
     [self.servicePickerView setPlaceholder:@"Serviço"];
-    [self.areaPickerView setDelegate:self];
+    [self.servicePickerView setDelegate:self];
     [self.datePickerView setPlaceholder:@"Data"];
     [self.datePickerView setDelegate:self];
+    [self.timePickerView setPlaceholder:@"Horário"];
+    [self.timePickerView setDelegate:self];
 }
 
 -(void)setupButton
@@ -115,6 +121,18 @@
     [self.loadingView stopLoading];
 }
 
+#pragma mark - Times Provider Callback
+-(void)onGetAvailableTimesSuccess
+{
+    [self.datePickerView updateWithOptions:[self.timesProvider getDates]];
+    [self.loadingView stopLoading];
+}
+
+-(void)onTokenMissing
+{
+    [self displayAlertWithTitle:@"Falha na autenticação" message:@"Ops! Parece que você tem que fazer login de novo"];
+}
+
 #pragma mark - Base Provider Callback
 -(void)onNetworkFailure
 {
@@ -135,10 +153,28 @@
 #pragma mark - Regenere Picker View Delegate
 -(void)regenerePickerView:(id)pickerView didChangeToValue:(NSString *)value
 {
+    
+    // TODO: Add logic to hide and show pickers (or maybe add 'invalid' state)
     if (pickerView == self.areaPickerView) {
         [self.loadingView startLoading];
         [[ServicesProvider new] getServicesWithAreaId:[self.areaPickerView getSelectedOptionValue] callback:self];
         return;
     }
+    
+    if (pickerView == self.servicePickerView) {
+        [self.loadingView startLoading];
+        [self.timesProvider getAbailableTimesToService:[self.servicePickerView getSelectedOptionValue] callback:self];
+    }
+    
+    if (pickerView == self.datePickerView) {
+        [self.timePickerView updateWithOptions:[self.timesProvider getTimesToDate:[self.datePickerView getSelectedOptionValue]]];
+    }
+}
+
+#pragma mark - lazy instantiations
+-(AvailableTimesProvider *)timesProvider
+{
+    if (!_timesProvider) _timesProvider = [AvailableTimesProvider new];
+    return _timesProvider;
 }
 @end
