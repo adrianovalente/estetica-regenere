@@ -61,6 +61,13 @@
 		B9E2156A1BCAF71100A5F7D1 /* UnderConstructionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E215681BCAF71100A5F7D1 /* UnderConstructionViewController.xib */; };
 		B9E2156F1BCC016700A5F7D1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2156D1BCC016700A5F7D1 /* LoginViewController.m */; };
 		B9E215701BCC016700A5F7D1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E2156E1BCC016700A5F7D1 /* LoginViewController.xib */; };
+		B9F94E171BD911E0001A55AE /* RegenerePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E161BD911E0001A55AE /* RegenerePickerView.m */; };
+		B9F94E191BD911FF001A55AE /* RegenerePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F94E181BD911FF001A55AE /* RegenerePickerView.xib */; };
+		B9F94E1E1BD938FE001A55AE /* ScheduleAppointmentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E1D1BD938FE001A55AE /* ScheduleAppointmentProvider.m */; };
+		B9F94E241BD93B5B001A55AE /* RegenereOption.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E231BD93B5B001A55AE /* RegenereOption.m */; };
+		B9F94E281BD93FC1001A55AE /* AreasProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E271BD93FC1001A55AE /* AreasProvider.m */; };
+		B9F94E2C1BD956E5001A55AE /* TextFieldWithoutCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E2B1BD956E5001A55AE /* TextFieldWithoutCursor.m */; };
+		B9F94E301BD966B5001A55AE /* ServicesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E2F1BD966B5001A55AE /* ServicesProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +170,19 @@
 		B9E2156C1BCC016700A5F7D1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Modules/LoginViewController/LoginViewController.h; sourceTree = "<group>"; };
 		B9E2156D1BCC016700A5F7D1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Modules/LoginViewController/LoginViewController.m; sourceTree = "<group>"; };
 		B9E2156E1BCC016700A5F7D1 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Modules/LoginViewController/LoginViewController.xib; sourceTree = "<group>"; };
+		B9F94E151BD911E0001A55AE /* RegenerePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegenerePickerView.h; path = Components/RegenerePickerView/RegenerePickerView.h; sourceTree = "<group>"; };
+		B9F94E161BD911E0001A55AE /* RegenerePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegenerePickerView.m; path = Components/RegenerePickerView/RegenerePickerView.m; sourceTree = "<group>"; };
+		B9F94E181BD911FF001A55AE /* RegenerePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegenerePickerView.xib; path = Components/RegenerePickerView/RegenerePickerView.xib; sourceTree = "<group>"; };
+		B9F94E1C1BD938FE001A55AE /* ScheduleAppointmentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleAppointmentProvider.h; path = Providers/ScheduleAppointmentProvider/ScheduleAppointmentProvider.h; sourceTree = "<group>"; };
+		B9F94E1D1BD938FE001A55AE /* ScheduleAppointmentProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleAppointmentProvider.m; path = Providers/ScheduleAppointmentProvider/ScheduleAppointmentProvider.m; sourceTree = "<group>"; };
+		B9F94E221BD93B5B001A55AE /* RegenereOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegenereOption.h; sourceTree = "<group>"; };
+		B9F94E231BD93B5B001A55AE /* RegenereOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegenereOption.m; sourceTree = "<group>"; };
+		B9F94E261BD93FC1001A55AE /* AreasProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreasProvider.h; path = Providers/AreasProvider/AreasProvider.h; sourceTree = "<group>"; };
+		B9F94E271BD93FC1001A55AE /* AreasProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreasProvider.m; path = Providers/AreasProvider/AreasProvider.m; sourceTree = "<group>"; };
+		B9F94E2A1BD956E5001A55AE /* TextFieldWithoutCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldWithoutCursor.h; path = Components/TextFieldWithoutCursor/TextFieldWithoutCursor.h; sourceTree = "<group>"; };
+		B9F94E2B1BD956E5001A55AE /* TextFieldWithoutCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFieldWithoutCursor.m; path = Components/TextFieldWithoutCursor/TextFieldWithoutCursor.m; sourceTree = "<group>"; };
+		B9F94E2E1BD966B5001A55AE /* ServicesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServicesProvider.h; path = Providers/ServicesProvider/ServicesProvider.h; sourceTree = "<group>"; };
+		B9F94E2F1BD966B5001A55AE /* ServicesProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServicesProvider.m; path = Providers/ServicesProvider/ServicesProvider.m; sourceTree = "<group>"; };
 		BC13F1E66E10FF3D73B3CAF8 /* libPods-Estetica Regenere.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Estetica Regenere.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4731EBA12AF5906AED394E3 /* Pods-Estetica Regenere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Estetica Regenere.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Estetica Regenere/Pods-Estetica Regenere.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,6 +236,9 @@
 		B96520E41BCED8B30039E466 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				B9F94E2D1BD96698001A55AE /* ServicesProvider */,
+				B9F94E251BD93FA2001A55AE /* AreasProvider */,
+				B9F94E1B1BD938DA001A55AE /* ScheduleAppointmentProvider */,
 				B983A4D51BD14B16009569CD /* DeleteAppointmentProvider */,
 				B983A4C71BD06AF4009569CD /* MenuProvider */,
 				B96520ED1BCF0BA60039E466 /* HomeProvider */,
@@ -257,6 +280,8 @@
 			children = (
 				B96520F41BCF30680039E466 /* AppointmentsList.h */,
 				B96520F51BCF30680039E466 /* AppointmentsList.m */,
+				B9F94E221BD93B5B001A55AE /* RegenereOption.h */,
+				B9F94E231BD93B5B001A55AE /* RegenereOption.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -458,6 +483,8 @@
 		B9E2152D1BC9AF5300A5F7D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B9F94E291BD956C0001A55AE /* TextFieldWithoutCursor */,
+				B9F94E141BD911AA001A55AE /* RegenerePickerView */,
 				B9CAF5241BD65D760035C127 /* LoginFormView */,
 				B983A4F11BD18D59009569CD /* FooterView */,
 				B983A4DF1BD168B6009569CD /* BaseHeaderView */,
@@ -590,6 +617,52 @@
 			name = LoginViewController;
 			sourceTree = "<group>";
 		};
+		B9F94E141BD911AA001A55AE /* RegenerePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E151BD911E0001A55AE /* RegenerePickerView.h */,
+				B9F94E161BD911E0001A55AE /* RegenerePickerView.m */,
+				B9F94E181BD911FF001A55AE /* RegenerePickerView.xib */,
+			);
+			name = RegenerePickerView;
+			sourceTree = "<group>";
+		};
+		B9F94E1B1BD938DA001A55AE /* ScheduleAppointmentProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E1C1BD938FE001A55AE /* ScheduleAppointmentProvider.h */,
+				B9F94E1D1BD938FE001A55AE /* ScheduleAppointmentProvider.m */,
+			);
+			name = ScheduleAppointmentProvider;
+			sourceTree = "<group>";
+		};
+		B9F94E251BD93FA2001A55AE /* AreasProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E261BD93FC1001A55AE /* AreasProvider.h */,
+				B9F94E271BD93FC1001A55AE /* AreasProvider.m */,
+			);
+			name = AreasProvider;
+			sourceTree = "<group>";
+		};
+		B9F94E291BD956C0001A55AE /* TextFieldWithoutCursor */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E2A1BD956E5001A55AE /* TextFieldWithoutCursor.h */,
+				B9F94E2B1BD956E5001A55AE /* TextFieldWithoutCursor.m */,
+			);
+			name = TextFieldWithoutCursor;
+			sourceTree = "<group>";
+		};
+		B9F94E2D1BD96698001A55AE /* ServicesProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E2E1BD966B5001A55AE /* ServicesProvider.h */,
+				B9F94E2F1BD966B5001A55AE /* ServicesProvider.m */,
+			);
+			name = ServicesProvider;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -677,6 +750,7 @@
 				B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */,
 				B983A4D41BD08213009569CD /* MenuTableViewCell.xib in Resources */,
 				B9E215561BCADFED00A5F7D1 /* HomeTableViewCell.xib in Resources */,
+				B9F94E191BD911FF001A55AE /* RegenerePickerView.xib in Resources */,
 				B9CAF5291BD65DBD0035C127 /* LoginFormView.xib in Resources */,
 				B983A4F01BD18293009569CD /* ContactViewController.xib in Resources */,
 				B96520FC1BCF42EE0039E466 /* MoreButtonView.xib in Resources */,
@@ -742,13 +816,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F94E171BD911E0001A55AE /* RegenerePickerView.m in Sources */,
 				B9E215691BCAF71100A5F7D1 /* UnderConstructionViewController.m in Sources */,
 				B983A4DD1BD16855009569CD /* ScheduleAppointmentViewController.m in Sources */,
+				B9F94E1E1BD938FE001A55AE /* ScheduleAppointmentProvider.m in Sources */,
 				B96520FA1BCF42D50039E466 /* MoreButtonView.m in Sources */,
 				B96520E11BCED25F0039E466 /* LoadingView.m in Sources */,
 				B9E2155B1BCAE57900A5F7D1 /* BaseTableViewManager.m in Sources */,
 				B9E2156F1BCC016700A5F7D1 /* LoginViewController.m in Sources */,
 				B96521031BCFF3380039E466 /* UIViewController+JASidePanel.m in Sources */,
+				B9F94E281BD93FC1001A55AE /* AreasProvider.m in Sources */,
 				B983A4CE1BD06DA9009569CD /* MenuTableViewManager.m in Sources */,
 				B983A4D81BD14B3D009569CD /* DeleteAppointmentProvider.m in Sources */,
 				B96521021BCFF3380039E466 /* JASidePanelController.m in Sources */,
@@ -761,9 +838,11 @@
 				B983A4F41BD18D7F009569CD /* FooterView.m in Sources */,
 				B983A4EF1BD18293009569CD /* ContactViewController.m in Sources */,
 				B9E215621BCAF1FA00A5F7D1 /* RememberMeView.m in Sources */,
+				B9F94E2C1BD956E5001A55AE /* TextFieldWithoutCursor.m in Sources */,
 				B9E215431BC9B98A00A5F7D1 /* BasicButtonView.m in Sources */,
 				B9E215551BCADFED00A5F7D1 /* HomeTableViewCell.m in Sources */,
 				B983A4E21BD168D2009569CD /* BaseHeaderView.m in Sources */,
+				B9F94E301BD966B5001A55AE /* ServicesProvider.m in Sources */,
 				B983A4E91BD17B34009569CD /* PrivacyPolicyViewController.m in Sources */,
 				B9E2150A1BC9AE6F00A5F7D1 /* main.m in Sources */,
 				B96520E81BCED8FB0039E466 /* LoginProvider.m in Sources */,
@@ -771,6 +850,7 @@
 				B9E2154B1BCADB9000A5F7D1 /* HomeViewController.m in Sources */,
 				B96520F01BCF0BC70039E466 /* HomeProvider.m in Sources */,
 				B983A4CA1BD06B14009569CD /* MenuProvider.m in Sources */,
+				B9F94E241BD93B5B001A55AE /* RegenereOption.m in Sources */,
 				B983A4D31BD08213009569CD /* MenuTableViewCell.m in Sources */,
 				B9CAF5271BD65D9E0035C127 /* LoginFormView.m in Sources */,
 				B983A4BF1BD060CA009569CD /* MenuViewController.m in Sources */,

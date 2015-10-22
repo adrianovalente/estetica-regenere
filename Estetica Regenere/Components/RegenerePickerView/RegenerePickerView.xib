@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegenerePickerView">
+            <connections>
+                <outlet property="bckView" destination="fDG-bv-jWD" id="0Q4-pS-Nay"/>
+                <outlet property="txtField" destination="FOt-hh-Kaa" id="U99-OO-jTy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="270" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDG-bv-jWD">
+                    <rect key="frame" x="0.0" y="0.0" width="270" height="40"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="DDe-Hn-8w7">
+                            <rect key="frame" x="245" y="16" width="13" height="8"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="13" id="QUT-cN-znb"/>
+                                <constraint firstAttribute="height" constant="8" id="u5g-YG-1BE"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FOt-hh-Kaa" customClass="TextFieldWithoutCursor">
+                            <rect key="frame" x="20" y="0.0" width="230" height="40"/>
+                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="FOt-hh-Kaa" firstAttribute="leading" secondItem="fDG-bv-jWD" secondAttribute="leading" constant="20" id="8CG-Ze-eIq"/>
+                        <constraint firstAttribute="trailing" secondItem="FOt-hh-Kaa" secondAttribute="trailing" constant="20" id="EkN-OX-8FG"/>
+                        <constraint firstAttribute="centerY" secondItem="DDe-Hn-8w7" secondAttribute="centerY" id="TV1-zb-vWm"/>
+                        <constraint firstItem="FOt-hh-Kaa" firstAttribute="top" secondItem="fDG-bv-jWD" secondAttribute="top" id="UGX-7h-NYK"/>
+                        <constraint firstAttribute="trailing" secondItem="DDe-Hn-8w7" secondAttribute="trailing" constant="12" id="Wwl-vo-wxc"/>
+                        <constraint firstAttribute="bottom" secondItem="FOt-hh-Kaa" secondAttribute="bottom" id="h4X-Bm-NUX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="fDG-bv-jWD" secondAttribute="bottom" id="Bxq-2O-g1L"/>
+                <constraint firstItem="fDG-bv-jWD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YRi-u4-Cvn"/>
+                <constraint firstAttribute="trailing" secondItem="fDG-bv-jWD" secondAttribute="trailing" id="Ypk-EY-cHW"/>
+                <constraint firstItem="fDG-bv-jWD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ims-JG-Ea7"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="menu-arrow" width="25" height="15"/>
+    </resources>
+</document>

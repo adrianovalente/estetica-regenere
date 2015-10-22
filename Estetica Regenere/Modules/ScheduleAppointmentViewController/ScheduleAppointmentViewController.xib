@@ -2,12 +2,15 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScheduleAppointmentViewController">
             <connections>
+                <outlet property="areaPickerView" destination="cZz-WZ-mOT" id="eiD-m6-8qt"/>
                 <outlet property="header" destination="Lg3-8V-bt6" id="Ekw-Tf-OVS"/>
+                <outlet property="loadingView" destination="hor-Bg-v4U" id="8qw-u2-g0V"/>
+                <outlet property="servicePickerView" destination="cVb-Rf-xff" id="64r-WT-gDR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,14 +26,54 @@
                         <constraint firstAttribute="height" constant="120" id="knh-2l-mBL"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Primeiro escolha a Área" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGI-jx-Y1c">
+                    <rect key="frame" x="40" y="168" width="127" height="15"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZz-WZ-mOT" customClass="RegenerePickerView">
+                    <rect key="frame" x="40" y="188" width="240" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="9WG-rL-8Zh"/>
+                        <constraint firstAttribute="height" constant="35" id="ghR-Ia-4IB"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVb-Rf-xff" customClass="RegenerePickerView">
+                    <rect key="frame" x="40" y="263" width="240" height="35"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hor-Bg-v4U" customClass="LoadingView">
+                    <rect key="frame" x="0.0" y="500" width="320" height="68"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="JGI-jx-Y1c" firstAttribute="bottom" secondItem="cZz-WZ-mOT" secondAttribute="top" constant="-10" id="7ol-ne-6qx"/>
+                <constraint firstItem="cZz-WZ-mOT" firstAttribute="top" secondItem="Lg3-8V-bt6" secondAttribute="bottom" constant="50" id="8sZ-z5-jIZ"/>
+                <constraint firstAttribute="trailing" secondItem="hor-Bg-v4U" secondAttribute="trailing" id="9nl-g3-XCe"/>
+                <constraint firstItem="hor-Bg-v4U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AuL-hw-tTx"/>
+                <constraint firstItem="cZz-WZ-mOT" firstAttribute="leading" secondItem="JGI-jx-Y1c" secondAttribute="leading" id="Cya-oI-7fd"/>
                 <constraint firstAttribute="trailing" secondItem="Lg3-8V-bt6" secondAttribute="trailing" id="OLh-nd-n3F"/>
+                <constraint firstAttribute="centerY" secondItem="cVb-Rf-xff" secondAttribute="centerY" id="f6g-qi-IDa"/>
+                <constraint firstAttribute="centerX" secondItem="cZz-WZ-mOT" secondAttribute="centerX" id="ful-xc-3GI"/>
                 <constraint firstItem="Lg3-8V-bt6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="hEg-y8-q4y"/>
+                <constraint firstItem="cVb-Rf-xff" firstAttribute="height" secondItem="cZz-WZ-mOT" secondAttribute="height" id="hht-mG-41L"/>
+                <constraint firstItem="cZz-WZ-mOT" firstAttribute="top" secondItem="JGI-jx-Y1c" secondAttribute="bottom" constant="5" id="j1u-NT-klt"/>
+                <constraint firstAttribute="centerX" secondItem="cVb-Rf-xff" secondAttribute="centerX" id="jDp-qf-BXW"/>
                 <constraint firstItem="Lg3-8V-bt6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lGZ-8H-SMv"/>
+                <constraint firstItem="cVb-Rf-xff" firstAttribute="top" secondItem="cZz-WZ-mOT" secondAttribute="bottom" constant="40" id="lUW-V1-mX6"/>
+                <constraint firstItem="cVb-Rf-xff" firstAttribute="width" secondItem="cZz-WZ-mOT" secondAttribute="width" id="nlv-Jc-goV"/>
+                <constraint firstAttribute="bottom" secondItem="hor-Bg-v4U" secondAttribute="bottom" id="pA6-Kw-LBN"/>
+                <constraint firstItem="hor-Bg-v4U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="500" id="uLp-EI-DuE"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7ol-ne-6qx"/>
+                    <exclude reference="f6g-qi-IDa"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

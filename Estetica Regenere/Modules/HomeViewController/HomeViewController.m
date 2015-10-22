@@ -190,8 +190,9 @@
     if (!_noNeedToShowAlerts) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
+    } else {
+        [self alertView:nil clickedButtonAtIndex:0];
     }
-    [self alertView:nil clickedButtonAtIndex:0];
 }
 
 -(void)updateData

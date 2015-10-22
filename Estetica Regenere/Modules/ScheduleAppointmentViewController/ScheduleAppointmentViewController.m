@@ -10,13 +10,21 @@
 #import "JASidePanelController.h"
 #import "MenuViewController.h"
 #import "BaseHeaderView.h"
+#import "LoadingView.h"
+#import "RegenerePickerView.h"
+#import "AreasProvider.h"
+#import "ServicesProvider.h"
 
-@interface ScheduleAppointmentViewController () <BaseHeaderViewDelegate>
+@interface ScheduleAppointmentViewController () <BaseHeaderViewDelegate, AreasProviderCallback, ServicesProviderCallback, UIAlertViewDelegate, RegenerePickerViewDelegate>
 @property (weak, nonatomic) IBOutlet BaseHeaderView *header;
+@property (weak, nonatomic) IBOutlet LoadingView *loadingView;
+@property (weak, nonatomic) IBOutlet RegenerePickerView *areaPickerView;
+@property (weak, nonatomic) IBOutlet RegenerePickerView *servicePickerView;
 @end
 
 @implementation ScheduleAppointmentViewController
 
+#pragma mark - setup methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
@@ -29,12 +37,14 @@
     // Select "Marcar consulta" button @ side menu
     JASidePanelController *panelController = (JASidePanelController *)self.navigationController.parentViewController;
     [(MenuViewController *)panelController.leftPanel selectCell:1];
+    [self populateAreasPicker];
 }
 
 -(void)setup
 {
     [self setupNavBar];
     [self setupHeader];
+    [self setupPickers];
 }
 
 - (void) setupNavBar
@@ -42,12 +52,31 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
-
 -(void)setupHeader
 {
     [self.header setDelegate:self];
     [self.header updateDescriptionLabel:@"Marque sua consulta agora"];
     [self.header updateWithName:[[NSUserDefaults standardUserDefaults] objectForKey:@"user-name"]];
+}
+
+-(void)setupPickers
+{
+    [self.areaPickerView setPlaceholder:@"Área de atendimento"];
+    [self.areaPickerView setDelegate:self];
+    [self.servicePickerView setPlaceholder:@"Serviço"];
+}
+
+#pragma mark - Private Methods
+-(void)populateAreasPicker
+{
+    [self.loadingView startLoading];
+    [[AreasProvider new] getAreasWithCallback:self];
+}
+
+-(void) displayAlertWithTitle:(NSString *)title message:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
 
 }
 
@@ -57,4 +86,44 @@
     [(JASidePanelController *)self.navigationController.parentViewController toggleLeftPanel:self];
 }
 
+#pragma mark - Areas Provider Callback
+- (void)onGetAreasSuccess:(NSArray *)areas
+{
+    [self.areaPickerView updateWithOptions:areas];
+    [self.loadingView stopLoading];
+}
+
+#pragma mark - Services Provider Callback
+- (void)onGetServicesSuccess:(NSArray *)services
+{
+    [self.servicePickerView updateWithOptions:services];
+    [self.loadingView stopLoading];
+}
+
+#pragma mark - Base Provider Callback
+-(void)onNetworkFailure
+{
+    [self displayAlertWithTitle:@"Erro na rede" message:@"Não foi possível se conectar à Internet. Por favor tente mais tarde."];
+}
+
+-(void)onResponseFailure
+{
+    [self displayAlertWithTitle:@"Erro na rede" message:@"Não foi possível se conectar à Internet. Por favor tente mais tarde."];
+}
+
+#pragma mark - UIAlertView Delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Regenere Picker View Delegate
+-(void)regenerePickerView:(id)pickerView didChangeToValue:(NSString *)value
+{
+    if (pickerView == self.areaPickerView) {
+        [self.loadingView startLoading];
+        [[ServicesProvider new] getServicesWithAreaId:[self.areaPickerView getSelectedOptionValue] callback:self];
+        return;
+    }
+}
 @end

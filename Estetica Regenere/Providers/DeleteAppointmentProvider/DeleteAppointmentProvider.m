@@ -10,6 +10,7 @@
 
 @implementation DeleteAppointmentProvider
 
+#pragma mark - public api
 -(void)deleteAppointmentWithId:(int)appointmentId callback:(id<DeleteAppointmentCallback>)callback
 {
     
