@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		15BEA3C2AD56432008E6D8D3 /* libPods-Estetica Regenere.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC13F1E66E10FF3D73B3CAF8 /* libPods-Estetica Regenere.a */; };
-		B96520DB1BCDADDE0039E466 /* RegenereTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520DA1BCDADDE0039E466 /* RegenereTextField.m */; };
-		B96520DD1BCDAE010039E466 /* RegenereTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96520DC1BCDAE010039E466 /* RegenereTextField.xib */; };
 		B96520E11BCED25F0039E466 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520E01BCED25F0039E466 /* LoadingView.m */; };
 		B96520E31BCED26F0039E466 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96520E21BCED26F0039E466 /* LoadingView.xib */; };
 		B96520E81BCED8FB0039E466 /* LoginProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520E71BCED8FB0039E466 /* LoginProvider.m */; };
@@ -77,9 +75,6 @@
 
 /* Begin PBXFileReference section */
 		82CA84A87AFEE242AE49BE21 /* Pods-Estetica Regenere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Estetica Regenere.release.xcconfig"; path = "Pods/Target Support Files/Pods-Estetica Regenere/Pods-Estetica Regenere.release.xcconfig"; sourceTree = "<group>"; };
-		B96520D91BCDADDE0039E466 /* RegenereTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegenereTextField.h; path = Components/RegenereTextField/RegenereTextField.h; sourceTree = "<group>"; };
-		B96520DA1BCDADDE0039E466 /* RegenereTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegenereTextField.m; path = Components/RegenereTextField/RegenereTextField.m; sourceTree = "<group>"; };
-		B96520DC1BCDAE010039E466 /* RegenereTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegenereTextField.xib; path = Components/RegenereTextField/RegenereTextField.xib; sourceTree = "<group>"; };
 		B96520DF1BCED25F0039E466 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingView.h; path = Components/LoadingView/LoadingView.h; sourceTree = "<group>"; };
 		B96520E01BCED25F0039E466 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingView.m; path = Components/LoadingView/LoadingView.m; sourceTree = "<group>"; };
 		B96520E21BCED26F0039E466 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadingView.xib; path = Components/LoadingView/LoadingView.xib; sourceTree = "<group>"; };
@@ -206,16 +201,6 @@
 				BC13F1E66E10FF3D73B3CAF8 /* libPods-Estetica Regenere.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B96520D81BCDADAE0039E466 /* RegenereTextField */ = {
-			isa = PBXGroup;
-			children = (
-				B96520D91BCDADDE0039E466 /* RegenereTextField.h */,
-				B96520DA1BCDADDE0039E466 /* RegenereTextField.m */,
-				B96520DC1BCDAE010039E466 /* RegenereTextField.xib */,
-			);
-			name = RegenereTextField;
 			sourceTree = "<group>";
 		};
 		B96520DE1BCED2360039E466 /* LoadingView */ = {
@@ -481,7 +466,6 @@
 				B96520FD1BCFF3380039E466 /* SidePanel */,
 				B96520F71BCF42A80039E466 /* MoreButtonView */,
 				B96520DE1BCED2360039E466 /* LoadingView */,
-				B96520D81BCDADAE0039E466 /* RegenereTextField */,
 				B9E2155F1BCAF1D100A5F7D1 /* RememberMeView */,
 				B9E215581BCAE57900A5F7D1 /* BaseTableViewManager */,
 				B9E215571BCAE55800A5F7D1 /* HomeTableViewManager */,
@@ -690,7 +674,6 @@
 			files = (
 				B9E215701BCC016700A5F7D1 /* LoginViewController.xib in Resources */,
 				B983A4DE1BD16855009569CD /* ScheduleAppointmentViewController.xib in Resources */,
-				B96520DD1BCDAE010039E466 /* RegenereTextField.xib in Resources */,
 				B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */,
 				B983A4D41BD08213009569CD /* MenuTableViewCell.xib in Resources */,
 				B9E215561BCADFED00A5F7D1 /* HomeTableViewCell.xib in Resources */,
@@ -773,7 +756,6 @@
 				B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */,
 				B96520F61BCF30680039E466 /* AppointmentsList.m in Sources */,
 				B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */,
-				B96520DB1BCDADDE0039E466 /* RegenereTextField.m in Sources */,
 				B9E2155E1BCAE59400A5F7D1 /* HomeTableViewManager.m in Sources */,
 				B9E215501BCADF5200A5F7D1 /* BaseComponentsView.m in Sources */,
 				B983A4F41BD18D7F009569CD /* FooterView.m in Sources */,
