@@ -17,7 +17,15 @@
 #import "AvailableTimesProvider.h"
 #import "BasicButtonView.h"
 
-@interface ScheduleAppointmentViewController () <BaseHeaderViewDelegate, AreasProviderCallback, ServicesProviderCallback, AvailableTimesProviderCallback, UIAlertViewDelegate, RegenerePickerViewDelegate>
+typedef enum ScheduleAppointmentFarthestPickerEnabled : int {
+    AreaPicker,
+    ServicePicker,
+    DatePicker,
+    TimePicker
+} ScheduleAppointmentFarthestPickerEnabled;
+
+@interface ScheduleAppointmentViewController () <BaseHeaderViewDelegate, AreasProviderCallback, ServicesProviderCallback, AvailableTimesProviderCallback, UIAlertViewDelegate, RegenerePickerViewDelegate, BasicButtonProtocol>
+
 @property (weak, nonatomic) IBOutlet BaseHeaderView *header;
 @property (weak, nonatomic) IBOutlet LoadingView *loadingView;
 @property (weak, nonatomic) IBOutlet RegenerePickerView *areaPickerView;
@@ -25,13 +33,24 @@
 @property (weak, nonatomic) IBOutlet RegenerePickerView *datePickerView;
 @property (weak, nonatomic) IBOutlet RegenerePickerView *timePickerView;
 @property (weak, nonatomic) IBOutlet BasicButtonView *button;
+@property (weak, nonatomic) IBOutlet UILabel *areaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *serviceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
+
+@property (nonatomic) ScheduleAppointmentFarthestPickerEnabled farthestEnabled;
+
 
 // It has to be a property because we're intersted in holding this pointer 4ever o.O
 @property (strong, nonatomic) AvailableTimesProvider *timesProvider;
 
 @end
 
-@implementation ScheduleAppointmentViewController
+@implementation ScheduleAppointmentViewController {
+    BOOL _allowedToDispatchFinalRequest;
+    BOOL _noNeedToPopViewControllerAfterDismissingAlertView;
+}
 
 #pragma mark - setup methods
 - (void)viewDidLoad {
@@ -51,6 +70,7 @@
 
 -(void)setup
 {
+    [self setFarthestEnabled:AreaPicker];
     [self setupNavBar];
     [self setupHeader];
     [self setupPickers];
@@ -84,6 +104,7 @@
 -(void)setupButton
 {
     [self.button setTitle:@"Marcar"];
+    [self.button setDelegate:self];
     [self.button setType:BasicButtonTypeCallToAction];
 }
 
@@ -99,6 +120,72 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
 
+}
+
+-(void)setFarthestEnabled:(ScheduleAppointmentFarthestPickerEnabled)farthestEnabled
+{
+    if (farthestEnabled == AreaPicker) {
+        
+        [self.areaLabel setText:@"Primeiro escolha a área"];
+        [self.areaLabel setTextColor:[self greenColor]];
+        [self.serviceLabel setHidden:YES];
+        [self.dateLabel setHidden:YES];
+        [self.timeLabel setHidden:YES];
+        [self.areaPickerView setStatus:RegenerePickerViewStatusNormal];
+        [self.areaPickerView showPlaceHoderInsteadOfSelectedValue:YES];
+        [self.servicePickerView setStatus:regenerePickerViewStatusDisabled];
+        [self.servicePickerView showPlaceHoderInsteadOfSelectedValue:YES];
+        [self.datePickerView setStatus:regenerePickerViewStatusDisabled];
+        [self.datePickerView showPlaceHoderInsteadOfSelectedValue:YES];
+        [self.timePickerView setStatus:regenerePickerViewStatusDisabled];
+        [self.timePickerView showPlaceHoderInsteadOfSelectedValue:YES];
+
+    }
+    
+    if(farthestEnabled == ServicePicker) {
+        [self setFarthestEnabled:AreaPicker];
+        [self.areaLabel setText:@"Área"];
+        [self.areaLabel setTextColor:[self defaultColor]];
+        [self.serviceLabel setHidden:NO];
+        [self.serviceLabel setText:@"Agora escolha o serviço"];
+        [self.serviceLabel setTextColor:[self greenColor]];
+        [self.servicePickerView setStatus:RegenerePickerViewStatusNormal];
+        [self.areaPickerView showPlaceHoderInsteadOfSelectedValue:NO];
+    }
+    
+    if (farthestEnabled == DatePicker) {
+        [self setFarthestEnabled:ServicePicker];
+        [self.serviceLabel setText:@"Servico"];
+        [self.serviceLabel setTextColor:[self defaultColor]];
+        [self.dateLabel setHidden:NO];
+        [self.dateLabel setText:@"Agora escolha a data"];
+        [self.dateLabel setTextColor:[self greenColor]];
+        [self.datePickerView setStatus:RegenerePickerViewStatusNormal];
+        [self.servicePickerView showPlaceHoderInsteadOfSelectedValue:NO];
+    }
+    
+    if (farthestEnabled == TimePicker) {
+        [self setFarthestEnabled:DatePicker];
+        [self.dateLabel setText:@"Data"];
+        [self.dateLabel setTextColor:[self defaultColor]];
+        [self.timeLabel setHidden:NO];
+        [self.timeLabel setText:@"Agora escolha o horário"];
+        [self.timeLabel setTextColor:[self greenColor]];
+        [self.timePickerView setStatus:RegenerePickerViewStatusNormal];
+        [self.datePickerView showPlaceHoderInsteadOfSelectedValue:NO];
+    }
+        
+    _farthestEnabled = farthestEnabled;
+}
+
+-(UIColor *)greenColor
+{
+    return [UIColor colorWithRed:61/255.0f green:145/255.0f blue:107/255.0f alpha:1.0];
+}
+
+-(UIColor *)defaultColor
+{
+    return [UIColor blackColor];
 }
 
 #pragma mark - Base Header View Delegate
@@ -147,30 +234,49 @@
 #pragma mark - UIAlertView Delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    if (!_noNeedToPopViewControllerAfterDismissingAlertView)
+        [self.navigationController popViewControllerAnimated:YES];
+    _noNeedToPopViewControllerAfterDismissingAlertView = NO;
 }
 
 #pragma mark - Regenere Picker View Delegate
 -(void)regenerePickerView:(id)pickerView didChangeToValue:(NSString *)value
 {
-    
-    // TODO: Add logic to hide and show pickers (or maybe add 'invalid' state)
+    _allowedToDispatchFinalRequest = NO;
+
     if (pickerView == self.areaPickerView) {
         [self.loadingView startLoading];
         [[ServicesProvider new] getServicesWithAreaId:[self.areaPickerView getSelectedOptionValue] callback:self];
+        [self setFarthestEnabled:ServicePicker];
         return;
     }
     
     if (pickerView == self.servicePickerView) {
         [self.loadingView startLoading];
         [self.timesProvider getAbailableTimesToService:[self.servicePickerView getSelectedOptionValue] callback:self];
+        [self setFarthestEnabled:DatePicker];
     }
     
     if (pickerView == self.datePickerView) {
         [self.timePickerView updateWithOptions:[self.timesProvider getTimesToDate:[self.datePickerView getSelectedOptionValue]]];
+        [self setFarthestEnabled:TimePicker];
+    }
+    
+    if (pickerView == self.timePickerView) {
+        [self.timeLabel setText:@"Horário"];
+        [self.timeLabel setTextColor:[self defaultColor]];
+        [self.timePickerView showPlaceHoderInsteadOfSelectedValue:NO];
+        _allowedToDispatchFinalRequest = YES;
     }
 }
-
+#pragma mark - Basic Button Delegate
+-(void)buttonTapped:(id)button
+{
+    if (!_allowedToDispatchFinalRequest) {
+        _noNeedToPopViewControllerAfterDismissingAlertView = YES;
+        [self displayAlertWithTitle:@"Espere um pouco!" message:@"Você ainda precisa escolher algumas coisas antes de marcar a consulta"];
+    }
+}
 #pragma mark - lazy instantiations
 -(AvailableTimesProvider *)timesProvider
 {

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegenerePickerView">
             <connections>
+                <outlet property="arrowImg" destination="DDe-Hn-8w7" id="vnl-H0-Dg4"/>
                 <outlet property="bckView" destination="fDG-bv-jWD" id="0Q4-pS-Nay"/>
                 <outlet property="txtField" destination="FOt-hh-Kaa" id="U99-OO-jTy"/>
             </connections>

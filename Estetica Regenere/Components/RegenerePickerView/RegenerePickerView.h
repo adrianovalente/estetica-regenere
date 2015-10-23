@@ -8,6 +8,11 @@
 
 #import "BaseComponentsView.h"
 
+typedef enum RegenerePickerViewStatus : int {
+    RegenerePickerViewStatusNormal,
+    regenerePickerViewStatusDisabled
+} RegenerePickerViewStatus;
+
 @protocol RegenerePickerViewDelegate <NSObject>
 
 -(void)regenerePickerView:(id)pickerView didChangeToValue:(NSString *)value;
@@ -20,6 +25,8 @@
 -(void)setPlaceholder:(NSString *)placeholder;
 -(void)updateWithOptions:(NSArray *)options;
 -(NSString *)getSelectedOptionValue;
+-(void)setStatus:(RegenerePickerViewStatus)status;
+-(void)showPlaceHoderInsteadOfSelectedValue:(BOOL)showPlacehoder;
 
 @property (nonatomic) id<RegenerePickerViewDelegate> delegate;
 

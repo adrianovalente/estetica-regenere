@@ -7,12 +7,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScheduleAppointmentViewController">
             <connections>
+                <outlet property="areaLabel" destination="JGI-jx-Y1c" id="oVt-AT-JUq"/>
                 <outlet property="areaPickerView" destination="cZz-WZ-mOT" id="eiD-m6-8qt"/>
                 <outlet property="button" destination="JFx-tL-9xZ" id="mgv-xD-Ibj"/>
+                <outlet property="dateLabel" destination="cW1-6R-EoC" id="JT6-hR-gzj"/>
                 <outlet property="datePickerView" destination="ZNU-Ra-OnH" id="ENw-cY-Fpk"/>
                 <outlet property="header" destination="Lg3-8V-bt6" id="Ekw-Tf-OVS"/>
                 <outlet property="loadingView" destination="hor-Bg-v4U" id="8qw-u2-g0V"/>
+                <outlet property="serviceLabel" destination="nfz-Pe-ZSs" id="ZpX-fi-wh8"/>
                 <outlet property="servicePickerView" destination="cVb-Rf-xff" id="64r-WT-gDR"/>
+                <outlet property="timeLabel" destination="rP9-08-E8F" id="BZh-7t-IMZ"/>
                 <outlet property="timePickerView" destination="VAa-3I-Snf" id="Tca-HY-ElY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

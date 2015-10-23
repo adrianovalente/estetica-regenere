@@ -13,17 +13,22 @@
 
 @property (weak, nonatomic) IBOutlet UIView *bckView;
 @property (weak, nonatomic) IBOutlet UITextField *txtField;
+@property (weak, nonatomic) IBOutlet UIImageView *arrowImg;
 @property (strong, nonatomic) UIPickerView *pickerView;
 @property (strong, nonatomic) NSArray *options;
+@property (strong, nonatomic) NSString *placeholderString;
 
 @end
 
-@implementation RegenerePickerView
+@implementation RegenerePickerView {
+    RegenerePickerViewStatus _currentStatus;
+}
 
 #pragma mark - public api
 -(void)setPlaceholder:(NSString *)placeholder
 {
     [self.txtField setText:placeholder];
+    self.placeholderString = placeholder;
 }
 
 -(void)updateWithOptions:(NSArray *)options
@@ -37,6 +42,32 @@
     return [NSString stringWithFormat:@"%@", [(RegenereOption *)[self.options objectAtIndex:[self.pickerView selectedRowInComponent:0]] optionId]];
 }
 
+- (void)showPlaceHoderInsteadOfSelectedValue:(BOOL)showPlacehoder
+{
+    if (showPlacehoder) {
+        [self.txtField setText:self.placeholderString];
+    } else {
+        [self.txtField setText:[(RegenereOption *)[self.options objectAtIndex:[self.pickerView selectedRowInComponent:0]] name]];
+    }
+}
+
+- (void)setStatus:(RegenerePickerViewStatus)status
+{
+    if (status == RegenerePickerViewStatusNormal) {
+        [self.txtField setEnabled:YES];
+        [self.bckView.layer setBorderColor: [[UIColor colorWithRed:(61/255.0) green:(145/255.0) blue:(107/255.0) alpha:1] CGColor]];
+        [self.arrowImg setHidden:NO];
+        _currentStatus = RegenerePickerViewStatusNormal;
+        return;
+    }
+    
+    if (status == regenerePickerViewStatusDisabled) {
+        [self.txtField setEnabled:NO];
+        [self.bckView.layer setBorderColor: [[UIColor colorWithRed:(142/255.0) green:(142/255.0) blue:(147/255.0) alpha:1] CGColor]];
+        [self.arrowImg setHidden:YES];
+        _currentStatus = regenerePickerViewStatusDisabled;
+    }
+}
 
 #pragma mark - setup methods
 -(void)awakeFromNib
@@ -44,11 +75,11 @@
     [super awakeFromNib];
     [self setupBorders];
     [self setupTextField];
+    [self setStatus:RegenerePickerViewStatusNormal];
 }
 
 -(void)setupTextField
 {
-
     [self.txtField setInputView:self.pickerView];
 }
 
@@ -56,7 +87,6 @@
 {
     self.bckView.layer.cornerRadius = 15;
     self.bckView.layer.masksToBounds = YES;
-    self.bckView.layer.borderColor = [[UIColor colorWithRed:(61/255.0) green:(145/255.0) blue:(107/255.0) alpha:1] CGColor];
     self.bckView.layer.borderWidth = 1.0f;
 }
 
@@ -86,7 +116,7 @@
 
 
 
-#pragma mark - Picker View Lazy Instantiation
+#pragma mark - Lazy Instantiations
 -(UIPickerView *)pickerView
 {
     if (!_pickerView) _pickerView = [UIPickerView new];
@@ -96,6 +126,10 @@
     return _pickerView;
 }
 
+-(NSString *)placeholderString
+{
+    if (!_placeholderString) _placeholderString = @"Escolha";
+    return _placeholderString;
+}
+
 @end
-
-
