@@ -16,6 +16,7 @@
 #import "ServicesProvider.h"
 #import "AvailableTimesProvider.h"
 #import "BasicButtonView.h"
+#import "ScheduleAppointmentProvider.h"
 
 typedef enum ScheduleAppointmentFarthestPickerEnabled : int {
     AreaPicker,
@@ -24,7 +25,7 @@ typedef enum ScheduleAppointmentFarthestPickerEnabled : int {
     TimePicker
 } ScheduleAppointmentFarthestPickerEnabled;
 
-@interface ScheduleAppointmentViewController () <BaseHeaderViewDelegate, AreasProviderCallback, ServicesProviderCallback, AvailableTimesProviderCallback, UIAlertViewDelegate, RegenerePickerViewDelegate, BasicButtonProtocol>
+@interface ScheduleAppointmentViewController () <BaseHeaderViewDelegate, AreasProviderCallback, ServicesProviderCallback, AvailableTimesProviderCallback, ScheduleAppointmentProviderCallback, UIAlertViewDelegate, RegenerePickerViewDelegate, BasicButtonProtocol>
 
 @property (weak, nonatomic) IBOutlet BaseHeaderView *header;
 @property (weak, nonatomic) IBOutlet LoadingView *loadingView;
@@ -220,6 +221,17 @@ typedef enum ScheduleAppointmentFarthestPickerEnabled : int {
     [self displayAlertWithTitle:@"Falha na autenticação" message:@"Ops! Parece que você tem que fazer login de novo"];
 }
 
+#pragma mark - Schedule Provider Callback
+- (void)onScheduleAppointmentSuccess
+{
+    [self displayAlertWithTitle:@"Sucesso" message:@"Consulta agendada com sucesso!"];
+}
+
+- (void)onTimeNotAvailable
+{
+    [self displayAlertWithTitle:@"Horário não disponível" message:@"Ops! Parece que enquanto você pensava alguém marcou na sua frente."];
+}
+
 #pragma mark - Base Provider Callback
 -(void)onNetworkFailure
 {
@@ -275,6 +287,12 @@ typedef enum ScheduleAppointmentFarthestPickerEnabled : int {
     if (!_allowedToDispatchFinalRequest) {
         _noNeedToPopViewControllerAfterDismissingAlertView = YES;
         [self displayAlertWithTitle:@"Espere um pouco!" message:@"Você ainda precisa escolher algumas coisas antes de marcar a consulta"];
+    } else {
+        [self.loadingView startLoading];
+        [[ScheduleAppointmentProvider new] scheduleAppointmentWithService:[self.servicePickerView getSelectedOptionValue]
+                                                                     date:[self.datePickerView getSelectedOptionValue]
+                                                                     time:[self.timePickerView getSelectedOptionValue]
+                                                                 callback:self];
     }
 }
 #pragma mark - lazy instantiations

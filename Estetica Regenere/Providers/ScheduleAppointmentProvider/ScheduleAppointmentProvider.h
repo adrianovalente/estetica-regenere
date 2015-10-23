@@ -12,11 +12,13 @@
 -(void)onTokenMissing;
 -(void)onTimeNotAvailable;
 -(void)onScheduleAppointmentSuccess;
--(void)onScheduleAppointmentFailure;
 @end
 
 @interface ScheduleAppointmentProvider : BaseProvider
 
-@property (nonatomic) id<ScheduleAppointmentProviderCallback> callback;
+-(void)scheduleAppointmentWithService:(NSString *)service
+                                 date:(NSString *)date
+                                 time:(NSString *)time
+                             callback:(id<ScheduleAppointmentProviderCallback>)callback;
 
 @end

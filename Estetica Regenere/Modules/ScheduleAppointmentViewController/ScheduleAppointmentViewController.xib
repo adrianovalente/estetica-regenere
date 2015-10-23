@@ -140,6 +140,7 @@
                             </variation>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="oGo-jh-zZ5" firstAttribute="width" secondItem="qFk-rK-uFN" secondAttribute="width" id="Amg-UM-rwA"/>
                         <constraint firstItem="oGo-jh-zZ5" firstAttribute="top" secondItem="qFk-rK-uFN" secondAttribute="top" id="DOe-DB-Drs"/>

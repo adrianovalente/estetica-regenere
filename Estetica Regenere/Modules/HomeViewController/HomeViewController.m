@@ -45,8 +45,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
-    [self updateData];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,6 +52,7 @@
     [super viewWillAppear:animated];
     [self unselectAllHomeTBVCells];
     [self resetMenuOptions];
+    [self updateData];
 }
 
 
