@@ -12,8 +12,9 @@
 #import "LoginProvider.h"
 #import "HomeViewController.h"
 #import "LoginFormView.h"
+#import "SignUpViewController.h"
 
-@interface LoginViewController () <BasicButtonProtocol, LoginProviderDelegate, UIAlertViewDelegate>
+@interface LoginViewController () <BasicButtonProtocol, LoginProviderDelegate, SignUpViewControllerDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet LoginFormView *loginFormView;
 @property (weak, nonatomic) IBOutlet BasicButtonView *performLoginBasicButton;
@@ -58,6 +59,12 @@
     [alert show];
 }
 
+- (IBAction)signupButton:(id)sender {
+
+    [self presentViewController:[SignUpViewController signUpViewControllerWithDelegate:self] animated:YES completion:nil];
+
+}
+
 #pragma mark - BasicButtonDelegate
 -(void)buttonTapped:(id)button
 {
@@ -95,5 +102,14 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     [self.loadingView stopLoading];
+}
+
+#pragma mark - Sign Up Delegate
+- (void)onSignUpSuccessWithEmail:(NSString *)email
+                        password:(NSString *)password
+{
+    [[LoginProvider new] performLoginWithEmail:email
+                                       passord:password
+                                      delegate:self];
 }
 @end

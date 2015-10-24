@@ -45,12 +45,23 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2w-JF-QCj" customClass="BasicButtonView">
-                    <rect key="frame" x="85" y="375" width="150" height="26"/>
+                    <rect key="frame" x="85" y="342" width="150" height="26"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="47s-B1-7Gu"/>
                         <constraint firstAttribute="height" constant="26" id="Zdc-jr-kIT"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzK-mz-TRx">
+                    <rect key="frame" x="137" y="388" width="46" height="30"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                    <state key="normal" title="Não tem cadastro?">
+                        <color key="titleColor" red="0.43529411764705883" green="0.16862745098039217" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="0.55294117649999996" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="signupButton:" destination="-1" eventType="touchUpInside" id="BRu-t9-8eg"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPj-bC-iCF" customClass="LoadingView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </view>
@@ -59,12 +70,15 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="X9G-LG-6x5" secondAttribute="trailing" constant="15" id="4UX-aj-eMI"/>
                 <constraint firstItem="LSI-dy-bpp" firstAttribute="top" secondItem="zgu-db-6So" secondAttribute="bottom" constant="20" id="7OH-hQ-oBX"/>
+                <constraint firstItem="UzK-mz-TRx" firstAttribute="top" secondItem="G2w-JF-QCj" secondAttribute="bottom" constant="13" id="7ey-yv-8CH"/>
                 <constraint firstAttribute="centerY" secondItem="X9G-LG-6x5" secondAttribute="centerY" constant="56.5" id="DDB-1G-4bq"/>
                 <constraint firstAttribute="centerX" secondItem="kEJ-fM-Cfi" secondAttribute="centerX" id="QAj-bY-E03"/>
+                <constraint firstItem="G2w-JF-QCj" firstAttribute="top" secondItem="LSI-dy-bpp" secondAttribute="bottom" constant="20" id="QOx-RB-dSz"/>
                 <constraint firstItem="zgu-db-6So" firstAttribute="top" secondItem="X9G-LG-6x5" secondAttribute="bottom" id="RRA-re-x5k"/>
                 <constraint firstAttribute="centerX" secondItem="LSI-dy-bpp" secondAttribute="centerX" id="bD4-Fa-vtv"/>
                 <constraint firstItem="kEJ-fM-Cfi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="cd5-Gb-veZ"/>
                 <constraint firstItem="X9G-LG-6x5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="dee-ZX-fwM"/>
+                <constraint firstAttribute="centerX" secondItem="UzK-mz-TRx" secondAttribute="centerX" id="i6B-kc-qNJ"/>
                 <constraint firstAttribute="centerX" secondItem="G2w-JF-QCj" secondAttribute="centerX" id="mKo-t1-ksb"/>
                 <constraint firstItem="zgu-db-6So" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="owf-WH-u2T"/>
                 <constraint firstItem="X9G-LG-6x5" firstAttribute="top" secondItem="kEJ-fM-Cfi" secondAttribute="bottom" constant="20" id="plP-w9-vev"/>
@@ -75,6 +89,7 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="DDB-1G-4bq"/>
+                    <exclude reference="vR6-JX-bbg"/>
                 </mask>
             </variation>
         </view>

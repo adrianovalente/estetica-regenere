@@ -70,6 +70,11 @@
 		B9F94E301BD966B5001A55AE /* ServicesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E2F1BD966B5001A55AE /* ServicesProvider.m */; };
 		B9F94E341BD98453001A55AE /* AvailableTimesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E331BD98453001A55AE /* AvailableTimesProvider.m */; };
 		B9F94E3B1BD99775001A55AE /* DatesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E3A1BD99775001A55AE /* DatesProvider.m */; };
+		B9F94E401BDBE4EA001A55AE /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E3E1BDBE4EA001A55AE /* SignUpViewController.m */; };
+		B9F94E411BDBE4EA001A55AE /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F94E3F1BDBE4EA001A55AE /* SignUpViewController.xib */; };
+		B9F94E451BDBE655001A55AE /* SignUpFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E441BDBE655001A55AE /* SignUpFormView.m */; };
+		B9F94E471BDBE661001A55AE /* SignUpFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F94E461BDBE661001A55AE /* SignUpFormView.xib */; };
+		B9F94E4B1BDC132A001A55AE /* SignUpProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E4A1BDC132A001A55AE /* SignUpProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +194,14 @@
 		B9F94E331BD98453001A55AE /* AvailableTimesProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AvailableTimesProvider.m; path = Providers/AvailableTimesProvider/AvailableTimesProvider.m; sourceTree = "<group>"; };
 		B9F94E391BD99775001A55AE /* DatesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatesProvider.h; path = Providers/DatesProvider/DatesProvider.h; sourceTree = "<group>"; };
 		B9F94E3A1BD99775001A55AE /* DatesProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatesProvider.m; path = Providers/DatesProvider/DatesProvider.m; sourceTree = "<group>"; };
+		B9F94E3D1BDBE4EA001A55AE /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Modules/SignUpViewController/SignUpViewController.h; sourceTree = "<group>"; };
+		B9F94E3E1BDBE4EA001A55AE /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = Modules/SignUpViewController/SignUpViewController.m; sourceTree = "<group>"; };
+		B9F94E3F1BDBE4EA001A55AE /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = Modules/SignUpViewController/SignUpViewController.xib; sourceTree = "<group>"; };
+		B9F94E431BDBE655001A55AE /* SignUpFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpFormView.h; path = Components/SignUpFormView/SignUpFormView.h; sourceTree = "<group>"; };
+		B9F94E441BDBE655001A55AE /* SignUpFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpFormView.m; path = Components/SignUpFormView/SignUpFormView.m; sourceTree = "<group>"; };
+		B9F94E461BDBE661001A55AE /* SignUpFormView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpFormView.xib; sourceTree = "<group>"; };
+		B9F94E491BDC132A001A55AE /* SignUpProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpProvider.h; path = Providers/SignUpProvider/SignUpProvider.h; sourceTree = "<group>"; };
+		B9F94E4A1BDC132A001A55AE /* SignUpProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpProvider.m; path = Providers/SignUpProvider/SignUpProvider.m; sourceTree = "<group>"; };
 		BC13F1E66E10FF3D73B3CAF8 /* libPods-Estetica Regenere.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Estetica Regenere.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4731EBA12AF5906AED394E3 /* Pods-Estetica Regenere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Estetica Regenere.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Estetica Regenere/Pods-Estetica Regenere.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,6 +255,7 @@
 		B96520E41BCED8B30039E466 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				B9F94E481BDC1309001A55AE /* SignUpProvider */,
 				B9F94E351BD99742001A55AE /* DatesProvider */,
 				B9F94E311BD98425001A55AE /* AvailableTimesProvider */,
 				B9F94E2D1BD96698001A55AE /* ServicesProvider */,
@@ -491,6 +505,7 @@
 		B9E2152D1BC9AF5300A5F7D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B9F94E421BDBE60C001A55AE /* SignUpFormView */,
 				B9F94E291BD956C0001A55AE /* TextFieldWithoutCursor */,
 				B9F94E141BD911AA001A55AE /* RegenerePickerView */,
 				B9CAF5241BD65D760035C127 /* LoginFormView */,
@@ -535,6 +550,7 @@
 		B9E215461BCADB6000A5F7D1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B9F94E3C1BDBE4C7001A55AE /* SignUpViewController */,
 				B983A4EB1BD18270009569CD /* ContactViewController */,
 				B983A4E51BD17B10009569CD /* PrivacyPolicyViewController */,
 				B983A4D91BD1682A009569CD /* ScheduleAppointmentViewController */,
@@ -689,6 +705,35 @@
 			name = DatesProvider;
 			sourceTree = "<group>";
 		};
+		B9F94E3C1BDBE4C7001A55AE /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E3D1BDBE4EA001A55AE /* SignUpViewController.h */,
+				B9F94E3E1BDBE4EA001A55AE /* SignUpViewController.m */,
+				B9F94E3F1BDBE4EA001A55AE /* SignUpViewController.xib */,
+			);
+			name = SignUpViewController;
+			sourceTree = "<group>";
+		};
+		B9F94E421BDBE60C001A55AE /* SignUpFormView */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E431BDBE655001A55AE /* SignUpFormView.h */,
+				B9F94E441BDBE655001A55AE /* SignUpFormView.m */,
+				B9F94E461BDBE661001A55AE /* SignUpFormView.xib */,
+			);
+			name = SignUpFormView;
+			sourceTree = "<group>";
+		};
+		B9F94E481BDC1309001A55AE /* SignUpProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E491BDC132A001A55AE /* SignUpProvider.h */,
+				B9F94E4A1BDC132A001A55AE /* SignUpProvider.m */,
+			);
+			name = SignUpProvider;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -774,6 +819,7 @@
 				B9E215701BCC016700A5F7D1 /* LoginViewController.xib in Resources */,
 				B983A4DE1BD16855009569CD /* ScheduleAppointmentViewController.xib in Resources */,
 				B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */,
+				B9F94E471BDBE661001A55AE /* SignUpFormView.xib in Resources */,
 				B983A4D41BD08213009569CD /* MenuTableViewCell.xib in Resources */,
 				B9E215561BCADFED00A5F7D1 /* HomeTableViewCell.xib in Resources */,
 				B9F94E191BD911FF001A55AE /* RegenerePickerView.xib in Resources */,
@@ -787,6 +833,7 @@
 				B9E215151BC9AE6F00A5F7D1 /* Images.xcassets in Resources */,
 				B983A4F61BD18D9B009569CD /* FooterView.xib in Resources */,
 				B983A4E41BD168E4009569CD /* BaseHeaderView.xib in Resources */,
+				B9F94E411BDBE4EA001A55AE /* SignUpViewController.xib in Resources */,
 				B9E2154C1BCADB9000A5F7D1 /* HomeViewController.xib in Resources */,
 				B96520E31BCED26F0039E466 /* LoadingView.xib in Resources */,
 				B9E215641BCAF20900A5F7D1 /* RememberMeView.xib in Resources */,
@@ -854,6 +901,7 @@
 				B9F94E281BD93FC1001A55AE /* AreasProvider.m in Sources */,
 				B983A4CE1BD06DA9009569CD /* MenuTableViewManager.m in Sources */,
 				B983A4D81BD14B3D009569CD /* DeleteAppointmentProvider.m in Sources */,
+				B9F94E451BDBE655001A55AE /* SignUpFormView.m in Sources */,
 				B96521021BCFF3380039E466 /* JASidePanelController.m in Sources */,
 				B9E2153A1BC9B1CF00A5F7D1 /* HomeHeaderView.m in Sources */,
 				B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */,
@@ -868,6 +916,7 @@
 				B9F94E2C1BD956E5001A55AE /* TextFieldWithoutCursor.m in Sources */,
 				B9E215431BC9B98A00A5F7D1 /* BasicButtonView.m in Sources */,
 				B9E215551BCADFED00A5F7D1 /* HomeTableViewCell.m in Sources */,
+				B9F94E401BDBE4EA001A55AE /* SignUpViewController.m in Sources */,
 				B983A4E21BD168D2009569CD /* BaseHeaderView.m in Sources */,
 				B9F94E301BD966B5001A55AE /* ServicesProvider.m in Sources */,
 				B983A4E91BD17B34009569CD /* PrivacyPolicyViewController.m in Sources */,
@@ -876,6 +925,7 @@
 				B96520E81BCED8FB0039E466 /* LoginProvider.m in Sources */,
 				B96520EC1BCF017B0039E466 /* BaseProvider.m in Sources */,
 				B9E2154B1BCADB9000A5F7D1 /* HomeViewController.m in Sources */,
+				B9F94E4B1BDC132A001A55AE /* SignUpProvider.m in Sources */,
 				B96520F01BCF0BC70039E466 /* HomeProvider.m in Sources */,
 				B983A4CA1BD06B14009569CD /* MenuProvider.m in Sources */,
 				B9F94E241BD93B5B001A55AE /* RegenereOption.m in Sources */,
