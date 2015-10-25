@@ -801,6 +801,7 @@
 				TargetAttributes = {
 					B9E215031BC9AE6F00A5F7D1 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = U8A8672R27;
 					};
 					B9E2151C1BC9AE7000A5F7D1 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -1078,10 +1079,13 @@
 			baseConfigurationReference = E4731EBA12AF5906AED394E3 /* Pods-Estetica Regenere.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Estetica Regenere/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1090,10 +1094,13 @@
 			baseConfigurationReference = 82CA84A87AFEE242AE49BE21 /* Pods-Estetica Regenere.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Estetica Regenere/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

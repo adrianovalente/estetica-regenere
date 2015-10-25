@@ -184,6 +184,7 @@
 {
     if (alertView == self.deleteAlertView) {
         if (buttonIndex == 1) {
+            [self.loadingView startLoading];
             [[DeleteAppointmentProvider new] deleteAppointmentWithId:_appointmentToDelete callback:self];
         }
         return;

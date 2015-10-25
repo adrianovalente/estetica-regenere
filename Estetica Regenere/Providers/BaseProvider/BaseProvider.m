@@ -81,7 +81,7 @@
                                  method:(NSString *)method
 {
     
-    NSString *fullPath = [@"http://127.0.0.1:8000" stringByAppendingString:path];
+    NSString *fullPath = [@"http://62ff872a.ngrok.io" stringByAppendingString:path];
     AFJSONRequestSerializer *serializer = [[AFJSONRequestSerializer alloc] init];
     
     NSMutableURLRequest *request = [serializer requestWithMethod:method URLString:fullPath parameters:data error:nil];

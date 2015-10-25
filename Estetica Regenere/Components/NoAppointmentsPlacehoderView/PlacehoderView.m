@@ -16,7 +16,8 @@ typedef enum:int {
 
 @interface PlacehoderView () <BasicButtonProtocol>
 
-@property (weak, nonatomic) IBOutlet BasicButtonView *scheduleButton;
+// TODO: 
+//@property (weak, nonatomic) IBOutlet BasicButtonView *scheduleButton;
 
 @end
 
@@ -66,8 +67,8 @@ typedef enum:int {
 
 -(void)setupButton
 {
-    [self.scheduleButton setType:BasicButtonTypeCallToAction];
-    [self.scheduleButton setDelegate:self];
+    [_scheduleButton setType:BasicButtonTypeCallToAction];
+    [_scheduleButton setDelegate:self];
 }
 
 -(void)setupLabel

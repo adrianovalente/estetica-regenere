@@ -9,7 +9,7 @@
 #import "LoginFormView.h"
 #import "JVFloatLabeledTextField.h"
 
-@interface LoginFormView ()
+@interface LoginFormView () <UITextFieldDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIView *bckView;
@@ -43,6 +43,8 @@
     [self.paaswordTextField setPlaceholder:@"Senha" floatingTitle:@"Senha"];
     [self.paaswordTextField setFloatingLabelActiveTextColor:[UIColor colorWithRed:61/255.0f green:145/255.0f blue:107/255.0f alpha:1.0]];
     [self.paaswordTextField setSecureTextEntry:YES];
+    self.loginTextField.delegate = self;
+    self.paaswordTextField.delegate = self;
     
 }
 
@@ -55,6 +57,22 @@
 -(NSString *)getPassword
 {
     return self.paaswordTextField.text;
+}
+
+#pragma mark - text fieild delegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+        [theTextField resignFirstResponder];
+    return YES;
 }
 
 
