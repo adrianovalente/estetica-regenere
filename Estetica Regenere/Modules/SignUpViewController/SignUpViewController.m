@@ -28,6 +28,11 @@
     return [[SignUpViewController alloc] initWithDelegate:delegate];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
 -(instancetype)initWithDelegate:(id<SignUpViewControllerDelegate>)delegate
 {
     self = [super init];

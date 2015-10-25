@@ -24,6 +24,7 @@ typedef enum:int {
 @implementation PlacehoderView {
     
     __weak IBOutlet NSLayoutConstraint *_heightConstraint;
+    __weak IBOutlet NSLayoutConstraint *labelConstraint;
     __weak IBOutlet UIImageView *_image;
     __weak IBOutlet UILabel *_titleLabel;
     __weak IBOutlet BasicButtonView *_scheduleButton;
@@ -36,6 +37,7 @@ typedef enum:int {
 {
     [_scheduleButton setTitle:@"Vou marcar!"];
     [_heightConstraint setConstant:120];
+    [labelConstraint setConstant:3];
     [_image setImage:[UIImage imageNamed:@"calendar-placehoder"]];
     [_titleLabel setText:@"Opa! Parece que por enquanto você ainda não tem nenhuma consulta!"];
     [self setHidden:NO];
@@ -45,9 +47,10 @@ typedef enum:int {
 - (void)showNoConnectionPlaceHolder
 {
     [_scheduleButton setTitle:@"Tentar de novo"];
+    [labelConstraint setConstant:10];
     [_heightConstraint setConstant:95];
     [_image setImage:[UIImage imageNamed:@"wifi-placeholder"]];
-    [_titleLabel setText:@"Opa! Parece que seu 3g acabou HEUEHUEHU o.O"];
+    [_titleLabel setText:@"Poxa! Parece que você está sem Internet!"];
     [self setHidden:NO];
     _currentType = PlaceHolderTypeNoConnection;
 }

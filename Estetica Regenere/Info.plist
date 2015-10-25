@@ -6,7 +6,7 @@
 	<dict>
 	    <key>NSExceptionDomains</key>
 	    <dict>
-	        <key>62ff872a.ngrok.io</key>
+	        <key>obscure-temple-3846.herokuapp.com</key>
 	        <dict>
 	            <key>NSIncludesSubdomains</key>
 	            <true/>
