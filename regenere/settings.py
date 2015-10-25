@@ -10,6 +10,17 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+import dj_database_url
+
+# db config as suggested by heroku
+# but i'm not following this because it's alerady configured by the old way
+# DATABASES = {}
+# DATABASES['default'] =  dj_database_url.config()
+# print DATABASES
+# DATABASES['default']['CONN_MAX_AGE'] = 500
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -57,6 +68,7 @@ WSGI_APPLICATION = 'regenere.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+# I've commented this line!
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -82,6 +94,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 STATICFILES_DIRS = (
         os.path.join(BASE_DIR, "static"),
