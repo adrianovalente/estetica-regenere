@@ -1,0 +1,72 @@
+{% extends "index.html" %}
+
+{%block conteudo_interior%}
+
+<script langauge = "text/javascript">
+  var excluirConsulta = function(id) {
+    if (confirm("Tem certeza que deseja excluir a consulta?")) {
+      window.location.href = "/excluir_consulta/" + id;
+    }
+  }
+</script>
+
+<div class="shell">
+
+  <!-- Small Nav -->
+  <div class="small-nav">
+    <a href="#">Regenere</a>
+    <span>&gt;</span>
+    Consultas
+  </div>
+  <!-- End Small Nav -->
+
+  <br />
+  <!-- Main -->
+  <div id="main">
+    <div class="cl">&nbsp;</div>
+
+    <!-- Content -->
+    <div id="content">
+
+      <!-- Box -->
+      <div class="box">
+        <!-- Box Head -->
+        <div class="box-head">
+          <h2 class="left">Consultas {{area.name}}</h2>
+        </div>
+        <!-- End Box Head -->
+
+        <!-- Table -->
+        <div class="table">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th>Data</th>
+              <th>Horário</th>
+              <th>Serviço</th>
+              <th>Cliente</th>
+              <th width="110" class="ac">Gerenciar</th>
+            </tr>
+            {% for element in consultas %}
+            <tr {% if element.odd%} class="odd" {%endif%}>
+              <td><h3>{{element.date}}</h3></td>
+              <td>{{element.time}}</td>
+              <td>{{element.consulta.service.name}}</td>
+              <td>{{element.consulta.cliente.name}}</td>
+              <td><center><a href="javascript:excluirConsulta({{element.consulta.id}})" class="ico del">Apagar</a></center></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <!-- Table -->
+      </div>
+      <!-- End Box -->
+    </div>
+    <!-- End Content -->
+
+    <div class="cl">&nbsp;</div>
+  </div>
+  <!-- Main -->
+</div>
+
+
+{% endblock %}

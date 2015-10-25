@@ -1,0 +1,117 @@
+{% extends "index.html" %}
+
+{%block conteudo_interior%}
+
+<div class="shell">
+
+  <!-- Small Nav -->
+  <div class="small-nav">
+    <a href="#">Regenere</a>
+    <span>&gt;</span>
+    Clientes
+  </div>
+  <!-- End Small Nav -->
+
+  <br />
+  <!-- Main -->
+  <div id="main">
+    <div class="cl">&nbsp;</div>
+
+    <!-- Content -->
+    <div id="content">
+
+
+      <!-- Box -->
+      <div class="box">
+        <!-- Box Head -->
+        <div class="box-head">
+          <h2>Adicionar cliente</h2>
+        </div>
+        <!-- End Box Head -->
+
+        <form action="" method="post">
+
+          <!-- Form -->
+          <div class="form">
+              {% csrf_token %}
+              <p>
+                <label>Nome <span>(Campo obrigatório)</span></label>
+                <input type="text" class="field size1" name = "name" />
+              </p>
+              <p>
+                <label>Endereço</label>
+                <input type="text" class="field size1" name = "address"/>
+              </p>
+              <p class="inline-field">
+                <label>Data de nascimento</label>
+                <select class="field size2" name="day">
+                  <option value="23">23</option>
+                </select>
+                <select class="field size3" name="month">
+                  <option value="07">July</option>
+                </select>
+                <select class="field size3" name="year">
+                  <option value="2009">2009</option>
+                </select>
+              </p>
+              <p>
+                <label>Telefone <span>(Somente números)</span></label>
+                <input type="text" class="field size1" name = "phone" />
+              </p>
+              <p>
+                <label>Email</label>
+                <input type="text" class="field size1" name = "email"/>
+              </p>
+
+          </div>
+          <!-- End Form -->
+          <!-- Form Buttons -->
+          <div class="buttons">
+            <input type="submit" class="button" value="Cadastrar" />
+          </div>
+          <!-- End Form Buttons -->
+        </form>
+      </div>
+      <!-- End Box -->
+
+
+      <!-- Box -->
+      <div class="box">
+        <!-- Box Head -->
+        <div class="box-head">
+          <h2 class="left">Clientes cadastrados</h2>
+        </div>
+        <!-- End Box Head -->
+
+        <!-- Table -->
+        <div class="table">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
+              <th width="110" class="ac">Gerenciar</th>
+            </tr>
+            {% for element in clientes_list %}
+            <tr {% if element.odd%} class="odd" {%endif%}>
+              <td><h3><a href="/visualizar_cliente/{{element.cliente.id}}">{{element.cliente.name}}</a></h3></td>
+              <td>{{element.cliente.email}}</td>
+              <td>{{element.cliente.phone}}</td>
+              <td><a href="/excluir_cliente/{{element.cliente.id}}" class="ico del">Apagar</a><a href="#" class="ico edit">Editar</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <!-- Table -->
+      </div>
+      <!-- End Box -->
+    </div>
+    <!-- End Content -->
+
+    <div class="cl">&nbsp;</div>
+  </div>
+  <!-- Main -->
+</div>
+
+
+{% endblock %}

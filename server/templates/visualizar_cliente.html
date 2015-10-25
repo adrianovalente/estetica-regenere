@@ -1,0 +1,73 @@
+{% extends "index.html" %}
+
+{%block conteudo_interior%}
+
+<div class="shell">
+
+  <!-- Small Nav -->
+  <div class="small-nav">
+    <a href="#">Regenere</a>
+    <span>&gt;</span>
+    Clientes
+  </div>
+  <!-- End Small Nav -->
+
+  <br />
+  <!-- Main -->
+  <div id="main">
+    <div class="cl">&nbsp;</div>
+
+    <!-- Content -->
+    <div id="content">
+
+      <!-- Box -->
+      <div class="box">
+        <!-- Box Head -->
+        <div class="box-head">
+          <h2 class="left">Dados do cliente</h2>
+        </div>
+        <!-- End Box Head -->
+
+        <!-- Table -->
+        <div class="table">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td>Nome</td>
+              <td>{{cliente.name}}
+            </tr>
+            <tr>
+              <td>Endereço</td>
+              <td>{{cliente.address}}
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{{cliente.email}}
+            </tr>
+            <tr>
+              <td>Telefone</td>
+              <td>{{cliente.phone}}
+            </tr>
+            <tr>
+              <td>Consultas já feitas</td>
+              <td>{{consultas_count}}
+            </tr>
+            <tr>
+              <td>Código de liberação</td>
+              <td><a href="javascript:alert('O código é {{codigo}}');">Ver código</a></td>
+            <tr>
+
+          </table>
+        </div>
+        <!-- Table -->
+      </div>
+      <!-- End Box -->
+    </div>
+    <!-- End Content -->
+
+    <div class="cl">&nbsp;</div>
+  </div>
+  <!-- Main -->
+</div>
+
+
+{% endblock %}
