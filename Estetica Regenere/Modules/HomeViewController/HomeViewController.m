@@ -18,12 +18,14 @@
 #import "MenuViewController.h"
 #import "DeleteAppointmentProvider.h"
 #import "ScheduleAppointmentViewController.h"
+#import "PlacehoderView.h"
 
-@interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate, HomeProviderCallback, UIAlertViewDelegate, LoginViewControllerCallback, DeleteAppointmentCallback>
+@interface HomeViewController () <HomeTableViewManagerDelegate, HomeHeaderViewDelegate, HomeProviderCallback, UIAlertViewDelegate, LoginViewControllerCallback, DeleteAppointmentCallback, PlaceholderDelegate>
 
 @property (weak, nonatomic) IBOutlet LoadingView *loadingView;
 @property (weak, nonatomic) IBOutlet UITableView *consultasTableView;
 @property (weak, nonatomic) IBOutlet HomeHeaderView *header;
+@property (weak, nonatomic) IBOutlet PlacehoderView *noAppointmentsPlacehoder;
 @property (strong, nonatomic) HomeTableViewManager *homeTableViewManager;
 @property (nonatomic) UIAlertView *deleteAlertView;
 @end
@@ -63,6 +65,12 @@
     [self.header setDelegate:self];
     [self setupNavBar];
     [self setupTableView];
+    [self setupPlaceholders];
+}
+
+-(void)setupPlaceholders
+{
+    [self.noAppointmentsPlacehoder setDelegate:self];
 }
 
 - (void) setupTableView
@@ -125,12 +133,15 @@
 
 -(void)onNetworkFailure
 {
-    [self displayAlertWithTitle:@"Erro na rede" message:@"Não possível se conectar à Internet"];
+    [self.loadingView stopLoading];
+    [self.noAppointmentsPlacehoder showNoConnectionPlaceHolder];
 }
 
 -(void)onResponseFailure
 {
     [self displayAlertWithTitle:@"Erro na rede" message:@"Não foi possível caregar os dados. Por favor tente mais tarde."];
+    [self.loadingView stopLoading];
+    [self.noAppointmentsPlacehoder showNoConnectionPlaceHolder];
 }
 
 
@@ -141,6 +152,7 @@
     [self.header updateWithName:name appointments:[NSNumber numberWithInteger:[appointments count]]];
     [self.homeTableViewManager updateWithData:appointments];
     [self.loadingView stopLoading];
+    [appointments count] > 0 ? [self.noAppointmentsPlacehoder hide] : [self.noAppointmentsPlacehoder showNoAppointmentsPlaceholder];
 }
 
 -(void)onHomeRequestFailure
@@ -204,6 +216,17 @@
 {
     JASidePanelController *panel = (JASidePanelController *)self.navigationController.parentViewController;
     [(MenuViewController *)panel.leftPanel resetMenu];
+}
+
+#pragma mark - Placecholder Delegate
+- (void)scheduleAppointmentButtonPressed
+{
+    [self.navigationController pushViewController:[ScheduleAppointmentViewController new] animated:YES];
+}
+
+- (void)tryAgainButtonPressed
+{
+    [self updateData];
 }
 
 #pragma mark - Lazy instantiation

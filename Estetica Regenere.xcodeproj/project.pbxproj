@@ -75,6 +75,8 @@
 		B9F94E451BDBE655001A55AE /* SignUpFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E441BDBE655001A55AE /* SignUpFormView.m */; };
 		B9F94E471BDBE661001A55AE /* SignUpFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F94E461BDBE661001A55AE /* SignUpFormView.xib */; };
 		B9F94E4B1BDC132A001A55AE /* SignUpProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E4A1BDC132A001A55AE /* SignUpProvider.m */; };
+		B9F94E4F1BDC27AC001A55AE /* PlacehoderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F94E4E1BDC27AC001A55AE /* PlacehoderView.m */; };
+		B9F94E511BDC27B7001A55AE /* PlacehoderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F94E501BDC27B7001A55AE /* PlacehoderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +204,9 @@
 		B9F94E461BDBE661001A55AE /* SignUpFormView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpFormView.xib; sourceTree = "<group>"; };
 		B9F94E491BDC132A001A55AE /* SignUpProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpProvider.h; path = Providers/SignUpProvider/SignUpProvider.h; sourceTree = "<group>"; };
 		B9F94E4A1BDC132A001A55AE /* SignUpProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpProvider.m; path = Providers/SignUpProvider/SignUpProvider.m; sourceTree = "<group>"; };
+		B9F94E4D1BDC27AC001A55AE /* PlacehoderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlacehoderView.h; path = Components/NoAppointmentsPlacehoderView/PlacehoderView.h; sourceTree = "<group>"; };
+		B9F94E4E1BDC27AC001A55AE /* PlacehoderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlacehoderView.m; path = Components/NoAppointmentsPlacehoderView/PlacehoderView.m; sourceTree = "<group>"; };
+		B9F94E501BDC27B7001A55AE /* PlacehoderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlacehoderView.xib; sourceTree = "<group>"; };
 		BC13F1E66E10FF3D73B3CAF8 /* libPods-Estetica Regenere.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Estetica Regenere.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4731EBA12AF5906AED394E3 /* Pods-Estetica Regenere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Estetica Regenere.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Estetica Regenere/Pods-Estetica Regenere.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -505,6 +510,7 @@
 		B9E2152D1BC9AF5300A5F7D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B9F94E4C1BDC2786001A55AE /* NoAppointmentsPlacehoderView */,
 				B9F94E421BDBE60C001A55AE /* SignUpFormView */,
 				B9F94E291BD956C0001A55AE /* TextFieldWithoutCursor */,
 				B9F94E141BD911AA001A55AE /* RegenerePickerView */,
@@ -734,6 +740,16 @@
 			name = SignUpProvider;
 			sourceTree = "<group>";
 		};
+		B9F94E4C1BDC2786001A55AE /* NoAppointmentsPlacehoderView */ = {
+			isa = PBXGroup;
+			children = (
+				B9F94E4D1BDC27AC001A55AE /* PlacehoderView.h */,
+				B9F94E4E1BDC27AC001A55AE /* PlacehoderView.m */,
+				B9F94E501BDC27B7001A55AE /* PlacehoderView.xib */,
+			);
+			name = NoAppointmentsPlacehoderView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -828,6 +844,7 @@
 				B96520FC1BCF42EE0039E466 /* MoreButtonView.xib in Resources */,
 				B983A4C01BD060CA009569CD /* MenuViewController.xib in Resources */,
 				B9E215131BC9AE6F00A5F7D1 /* Main.storyboard in Resources */,
+				B9F94E511BDC27B7001A55AE /* PlacehoderView.xib in Resources */,
 				B9E215451BC9BEC200A5F7D1 /* BasicButtonView.xib in Resources */,
 				B9E215181BC9AE6F00A5F7D1 /* LaunchScreen.xib in Resources */,
 				B9E215151BC9AE6F00A5F7D1 /* Images.xcassets in Resources */,
@@ -907,6 +924,7 @@
 				B9E215101BC9AE6F00A5F7D1 /* ViewController.m in Sources */,
 				B96520F61BCF30680039E466 /* AppointmentsList.m in Sources */,
 				B9E2150D1BC9AE6F00A5F7D1 /* AppDelegate.m in Sources */,
+				B9F94E4F1BDC27AC001A55AE /* PlacehoderView.m in Sources */,
 				B9E2155E1BCAE59400A5F7D1 /* HomeTableViewManager.m in Sources */,
 				B9E215501BCADF5200A5F7D1 /* BaseComponentsView.m in Sources */,
 				B983A4F41BD18D7F009569CD /* FooterView.m in Sources */,

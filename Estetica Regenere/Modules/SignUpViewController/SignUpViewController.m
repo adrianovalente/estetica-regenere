@@ -68,7 +68,7 @@
 - (void)onInvalidVerificationCode
 {
     [self showAlertWithTitle:@"Código inválido"
-                     message:@"Opa! Parece que você digitou um código de verificação inválido."];
+                     message:@"Parece que o código de verificação está errado. Confira se você digitou os número certos."];
     [self.loadingView stopLoading];
 }
 
