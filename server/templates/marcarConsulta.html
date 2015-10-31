@@ -6,6 +6,26 @@
 <script  type="text/javascript">
 
   var dates;
+  var selectedClientId;
+
+  var getAreas = function(clientId) {
+
+    // Storing select client id to use it later
+    // TODO: find a smarter way to do it and remove this migue!
+    selectedClientId = clientId;
+    $.get("/areas", function(data, status) {
+      $("#areas").empty();
+      $("#services").empty();
+      $("#dates").empty();
+      $("#times").empty();
+      $("#areas").append("<option value = '0'>Selecione</option>");
+      for (var i=0; i<data.content.areas.length; i++) {
+        var area = data.content.areas[i]
+        $("#areas").append("<option value = '" + area.id + "'>" + area.name + "</option>");
+      }
+    });
+
+  }
 
   var getServices = function(areaId) {
     console.log("Buscando serviços para área " + areaId)
@@ -18,17 +38,17 @@
         var service = data.content.services[i]
         $("#services").append("<option value = '" + service.id + "'>" + service.name + "</option>");
       }
-      console.log(data);
       });
   };
 
   var getDates = function(serviceId) {
 
     console.log("Buscando datas e horarios para o servico " + serviceId);
-    $.get("/times/" + serviceId, function(data, status){
+    $.get("/timeswithclient/" + serviceId + "/" + selectedClientId, function(data, status){
       $("#dates").empty();
       $("#times").empty();
       $("#dates").append("<option value = '0'>Selecione</option>");
+      console.log(data);
       for (var i=0; i<data.contents.dates.length; i++) {
         date = data.contents.dates[i];
         $("#dates").append("<option value = '" + i.toString() + "'>" + date.date + "</option>");
@@ -37,7 +57,6 @@
       console.log(data);
     });
   };
-
 
   var populateTimes = function(dataId) {
 
@@ -88,7 +107,7 @@
 
               <p class="inline-field">
                 <label>Nome da cliente</label>
-                <select class="field size4" name="name" onchange="getServices(this.options[this.selectedIndex].value);">
+                <select class="field size4" name="name" id="clients" onchange="getAreas(this.options[this.selectedIndex].value);">
                   <option value="0">Selecione</option>
                   {% for cliente in clientes %}
                     <option value="{{cliente.id}}">{{cliente.name}}</option>
@@ -97,11 +116,7 @@
               </p>
               <p class="inline-field">
                 <label>Área da estética</label>
-                <select class="field size4" name="area" onchange="getServices(this.options[this.selectedIndex].value);">
-                  <option value="0">Selecione</option>
-                  {% for area in areas %}
-                    <option value="{{area.id}}">{{area.name}}</option>
-                  {% endfor %}
+                <select class="field size4" name="area" id="areas"onchange="getServices(this.options[this.selectedIndex].value);">
                 </select>
               </p>
               <p class="inline-field">

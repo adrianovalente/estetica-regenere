@@ -156,6 +156,23 @@ def getAvaliableDaysForService(request, id_service):
 
     return HttpResponse(json.dumps(responseObject), content_type="application/json")
 
+def getAvaliableDaysForServiceWithClient(request, id_service, id_client):
+
+    cliente = Cliente.objects.get(id=id_client)
+    today = datetime.today()
+    times = []
+    for i in range (1, MAX_DAYS):
+        date = today + timedelta(days = i)
+        for time in getTimes(Service.objects.get(id = id_service), cliente, date.day, date.month, date.year):
+            addTimeToArray(time, times)
+
+    responseObject = {}
+    responseObject["isSuccess"] = 1
+    responseObject["contents"] = {}
+    responseObject["contents"]["dates"] = times
+
+    return HttpResponse(json.dumps(responseObject), content_type="application/json")
+
 def deleteAppointment(request, id_appointment):
 
     # Auth logic
