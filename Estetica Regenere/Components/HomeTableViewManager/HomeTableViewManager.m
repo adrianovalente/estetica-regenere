@@ -40,7 +40,7 @@ static const int kHomeTableViewCellHeight = 72;
     HomeTableViewCell *homeCell = (HomeTableViewCell *) cell;
     [homeCell setTrashDelegate:self];
     [homeCell fillCellWithName:[consulta service]
-                      subtitle:@"Dra. Olga Fernanda"
+                      subtitle:[consulta esteticista]
                           time:[NSString stringWithFormat:@"%@ de %@, às %@:%@", [date day], [self monthString:[date month]], [date hour], [date minute]] consultaId:(int)[[consulta consultaId] integerValue]];
 }
 
