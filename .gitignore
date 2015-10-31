@@ -1,3 +1,5 @@
+db.sqlite3
+
 # Created by https://www.gitignore.io/api/python,django,osx
 
 ### Python ###
