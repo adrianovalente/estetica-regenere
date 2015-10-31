@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegenerePickerView">
@@ -20,6 +20,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDG-bv-jWD">
                     <rect key="frame" x="0.0" y="0.0" width="270" height="40"/>
                     <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FOt-hh-Kaa" customClass="TextFieldWithoutCursor">
+                            <rect key="frame" x="20" y="0.0" width="245" height="40"/>
+                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="DDe-Hn-8w7">
                             <rect key="frame" x="245" y="16" width="13" height="8"/>
                             <constraints>
@@ -27,17 +33,11 @@
                                 <constraint firstAttribute="height" constant="8" id="u5g-YG-1BE"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FOt-hh-Kaa" customClass="TextFieldWithoutCursor">
-                            <rect key="frame" x="20" y="0.0" width="230" height="40"/>
-                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="FOt-hh-Kaa" firstAttribute="leading" secondItem="fDG-bv-jWD" secondAttribute="leading" constant="20" id="8CG-Ze-eIq"/>
-                        <constraint firstAttribute="trailing" secondItem="FOt-hh-Kaa" secondAttribute="trailing" constant="20" id="EkN-OX-8FG"/>
+                        <constraint firstAttribute="trailing" secondItem="FOt-hh-Kaa" secondAttribute="trailing" constant="5" id="EkN-OX-8FG"/>
                         <constraint firstAttribute="centerY" secondItem="DDe-Hn-8w7" secondAttribute="centerY" id="TV1-zb-vWm"/>
                         <constraint firstItem="FOt-hh-Kaa" firstAttribute="top" secondItem="fDG-bv-jWD" secondAttribute="top" id="UGX-7h-NYK"/>
                         <constraint firstAttribute="trailing" secondItem="DDe-Hn-8w7" secondAttribute="trailing" constant="12" id="Wwl-vo-wxc"/>

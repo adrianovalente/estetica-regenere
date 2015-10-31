@@ -69,6 +69,11 @@
     }
 }
 
+-(void)endEditing
+{
+    [self.txtField endEditing:NO];
+}
+
 #pragma mark - setup methods
 -(void)awakeFromNib
 {

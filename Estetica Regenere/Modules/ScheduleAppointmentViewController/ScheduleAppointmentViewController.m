@@ -179,6 +179,14 @@ typedef enum ScheduleAppointmentFarthestPickerEnabled : int {
     _farthestEnabled = farthestEnabled;
 }
 
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    [self.areaPickerView endEditing];
+//    [self.servicePickerView endEditing];
+//    [self.datePickerView endEditing];
+//    [self.timePickerView endEditing];
+//}
+
 -(UIColor *)greenColor
 {
     return [UIColor colorWithRed:61/255.0f green:145/255.0f blue:107/255.0f alpha:1.0];
@@ -192,7 +200,8 @@ typedef enum ScheduleAppointmentFarthestPickerEnabled : int {
 #pragma mark - Base Header View Delegate
 -(void)didTapMenuButton
 {
-    [(JASidePanelController *)self.navigationController.parentViewController toggleLeftPanel:self];
+    //[(JASidePanelController *)self.navigationController.parentViewController toggleLeftPanel:self];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Areas Provider Callback
