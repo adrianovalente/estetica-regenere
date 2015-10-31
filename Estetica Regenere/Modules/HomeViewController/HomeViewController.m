@@ -32,7 +32,6 @@
 
 @implementation HomeViewController {
     BOOL _hasToPushToLogin;
-    BOOL _isShowingCenterPanel;
     BOOL _noNeedToShowAlerts;
     int _appointmentToDelete;
 }
@@ -116,8 +115,7 @@
 
 -(void) didSelectMais
 {
-    _isShowingCenterPanel = !_isShowingCenterPanel;
-    if (_isShowingCenterPanel) {
+    if (![(JASidePanelController *)self.navigationController.parentViewController centerPanelHidden]) {
         [(JASidePanelController *) self.navigationController.parentViewController toggleLeftPanel:self];
     } else {
         [(JASidePanelController *)self.navigationController.parentViewController showCenterPanelAnimated:YES];
