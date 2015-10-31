@@ -14,6 +14,9 @@ urlpatterns = patterns('',
     url(r'^marcar_consulta/$', 'server.views.marcarConsulta'),
     url(r'^consultas/(?P<id_area>[0-9]+)/$', 'server.views.consultas'),
     url(r'^excluir_consulta/(?P<id_consulta>[0-9]+)/$', 'server.views.excluirConsulta'),
+    url(r'^web_login/$', 'server.views.web_login'),
+    url(r'^web_logout/$', 'server.views.web_logout'),
+
 
     # JSON API
     url(r'^areas/$', 'server.views.getAreas'),

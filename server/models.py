@@ -17,6 +17,7 @@ class Area(models.Model):
     name = models.CharField("Nome da area", max_length=128)
     startTime = models.IntegerField("Hora de inicio do trabalho", max_length=16, blank=True, null=True)
     endTime = models.IntegerField("Hora de final do trabalho", max_length=16, blank=True, null=True)
+    funcionario = models.OneToOneField('Funcionario', null=True)
 
 
     def __unicode__(self):
@@ -32,9 +33,6 @@ class Service(models.Model):
 
 class Funcionario(models.Model):
     name = models.CharField("Nome do Funcionario", max_length=128)
-
-    # TODO: Remodel this link to be smarter in the future!
-    area = models.OneToOneField('Area', null=True)
     user = models.OneToOneField(User, null=True)
 
     def __unicode__(self):

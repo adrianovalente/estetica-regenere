@@ -89,6 +89,7 @@ def getConsultas(cliente):
         consultaObject['date']['minute'] = consulta.time.minute
         consultaObject['service'] = consulta.service.name
         consultaObject['consultaId'] = consulta.id
+        consultaObject['esteticista'] = consulta.service.area.funcionario.name
         consultas.append(consultaObject)
 
     return consultas

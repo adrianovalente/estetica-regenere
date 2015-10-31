@@ -2,6 +2,9 @@
 from django.shortcuts import render, HttpResponse
 from server.models import *
 from datetime import *
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+
 import json
 
 # Internal modules
@@ -10,8 +13,34 @@ from aux import *
 MAX_DAYS = 10
 MINUTES_INTERVAL = 15
 
+def web_login(request):
+
+    if request.method == "GET":
+        return render(request, "login.html", locals())
+
+    if request.method == "POST":
+        body = request.POST
+        user = authenticate(username=body['username'], password=body['password'])
+        if user is not None:
+            if (Funcionario.objects.filter(user = user).count() > 0):
+                login(request, user)
+                return success("Login feito com sucesso!", "/")
+            else:
+                return error("Voce nao tem autorizacao para acessar essa pagina.")
+        else:
+            return error("Usuario ou senha estao incorretos.")
+
+    return error("Tipo de requisicao nao aceita")
+
+
+def web_logout(request):
+    logout(request)
+    return success("Agora voce tem que fazer login de novo", "/web_login")
+
+@login_required
 def clientes(request):
 
+    funcionario = Funcionario.objects.get(user=request.user)
     menu_option = 1
 
     if request.method == "GET":
@@ -44,7 +73,9 @@ def clientes(request):
             verificationCode = getVerificationCodeFromEmail(cliente.email)
             return success("Cliente cadastrdo com sucesso. Codigo de verificacao: " + str(verificationCode), "/clientes")
 
+@login_required
 def visualizar_cliente(request, id_cliente):
+    funcionario = Funcionario.objects.get(user=request.user)
     menu_option = 1
     cliente = Cliente.objects.get(id = id_cliente)
     consultas = Consulta.objects.filter(cliente = cliente)
@@ -52,6 +83,7 @@ def visualizar_cliente(request, id_cliente):
     codigo = getVerificationCodeFromEmail(cliente.email)
     return render(request, "visualizar_cliente.html", locals())
 
+@login_required
 def safelyDeleteClient(request, id_cliente):
     cliente = Cliente.objects.get(id = id_cliente)
     consultas = Consulta.objects.all()
@@ -64,7 +96,10 @@ def safelyDeleteClient(request, id_cliente):
         cliente.delete()
         return success("Cliente apagado com sucesso.", "/clientes")
 
+@login_required
 def marcarConsulta(request):
+
+    funcionario = Funcionario.objects.get(user=request.user)
     if (request.method == "GET"):
         menu_option = 0
         clientes = Cliente.objects.all().order_by("name")
@@ -90,7 +125,10 @@ def marcarConsulta(request):
 def getKeyFromConsulta(consultaObject):
     return consultaObject["consulta"].time
 
+@login_required
 def consultas(request, id_area):
+
+    funcionario = Funcionario.objects.get(user=request.user)
     if id_area == "3":
         menu_option = 2
     else:
@@ -116,7 +154,7 @@ def consultas(request, id_area):
 
     return render(request, "consultas.html", locals())
 
-
+@login_required
 def excluirConsulta(request, id_consulta):
     consulta = Consulta.objects.get(id = id_consulta)
     url = "/consultas/" + str(consulta.service.area.id)
