@@ -27,6 +27,7 @@ typedef enum RegenerePickerViewStatus : int {
 -(NSString *)getSelectedOptionValue;
 -(void)setStatus:(RegenerePickerViewStatus)status;
 -(void)showPlaceHoderInsteadOfSelectedValue:(BOOL)showPlacehoder;
+-(void)endEditing;
 
 @property (nonatomic) id<RegenerePickerViewDelegate> delegate;
 

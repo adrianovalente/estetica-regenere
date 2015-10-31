@@ -45,10 +45,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snk-PE-vd4" customClass="MoreButtonView">
-                    <rect key="frame" x="20" y="22" width="22" height="18"/>
+                    <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="22" id="7b9-Ze-5gm"/>
-                        <constraint firstAttribute="height" constant="18" id="UJL-bk-Ezq"/>
+                        <constraint firstAttribute="width" constant="62" id="7b9-Ze-5gm"/>
+                        <constraint firstAttribute="height" constant="62" id="UJL-bk-Ezq"/>
                     </constraints>
                 </view>
             </subviews>
@@ -59,10 +59,10 @@
                 <constraint firstAttribute="centerX" secondItem="ahe-mp-nSl" secondAttribute="centerX" id="O3W-Ht-BeS"/>
                 <constraint firstAttribute="bottom" secondItem="1K3-4J-Njv" secondAttribute="bottom" constant="15" id="Qgt-p7-r0K"/>
                 <constraint firstAttribute="centerX" secondItem="1K3-4J-Njv" secondAttribute="centerX" id="R2C-lT-rHm"/>
-                <constraint firstItem="snk-PE-vd4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="fNX-gp-9QE"/>
+                <constraint firstItem="snk-PE-vd4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fNX-gp-9QE"/>
                 <constraint firstAttribute="centerX" secondItem="laI-Zf-moH" secondAttribute="centerX" id="op5-24-8am"/>
                 <constraint firstAttribute="centerX" secondItem="VzJ-R4-T37" secondAttribute="centerX" id="qbI-1p-iUu"/>
-                <constraint firstItem="snk-PE-vd4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="22" id="qnp-cT-DxC"/>
+                <constraint firstItem="snk-PE-vd4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qnp-cT-DxC"/>
                 <constraint firstItem="VzJ-R4-T37" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="shy-Mo-wPi"/>
                 <constraint firstItem="ahe-mp-nSl" firstAttribute="top" secondItem="VzJ-R4-T37" secondAttribute="bottom" constant="7" id="tEL-B2-uVL"/>
             </constraints>
