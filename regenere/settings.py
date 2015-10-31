@@ -105,3 +105,7 @@ STATICFILES_DIRS = (
 
 # Template dirs
 TEMPLATE_DIRS = [os.path.join(os.path.join(BASE_DIR, 'server'), 'templates')]
+
+
+# Login required stuff
+LOGIN_URL = "/web_login"
