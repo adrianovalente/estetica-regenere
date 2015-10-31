@@ -7,13 +7,13 @@
 //
 
 #import "BaseHeaderView.h"
-#import "MoreButtonView.h"
+#import "BackButtonView.h"
 
-@interface BaseHeaderView () <MoreButtonDelegate>
+@interface BaseHeaderView () <BackButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *helloLabel;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
-@property (weak, nonatomic) IBOutlet MoreButtonView *moreButtonView;
+@property (weak, nonatomic) IBOutlet BackButtonView *moreButtonView;
 
 @end
 
@@ -44,7 +44,7 @@
 }
 
 #pragma mark - more button delegate
--(void)didTapMoreButton
+-(void)backButtonWasClicked
 {
     [self.delegate didTapMenuButton];
 }

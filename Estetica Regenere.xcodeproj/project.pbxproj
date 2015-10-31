@@ -18,6 +18,8 @@
 		B96520FC1BCF42EE0039E466 /* MoreButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96520FB1BCF42EE0039E466 /* MoreButtonView.xib */; };
 		B96521021BCFF3380039E466 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520FF1BCFF3380039E466 /* JASidePanelController.m */; };
 		B96521031BCFF3380039E466 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = B96521011BCFF3380039E466 /* UIViewController+JASidePanel.m */; };
+		B982D6981BE510FB00CCC18D /* BackButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B982D6971BE510FB00CCC18D /* BackButtonView.m */; };
+		B982D69A1BE5110F00CCC18D /* BackButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B982D6991BE5110F00CCC18D /* BackButtonView.xib */; };
 		B983A4BF1BD060CA009569CD /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4BD1BD060CA009569CD /* MenuViewController.m */; };
 		B983A4C01BD060CA009569CD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B983A4BE1BD060CA009569CD /* MenuViewController.xib */; };
 		B983A4CA1BD06B14009569CD /* MenuProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B983A4C91BD06B14009569CD /* MenuProvider.m */; };
@@ -109,6 +111,9 @@
 		B96520FF1BCFF3380039E466 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		B96521001BCFF3380039E466 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
 		B96521011BCFF3380039E466 /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
+		B982D6961BE510FB00CCC18D /* BackButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackButtonView.h; path = Components/BackButtonView/BackButtonView.h; sourceTree = "<group>"; };
+		B982D6971BE510FB00CCC18D /* BackButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackButtonView.m; path = Components/BackButtonView/BackButtonView.m; sourceTree = "<group>"; };
+		B982D6991BE5110F00CCC18D /* BackButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackButtonView.xib; path = Components/BackButtonView/BackButtonView.xib; sourceTree = "<group>"; };
 		B983A4BC1BD060CA009569CD /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = Components/MenuViewController/MenuViewController.h; sourceTree = "<group>"; };
 		B983A4BD1BD060CA009569CD /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = Components/MenuViewController/MenuViewController.m; sourceTree = "<group>"; };
 		B983A4BE1BD060CA009569CD /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = Components/MenuViewController/MenuViewController.xib; sourceTree = "<group>"; };
@@ -335,6 +340,16 @@
 			path = Components/SidePanel;
 			sourceTree = "<group>";
 		};
+		B982D6951BE510D300CCC18D /* BackButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				B982D6961BE510FB00CCC18D /* BackButtonView.h */,
+				B982D6971BE510FB00CCC18D /* BackButtonView.m */,
+				B982D6991BE5110F00CCC18D /* BackButtonView.xib */,
+			);
+			name = BackButtonView;
+			sourceTree = "<group>";
+		};
 		B983A4BB1BD0609D009569CD /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +525,7 @@
 		B9E2152D1BC9AF5300A5F7D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B982D6951BE510D300CCC18D /* BackButtonView */,
 				B9F94E4C1BDC2786001A55AE /* NoAppointmentsPlacehoderView */,
 				B9F94E421BDBE60C001A55AE /* SignUpFormView */,
 				B9F94E291BD956C0001A55AE /* TextFieldWithoutCursor */,
@@ -837,6 +853,7 @@
 				B983A4DE1BD16855009569CD /* ScheduleAppointmentViewController.xib in Resources */,
 				B9E2153F1BC9B20D00A5F7D1 /* HomeHeaderView.xib in Resources */,
 				B9F94E471BDBE661001A55AE /* SignUpFormView.xib in Resources */,
+				B982D69A1BE5110F00CCC18D /* BackButtonView.xib in Resources */,
 				B983A4D41BD08213009569CD /* MenuTableViewCell.xib in Resources */,
 				B9E215561BCADFED00A5F7D1 /* HomeTableViewCell.xib in Resources */,
 				B9F94E191BD911FF001A55AE /* RegenerePickerView.xib in Resources */,
@@ -912,6 +929,7 @@
 				B983A4DD1BD16855009569CD /* ScheduleAppointmentViewController.m in Sources */,
 				B9F94E1E1BD938FE001A55AE /* ScheduleAppointmentProvider.m in Sources */,
 				B96520FA1BCF42D50039E466 /* MoreButtonView.m in Sources */,
+				B982D6981BE510FB00CCC18D /* BackButtonView.m in Sources */,
 				B96520E11BCED25F0039E466 /* LoadingView.m in Sources */,
 				B9E2155B1BCAE57900A5F7D1 /* BaseTableViewManager.m in Sources */,
 				B9E2156F1BCC016700A5F7D1 /* LoginViewController.m in Sources */,

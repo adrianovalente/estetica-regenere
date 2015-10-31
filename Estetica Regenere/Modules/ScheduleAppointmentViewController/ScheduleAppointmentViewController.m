@@ -200,7 +200,8 @@ typedef enum ScheduleAppointmentFarthestPickerEnabled : int {
 #pragma mark - Base Header View Delegate
 -(void)didTapMenuButton
 {
-    [(JASidePanelController *)self.navigationController.parentViewController toggleLeftPanel:self];
+    //[(JASidePanelController *)self.navigationController.parentViewController toggleLeftPanel:self];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Areas Provider Callback

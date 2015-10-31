@@ -5,28 +5,29 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoreButtonView"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more-icon" translatesAutoresizingMaskIntoConstraints="NO" id="RMC-gm-Tpy">
-                    <rect key="frame" x="20" y="22" width="22" height="18"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="back-button" translatesAutoresizingMaskIntoConstraints="NO" id="2za-ZV-KEe">
+                    <rect key="frame" x="-89" y="-45" width="240" height="128"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="22" id="da0-pL-gr7"/>
-                        <constraint firstAttribute="height" constant="18" id="oEZ-zT-rnJ"/>
+                        <constraint firstAttribute="height" constant="26" id="CGo-xD-wEK"/>
+                        <constraint firstAttribute="width" constant="16" id="zBO-TE-PFl"/>
                     </constraints>
                 </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="RMC-gm-Tpy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="9jC-Xy-tD3"/>
-                <constraint firstItem="RMC-gm-Tpy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="22" id="qFG-th-QIH"/>
+                <constraint firstItem="2za-ZV-KEe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wYR-pu-hIN"/>
+                <constraint firstItem="2za-ZV-KEe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zjI-KQ-KnV"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
-        <image name="more-icon" width="44" height="35"/>
+        <image name="back-button" width="32" height="51"/>
     </resources>
 </document>
