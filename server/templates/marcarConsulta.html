@@ -9,8 +9,22 @@
   var selectedClientId;
 
   var getAreas = function(clientId) {
+
+    // Storing select client id to use it later
+    // TODO: find a smarter way to do it and remove this migue!
     selectedClientId = clientId;
-    // TODO: Remove this migue
+    $.get("/areas", function(data, status) {
+      $("#areas").empty();
+      $("#services").empty();
+      $("#dates").empty();
+      $("#times").empty();
+      $("#areas").append("<option value = '0'>Selecione</option>");
+      for (var i=0; i<data.content.areas.length; i++) {
+        var area = data.content.areas[i]
+        $("#areas").append("<option value = '" + area.id + "'>" + area.name + "</option>");
+      }
+    });
+
   }
 
   var getServices = function(areaId) {
@@ -24,7 +38,6 @@
         var service = data.content.services[i]
         $("#services").append("<option value = '" + service.id + "'>" + service.name + "</option>");
       }
-      console.log(data);
       });
   };
 
@@ -103,11 +116,7 @@
               </p>
               <p class="inline-field">
                 <label>Área da estética</label>
-                <select class="field size4" name="area" onchange="getServices(this.options[this.selectedIndex].value);">
-                  <option value="0">Selecione</option>
-                  {% for area in areas %}
-                    <option value="{{area.id}}">{{area.name}}</option>
-                  {% endfor %}
+                <select class="field size4" name="area" id="areas"onchange="getServices(this.options[this.selectedIndex].value);">
                 </select>
               </p>
               <p class="inline-field">
