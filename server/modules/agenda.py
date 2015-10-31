@@ -22,7 +22,7 @@ def getKeyForTime(time):
 def getKeyForDate(date):
     return "%02d-%02d-%04d" % (date.day, date.month, date.year)
 
-def timeIsAvailable(service, time):
+def timeIsAvailable(service, cliente, time):
 
     WEEKEND = 4
     START_TIME = service.area.startTime
@@ -39,11 +39,14 @@ def timeIsAvailable(service, time):
 
     # TODO: Find a smarter way to query this  O__o
     for consulta in allConsultas:
-        if (consulta.service.area == service.area):
-            if (consulta.time.year == time.year):
-                if (consulta.time.month == time.month):
-                    if (consulta.time.day == time.day):
-                        consultas.append(consulta)
+        if (consulta.cliente == cliente):
+            consultas.append(consulta)
+        else:
+            if (consulta.service.area == service.area):
+                if (consulta.time.year == time.year):
+                    if (consulta.time.month == time.month):
+                        if (consulta.time.day == time.day):
+                            consultas.append(consulta)
 
 
     for consulta in consultas:
@@ -55,7 +58,7 @@ def timeIsAvailable(service, time):
 def twoTimesAreConfiltant(a, duration_a, b, duration_b):
     return not ((b + duration_b <= a) or (a + duration_a <= b))
 
-def getTimes(service, day, month, year):
+def getTimes(service, cliente, day, month, year):
 
     START_TIME = service.area.startTime
     END_TIME = service.area.endTime
@@ -67,7 +70,7 @@ def getTimes(service, day, month, year):
 
     i = startDate
     while (i <= endDate):
-        if timeIsAvailable(service, i):
+        if timeIsAvailable(service, cliente, i):
             availableTimes.append(i)
         i+=dt
 

@@ -119,11 +119,34 @@ def getServicesForArea(request, id_area):
     return HttpResponse(json.dumps(responseObject), content_type="application/json")
 
 def getAvaliableDaysForService(request, id_service):
+
+    # Auth logic
+    token = request.META.get('HTTP_REGENERETOKEN')
+    responseObject = {}
+
+    if token is None:
+        responseObject["isSuccess"] = 0
+        responseObject['content'] = {'error': 'TOKEN_MISSING'}
+        return HttpResponse(json.dumps(responseObject), content_type="application/json")
+
+    try:
+        verified = jws.verify(token, 'secret', algorithms=['HS256'])
+
+    except:
+        responseObject["isSuccess"] = 0
+        responseObject['content'] = {'error': 'AUTH_FAILED'}
+        return HttpResponse(json.dumps(responseObject), content_type="application/json")
+
+    username = verified['username']
+    user = User.objects.get(username=username)
+    cliente = Cliente.objects.get(user=user)
+
+
     today = datetime.today()
     times = []
     for i in range (1, MAX_DAYS):
         date = today + timedelta(days = i)
-        for time in getTimes(Service.objects.get(id = id_service), date.day, date.month, date.year):
+        for time in getTimes(Service.objects.get(id = id_service), cliente, date.day, date.month, date.year):
             addTimeToArray(time, times)
 
     responseObject = {}
