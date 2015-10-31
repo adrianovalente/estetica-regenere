@@ -112,7 +112,7 @@ def marcarConsulta(request):
             dateTimeValues = request.POST["time"].split("-")
 
             date = datetime(int(dateTimeValues[2]), int(dateTimeValues[1]), int(dateTimeValues[0]), int(dateTimeValues[3].split(":")[0]), int(dateTimeValues[3].split(":")[1]), 0)
-            if timeIsAvailable(service, date):
+            if timeIsAvailable(service, cliente, date):
                 consulta = Consulta()
                 consulta.cliente = cliente
                 consulta.service = service

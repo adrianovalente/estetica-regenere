@@ -6,6 +6,12 @@
 <script  type="text/javascript">
 
   var dates;
+  var selectedClientId;
+
+  var getAreas = function(clientId) {
+    selectedClientId = clientId;
+    // TODO: Remove this migue
+  }
 
   var getServices = function(areaId) {
     console.log("Buscando serviços para área " + areaId)
@@ -25,10 +31,11 @@
   var getDates = function(serviceId) {
 
     console.log("Buscando datas e horarios para o servico " + serviceId);
-    $.get("/times/" + serviceId, function(data, status){
+    $.get("/timeswithclient/" + serviceId + "/" + selectedClientId, function(data, status){
       $("#dates").empty();
       $("#times").empty();
       $("#dates").append("<option value = '0'>Selecione</option>");
+      console.log(data);
       for (var i=0; i<data.contents.dates.length; i++) {
         date = data.contents.dates[i];
         $("#dates").append("<option value = '" + i.toString() + "'>" + date.date + "</option>");
@@ -37,7 +44,6 @@
       console.log(data);
     });
   };
-
 
   var populateTimes = function(dataId) {
 
@@ -88,7 +94,7 @@
 
               <p class="inline-field">
                 <label>Nome da cliente</label>
-                <select class="field size4" name="name" onchange="getServices(this.options[this.selectedIndex].value);">
+                <select class="field size4" name="name" id="clients" onchange="getAreas(this.options[this.selectedIndex].value);">
                   <option value="0">Selecione</option>
                   {% for cliente in clientes %}
                     <option value="{{cliente.id}}">{{cliente.name}}</option>
