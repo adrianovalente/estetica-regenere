@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity
+                       implements HomeHeaderViewDelegate
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,17 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     void setup() {
-        ((HomeHeaderView) findViewById(R.id.homeHeaderView)).updateWithData("Adriano", 5);
+        HomeHeaderView header = (HomeHeaderView) findViewById(R.id.homeHeaderView);
+        header.updateWithData("Adriano", 5);
+        header.delegate = this;
+
+    }
+
+
+    // HomeHeaderView Delegate
+
+    @Override
+    public void onAppointmentSchedulePressed() {
+        System.out.println("MARCAR CONSULTA");
     }
 }

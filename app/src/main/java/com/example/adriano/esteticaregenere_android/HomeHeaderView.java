@@ -11,8 +11,10 @@ import android.widget.TextView;
 /**
  * Created by Adriano on 10/28/15.
  */
+
 public class HomeHeaderView extends LinearLayout {
 
+    public HomeHeaderViewDelegate delegate;
     public HomeHeaderView(Context context) {
         super(context);
     }
@@ -26,9 +28,12 @@ public class HomeHeaderView extends LinearLayout {
 
     public void updateWithData(String name, int appointments) {
         ((TextView) findViewById(R.id.headerView_name)).setText("Olá, " + name);
-        ((TextView) findViewById((R.id.headerView_appointments))).setText("Essa semana você tem " + appointments + "consultas");
+        ((TextView) findViewById((R.id.headerView_appointments))).setText("Essa semana você tem " + appointments + " consultas");
+    }
+
+    public void scheduleAppointmentPressed(View view) {
+        System.out.println("Hey!");
+        this.delegate.onAppointmentSchedulePressed();
     }
 
 }
-
-
