@@ -115,7 +115,6 @@
 {
     
     [self.txtField setText:[(RegenereOption *)[self.options objectAtIndex:row] name]];
-    [self.txtField endEditing:NO];
     [self.delegate regenerePickerView:self didChangeToValue:[(RegenereOption *)[self.options objectAtIndex:row] name]];
 }
 
