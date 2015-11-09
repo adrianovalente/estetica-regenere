@@ -12,6 +12,7 @@
 #import "JASidePanelController.h"
 #import "UnderConstructionViewController.h"
 #import "MenuViewController.h"
+#import "IQKeyboardManager.h"
 
 @interface AppDelegate ()
 
@@ -34,6 +35,7 @@
     [self.window makeKeyAndVisible];
     
     [self disableCache];
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     
     return YES;
     
