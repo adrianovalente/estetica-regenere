@@ -109,6 +109,11 @@ typedef enum ScheduleAppointmentFarthestPickerEnabled : int {
     [self.button setType:BasicButtonTypeCallToAction];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
 #pragma mark - Private Methods
 -(void)populateAreasPicker
 {

@@ -9,7 +9,7 @@
 #import "RegenerePickerView.h"
 #import "RegenereOption.h"
 
-@interface RegenerePickerView () <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface RegenerePickerView () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *bckView;
 @property (weak, nonatomic) IBOutlet UITextField *txtField;
@@ -22,6 +22,7 @@
 
 @implementation RegenerePickerView {
     RegenerePickerViewStatus _currentStatus;
+    NSString *_currentValue;
 }
 
 #pragma mark - public api
@@ -86,6 +87,7 @@
 -(void)setupTextField
 {
     [self.txtField setInputView:self.pickerView];
+    [self.txtField setDelegate:self];
 }
 
 -(void)setupBorders
@@ -93,6 +95,11 @@
     self.bckView.layer.cornerRadius = 15;
     self.bckView.layer.masksToBounds = YES;
     self.bckView.layer.borderWidth = 1.0f;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self.delegate regenerePickerView:self didChangeToValue:_currentValue];
 }
 
 #pragma mark - Picker View Data Source and Delegate
@@ -115,7 +122,8 @@
 {
     
     [self.txtField setText:[(RegenereOption *)[self.options objectAtIndex:row] name]];
-    [self.delegate regenerePickerView:self didChangeToValue:[(RegenereOption *)[self.options objectAtIndex:row] name]];
+    _currentValue = [(RegenereOption *)[self.options objectAtIndex:row] name];
+    
 }
 
 
