@@ -8,6 +8,7 @@
 
 #import "BaseProvider.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "Constants.h"
 
 @implementation BaseProvider
 
