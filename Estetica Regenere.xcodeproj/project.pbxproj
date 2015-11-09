@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15BEA3C2AD56432008E6D8D3 /* libPods-Estetica Regenere.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC13F1E66E10FF3D73B3CAF8 /* libPods-Estetica Regenere.a */; };
+		B961AF231BF13A83004FD9D6 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B961AF221BF13A83004FD9D6 /* Constants.m */; };
 		B96520E11BCED25F0039E466 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520E01BCED25F0039E466 /* LoadingView.m */; };
 		B96520E31BCED26F0039E466 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96520E21BCED26F0039E466 /* LoadingView.xib */; };
 		B96520E81BCED8FB0039E466 /* LoginProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B96520E71BCED8FB0039E466 /* LoginProvider.m */; };
@@ -93,6 +94,8 @@
 
 /* Begin PBXFileReference section */
 		82CA84A87AFEE242AE49BE21 /* Pods-Estetica Regenere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Estetica Regenere.release.xcconfig"; path = "Pods/Target Support Files/Pods-Estetica Regenere/Pods-Estetica Regenere.release.xcconfig"; sourceTree = "<group>"; };
+		B961AF211BF13A83004FD9D6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B961AF221BF13A83004FD9D6 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		B96520DF1BCED25F0039E466 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingView.h; path = Components/LoadingView/LoadingView.h; sourceTree = "<group>"; };
 		B96520E01BCED25F0039E466 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingView.m; path = Components/LoadingView/LoadingView.m; sourceTree = "<group>"; };
 		B96520E21BCED26F0039E466 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadingView.xib; path = Components/LoadingView/LoadingView.xib; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 				B9E215141BC9AE6F00A5F7D1 /* Images.xcassets */,
 				B9E215161BC9AE6F00A5F7D1 /* LaunchScreen.xib */,
 				B9E215071BC9AE6F00A5F7D1 /* Supporting Files */,
+				B961AF211BF13A83004FD9D6 /* Constants.h */,
+				B961AF221BF13A83004FD9D6 /* Constants.m */,
 			);
 			path = "Estetica Regenere";
 			sourceTree = "<group>";
@@ -929,6 +934,7 @@
 				B983A4DD1BD16855009569CD /* ScheduleAppointmentViewController.m in Sources */,
 				B9F94E1E1BD938FE001A55AE /* ScheduleAppointmentProvider.m in Sources */,
 				B96520FA1BCF42D50039E466 /* MoreButtonView.m in Sources */,
+				B961AF231BF13A83004FD9D6 /* Constants.m in Sources */,
 				B982D6981BE510FB00CCC18D /* BackButtonView.m in Sources */,
 				B96520E11BCED25F0039E466 /* LoadingView.m in Sources */,
 				B9E2155B1BCAE57900A5F7D1 /* BaseTableViewManager.m in Sources */,

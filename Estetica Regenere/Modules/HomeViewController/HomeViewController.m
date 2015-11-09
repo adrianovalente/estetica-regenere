@@ -207,6 +207,7 @@
 
 -(void)updateData
 {
+    [self.header noConnection];
     [[HomeProvider new] performHomeRequestWithCallback:self];
     [self.loadingView startLoading];
 }

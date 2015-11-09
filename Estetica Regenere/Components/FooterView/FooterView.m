@@ -7,6 +7,7 @@
 //
 
 #import "FooterView.h"
+#import "Constants.h"
 
 @interface FooterView ()
 @property (weak, nonatomic) IBOutlet UIView *byLabel;
@@ -27,7 +28,7 @@
 
 -(void)byLabelTapped
 {
-    NSURL *url = [NSURL URLWithString:@"http://www.facebook.com/adrianovalente95"];
+    NSURL *url = [NSURL URLWithString:[apiHostName stringByAppendingString:@"/about_me"]];
     [[UIApplication sharedApplication] openURL:url];
 }
 @end
