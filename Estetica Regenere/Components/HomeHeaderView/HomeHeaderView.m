@@ -28,6 +28,11 @@
     [self.appointmentsLabel setText:[NSString stringWithFormat:@"Você tem %@ consultas marcadas", appointments]];
 }
 
+-(void)noConnection
+{
+    [self.helloLabel setText:@"Olá, cliente"];
+    [self.appointmentsLabel setText:@"Não foi possível se conectar ao servidor"];
+}
 
 #pragma mark - setup methods
 - (void)awakeFromNib
