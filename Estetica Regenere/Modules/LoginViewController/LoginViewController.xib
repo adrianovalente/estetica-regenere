@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -28,13 +28,13 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olá, cliente! Aqui você pode marcar novas consultas e se lembrar das que já marcou!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9G-LG-6x5">
                     <rect key="frame" x="15" y="172" width="290" height="33"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para começar, digite seu email e sua senha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgu-db-6So">
                     <rect key="frame" x="15" y="205" width="290" height="17"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSI-dy-bpp" customClass="LoginFormView">
@@ -51,8 +51,8 @@
                         <constraint firstAttribute="height" constant="26" id="Zdc-jr-kIT"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzK-mz-TRx">
-                    <rect key="frame" x="137" y="388" width="46" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzK-mz-TRx">
+                    <rect key="frame" x="106" y="381" width="108" height="29"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
                     <state key="normal" title="Não tem cadastro?">
                         <color key="titleColor" red="0.43529411764705883" green="0.16862745098039217" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,24 +62,28 @@
                         <action selector="signupButton:" destination="-1" eventType="touchUpInside" id="BRu-t9-8eg"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPj-bC-iCF" customClass="LoadingView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPj-bC-iCF" customClass="LoadingView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="ZPj-bC-iCF" secondAttribute="bottom" id="16H-K3-Xoh"/>
                 <constraint firstAttribute="trailing" secondItem="X9G-LG-6x5" secondAttribute="trailing" constant="15" id="4UX-aj-eMI"/>
                 <constraint firstItem="LSI-dy-bpp" firstAttribute="top" secondItem="zgu-db-6So" secondAttribute="bottom" constant="20" id="7OH-hQ-oBX"/>
                 <constraint firstItem="UzK-mz-TRx" firstAttribute="top" secondItem="G2w-JF-QCj" secondAttribute="bottom" constant="13" id="7ey-yv-8CH"/>
                 <constraint firstAttribute="centerY" secondItem="X9G-LG-6x5" secondAttribute="centerY" constant="56.5" id="DDB-1G-4bq"/>
+                <constraint firstItem="ZPj-bC-iCF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OEj-ag-55l"/>
                 <constraint firstAttribute="centerX" secondItem="kEJ-fM-Cfi" secondAttribute="centerX" id="QAj-bY-E03"/>
                 <constraint firstItem="G2w-JF-QCj" firstAttribute="top" secondItem="LSI-dy-bpp" secondAttribute="bottom" constant="20" id="QOx-RB-dSz"/>
                 <constraint firstItem="zgu-db-6So" firstAttribute="top" secondItem="X9G-LG-6x5" secondAttribute="bottom" id="RRA-re-x5k"/>
+                <constraint firstItem="ZPj-bC-iCF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WgM-7n-J6y"/>
                 <constraint firstAttribute="centerX" secondItem="LSI-dy-bpp" secondAttribute="centerX" id="bD4-Fa-vtv"/>
                 <constraint firstItem="kEJ-fM-Cfi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="cd5-Gb-veZ"/>
                 <constraint firstItem="X9G-LG-6x5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="dee-ZX-fwM"/>
                 <constraint firstAttribute="centerX" secondItem="UzK-mz-TRx" secondAttribute="centerX" id="i6B-kc-qNJ"/>
                 <constraint firstAttribute="centerX" secondItem="G2w-JF-QCj" secondAttribute="centerX" id="mKo-t1-ksb"/>
+                <constraint firstAttribute="trailing" secondItem="ZPj-bC-iCF" secondAttribute="trailing" id="oBX-eX-QaC"/>
                 <constraint firstItem="zgu-db-6So" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="owf-WH-u2T"/>
                 <constraint firstItem="X9G-LG-6x5" firstAttribute="top" secondItem="kEJ-fM-Cfi" secondAttribute="bottom" constant="20" id="plP-w9-vev"/>
                 <constraint firstAttribute="trailing" secondItem="zgu-db-6So" secondAttribute="trailing" constant="15" id="sD5-Qv-Shh"/>
