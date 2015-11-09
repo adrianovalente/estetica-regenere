@@ -82,7 +82,7 @@
                                  method:(NSString *)method
 {
     
-    NSString *fullPath = [@"https://obscure-temple-3846.herokuapp.com" stringByAppendingString:path];
+    NSString *fullPath = [apiHostName stringByAppendingString:path];
     AFJSONRequestSerializer *serializer = [[AFJSONRequestSerializer alloc] init];
     
     NSMutableURLRequest *request = [serializer requestWithMethod:method URLString:fullPath parameters:data error:nil];
