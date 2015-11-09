@@ -17,5 +17,6 @@
 
 @property (nonatomic) id<HomeHeaderViewDelegate> delegate;
 -(void) updateWithName:(NSString *)name appointments:(NSNumber *)appointments;
+-(void) noConnection;
 
 @end
