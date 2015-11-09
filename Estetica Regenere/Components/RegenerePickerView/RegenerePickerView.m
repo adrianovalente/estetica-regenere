@@ -9,7 +9,7 @@
 #import "RegenerePickerView.h"
 #import "RegenereOption.h"
 
-@interface RegenerePickerView () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@interface RegenerePickerView () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *bckView;
 @property (weak, nonatomic) IBOutlet UITextField *txtField;
@@ -126,7 +126,16 @@
     
 }
 
-
+#pragma mark - Private methods
+- (void)pickerTapped:(id)sender
+{
+    [self endEditing:YES];
+}
+#pragma mark - Gesture Reconizer Delegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return true;
+}
 
 #pragma mark - Lazy Instantiations
 -(UIPickerView *)pickerView
@@ -135,6 +144,9 @@
     [_pickerView setDelegate:self];
     [_pickerView setDataSource:self];
     [_pickerView setBackgroundColor:[UIColor colorWithRed:245/255.0f green:245/255.0f blue:245/255.0f alpha:1.0]];
+    UITapGestureRecognizer *rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerTapped:)];
+    [rec setDelegate:self];
+    [_pickerView addGestureRecognizer:rec];
     return _pickerView;
 }
 
