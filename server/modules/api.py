@@ -1,5 +1,5 @@
 # External modules
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 import json
 from server.models import *
@@ -257,3 +257,6 @@ def scheduleAppointment(request):
         responseObject["isSuccess"] = 0
         responseObject['content'] = {'error': 'TIME_NOT_AVAILABLE'}
         return HttpResponse(json.dumps(responseObject), content_type="application/json")
+
+def aboutMe(request):
+    return HttpResponseRedirect("https://github.com/adrianovalente")

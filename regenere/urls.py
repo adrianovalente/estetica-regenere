@@ -28,6 +28,7 @@ urlpatterns = patterns('',
     url(r'^home/$', 'server.views.home'),
     url(r'^delete_appointment/(?P<id_appointment>[0-9]+)/$', 'server.views.deleteAppointment'),
     url(r'^schedule/$', 'server.views.scheduleAppointment'),
+    url(r'^about_me/$', 'server.views.aboutMe'),
 
 
 )
