@@ -1,0 +1,2 @@
+export DATABASE_URL='postgres://ippsolagjaxtht:VDQ12oimwC6zacD-a5tRbAjDGT@ec2-54-225-197-30.compute-1.amazonaws.com:5432/d5sv5817vnoea4'
+python manage.py runserver

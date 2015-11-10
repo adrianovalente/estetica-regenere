@@ -13,13 +13,8 @@ import os
 
 import dj_database_url
 
-# db config as suggested by heroku
-# but i'm not following this because it's alerady configured by the old way
-# DATABASES = {}
-# DATABASES['default'] =  dj_database_url.config()
-# print DATABASES
-# DATABASES['default']['CONN_MAX_AGE'] = 500
-
+DATABASES = {}
+DATABASES['default'] =  dj_database_url.config()
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -63,18 +58,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'regenere.urls'
 
 WSGI_APPLICATION = 'regenere.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-# I've commented this line!
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

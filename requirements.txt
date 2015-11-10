@@ -29,3 +29,4 @@ wheel==0.24.0
 whitenoise==2.0.4
 xattr==0.6.4
 zope.interface==4.1.1
+psycopg2==2.6.1
