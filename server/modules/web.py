@@ -129,11 +129,7 @@ def getKeyFromConsulta(consultaObject):
 def consultas(request, id_area):
 
     funcionario = Funcionario.objects.get(user=request.user)
-    if id_area == "3":
-        menu_option = 2
-    else:
-        menu_option = 3
-
+    menu_option = int(id_area) + 1
     consultas = []
     area = Area.objects.get(id = id_area)
     odd = True
