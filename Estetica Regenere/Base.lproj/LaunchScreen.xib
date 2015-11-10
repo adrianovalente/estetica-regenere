@@ -11,18 +11,25 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hCy-ZU-Vdf">
-                    <rect key="frame" x="168" y="202" width="20" height="20"/>
-                </activityIndicatorView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="regenere-logo" translatesAutoresizingMaskIntoConstraints="NO" id="VuP-7a-b9E">
+                    <rect key="frame" x="120" y="225" width="138" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="138" id="NK1-lx-aDK"/>
+                        <constraint firstAttribute="height" constant="80" id="aPs-qo-Bs8"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="hCy-ZU-Vdf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="574-YE-gue"/>
-                <constraint firstItem="hCy-ZU-Vdf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="glP-Y3-QXD"/>
+                <constraint firstItem="VuP-7a-b9E" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1nn-0n-rSc"/>
+                <constraint firstItem="VuP-7a-b9E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="o5w-gQ-Sq2"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="regenere-logo" width="482" height="301"/>
+    </resources>
 </document>

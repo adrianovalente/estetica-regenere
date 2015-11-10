@@ -24,7 +24,8 @@
 #pragma mark - public api
 -(void)updateWithName:(NSString *)name appointments:(NSNumber *)appointments
 {
-    [self.helloLabel setText:[NSString stringWithFormat:@"Olá, %@", name]];
+    // For some reason two spaces are necessary o__O
+    [self.helloLabel setText:[NSString stringWithFormat:@"Olá,  %@", name]];
     [self.appointmentsLabel setText:[NSString stringWithFormat:@"Você tem %@ consultas marcadas", appointments]];
 }
 
