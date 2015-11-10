@@ -5,7 +5,7 @@ class Cliente(models.Model):
     name = models.CharField("Nome Completo", max_length=128)
     address = models.CharField("Endereco", max_length=256)
     email= models.EmailField("Email Pessoal")
-    phone = models.IntegerField("Telefone fixo", max_length=16, blank=True, null=True)
+    phone = models.CharField("Telefone fixo", max_length=16, blank=True, null=True)
     mobile = models.IntegerField("Telefone celular", max_length=16, blank=True, null=True)
     user = models.OneToOneField(User, null=True)
     birthDate = models.DateField("Data de Nascimento", blank=True, null=True)
