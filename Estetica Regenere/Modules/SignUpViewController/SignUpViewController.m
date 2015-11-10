@@ -11,6 +11,7 @@
 #import "SignUpProvider.h"
 #import "SignUpFormView.h"
 #import "LoadingView.h"
+#import "IQKeyboardReturnKeyHandler.h"
 
 @interface SignUpViewController () <BasicButtonProtocol, SignupProviderCallback>
 @property (weak, nonatomic) IBOutlet BasicButtonView *signUpButton;
@@ -21,6 +22,7 @@
 
 @implementation SignUpViewController {
     id<SignUpViewControllerDelegate> _delegate;
+    IQKeyboardReturnKeyHandler *_returnKeyHandler;
 }
 
 #pragma mark - init and setup methods
@@ -48,6 +50,7 @@
 -(void)setup
 {
     [self setupSignUpButton];
+    _returnKeyHandler = [IQKeyboardReturnKeyHandler new];
 }
 
 -(void)setupSignUpButton

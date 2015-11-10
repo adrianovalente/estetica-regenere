@@ -13,6 +13,7 @@
 #import "HomeViewController.h"
 #import "LoginFormView.h"
 #import "SignUpViewController.h"
+#import "IQKeyboardReturnKeyHandler.h"
 
 @interface LoginViewController () <BasicButtonProtocol, LoginProviderDelegate, SignUpViewControllerDelegate, UIAlertViewDelegate>
 
@@ -23,7 +24,9 @@
 
 @end
 
-@implementation LoginViewController
+@implementation LoginViewController {
+    IQKeyboardReturnKeyHandler *_keyboardHandler;
+}
 
 -(instancetype)initWithDelegate:(id<LoginViewControllerCallback>)delegate
 {
@@ -36,6 +39,7 @@
     [super viewDidLoad];
     [self setupNavigationBar];
     [self setupButtons];
+    [self setupReturnHandler];
 
 }
 
@@ -45,6 +49,11 @@
 }
 
 #pragma mark - private methods
+-(void) setupReturnHandler
+{
+    _keyboardHandler = [IQKeyboardReturnKeyHandler new];
+}
+
 - (void) setupNavigationBar
 {
     [self.navigationController setNavigationBarHidden:YES animated:NO];
