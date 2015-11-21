@@ -3,17 +3,31 @@
 buildscript {
     repositories {
         jcenter()
+        flatDir {
+            dirs 'libs'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.3.0'
+        compile name: 'library-1.3', ext: 'aar'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+//        compile fileTree(dir: 'libs', include: ['*.jar'])
+//        compile project(":sliding_menu")
+
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
     }
 }

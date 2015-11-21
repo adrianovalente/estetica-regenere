@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,15 +15,16 @@ import android.widget.TextView;
 
 public class HomeHeaderView extends LinearLayout {
 
-    public HomeHeaderViewDelegate delegate;
     public HomeHeaderView(Context context) {
         super(context);
+        adjustHeaderImage();
     }
 
     public HomeHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.home_header_view, this, true);
+        adjustHeaderImage();
     }
 
 
@@ -31,9 +33,11 @@ public class HomeHeaderView extends LinearLayout {
         ((TextView) findViewById((R.id.headerView_appointments))).setText("Essa semana você tem " + appointments + " consultas");
     }
 
-    public void scheduleAppointmentPressed(View view) {
-        System.out.println("Hey!");
-        this.delegate.onAppointmentSchedulePressed();
+    void adjustHeaderImage() {
+        ImageView image = (ImageView) findViewById(R.id.headerImage);
+        image.setAdjustViewBounds(true);
+
+
     }
 
 }

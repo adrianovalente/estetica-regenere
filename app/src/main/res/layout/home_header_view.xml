@@ -5,22 +5,48 @@
     android:background="@color/primary_material_light"
     >
 
+    <ImageView
+        android:id="@+id/headerImage"
+        android:layout_width="146dp"
+        android:layout_height="91dp"
+        android:scaleType="center"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="5dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/regenere_logo" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/headerView_name"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textStyle="normal"
+        android:fontFamily="Roboto"
+        android:textSize="18dp"
+        android:paddingBottom="0dp"
+        android:paddingTop="8dp"
+        android:text="Olá, cliente"
         />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/headerView_appointments"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="14dp"
+        android:paddingTop="0dp"
+        android:text="Sublabel"
         />
 
     <Button
-        android:layout_width="307dp"
-        android:layout_height="57dp"
-        android:onClick="scheduleAppointmentPressed"
+        android:layout_width="154dp"
+        android:layout_height="27dp"
+        android:onClick="onScheduleAppointmentPressed"
+        android:text="Marcar consulta"
+        android:layout_gravity="center_horizontal"
         android:id="@+id/headerView_appointmentsButton" />
+
 
 </LinearLayout>
