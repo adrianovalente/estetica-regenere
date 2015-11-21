@@ -7,8 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-
 public class HomeActivity extends AppCompatActivity
 {
 
@@ -44,7 +42,6 @@ public class HomeActivity extends AppCompatActivity
     void setup() {
         HomeHeaderView header = (HomeHeaderView) findViewById(R.id.homeHeaderView);
         header.updateWithData("Adriano", 5);
-        setupSideMenu();
 
     }
 
@@ -54,19 +51,4 @@ public class HomeActivity extends AppCompatActivity
         System.out.println("MARCAR CONSULTA");
     }
 
-    void setupTitleBarColor() {
-
-    }
-
-    void setupSideMenu() {
-        SlidingMenu menu = new SlidingMenu(this);
-        menu.setMode(SlidingMenu.LEFT);
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        //menu.setShadowWidthRes(R.dimen.shadow_width);
-        //menu.setShadowDrawable(R.drawable.shadow);
-        //menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-        menu.setFadeDegree(0.35f);
-        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-        menu.setMenu(R.layout.menu);
-    }
 }
