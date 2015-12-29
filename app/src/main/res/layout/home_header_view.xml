@@ -20,7 +20,7 @@
     <Button
         android:layout_width="307dp"
         android:layout_height="57dp"
-        android:onClick="scheduleAppointmentPressed"
+        android:onClick="onScheduleAppointmentPressed"
         android:id="@+id/headerView_appointmentsButton" />
 
 </LinearLayout>

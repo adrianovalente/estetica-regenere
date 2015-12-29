@@ -4,9 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class HomeActivity extends AppCompatActivity
-                       implements HomeHeaderViewDelegate
 {
 
     @Override
@@ -41,15 +41,10 @@ public class HomeActivity extends AppCompatActivity
     void setup() {
         HomeHeaderView header = (HomeHeaderView) findViewById(R.id.homeHeaderView);
         header.updateWithData("Adriano", 5);
-        header.delegate = this;
 
     }
 
-
-    // HomeHeaderView Delegate
-
-    @Override
-    public void onAppointmentSchedulePressed() {
+    public void onScheduleAppointmentPressed(View view) {
         System.out.println("MARCAR CONSULTA");
     }
 }
