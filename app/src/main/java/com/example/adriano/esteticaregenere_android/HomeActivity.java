@@ -1,10 +1,23 @@
 package com.example.adriano.esteticaregenere_android;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity
 {
@@ -41,10 +54,70 @@ public class HomeActivity extends AppCompatActivity
     void setup() {
         HomeHeaderView header = (HomeHeaderView) findViewById(R.id.homeHeaderView);
         header.updateWithData("Adriano", 5);
+        setupListView();
+
+    }
+
+    void setupListView() {
+
+        final ListView listView = (ListView) findViewById(R.id.listview);
+        String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
+                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
+                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
+                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
+                "Android", "iPhone", "WindowsMobile" };
+        final ArrayList<String> list = new ArrayList<String>();
+        for (int i = 0; i < values.length; ++i) {
+            list.add(values[i]);
+        }
+        final MyArrayAdapter adapter = new MyArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println("Opa, clicou brothre!");
+            }
+        });
+
 
     }
 
     public void onScheduleAppointmentPressed(View view) {
         System.out.println("MARCAR CONSULTA");
+    }
+}
+
+
+class MyArrayAdapter extends ArrayAdapter<String>
+{
+    private List<String> list;
+    public MyArrayAdapter(Context context, int textViewResourceId, List<String> objects) {
+        super(context, textViewResourceId, objects);
+        this.list = objects;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return true;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        //return super.getView(position, convertView, parent);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View rowView = inflater.inflate(R.layout.custom_table_view_cell, parent, false);
+        TextView primaryTxtView = (TextView) rowView.findViewById(R.id.firstLine);
+        primaryTxtView.setText(this.list.get(position));
+        TextView secondaryTxtView = (TextView) rowView.findViewById(R.id.secondLine);
+        secondaryTxtView.setText("Subtitulo " + Integer.toString(position));
+        return rowView;
+
     }
 }
