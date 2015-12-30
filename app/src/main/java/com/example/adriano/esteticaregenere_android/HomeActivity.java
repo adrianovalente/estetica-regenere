@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.example.adriano.esteticaregenere_android.Providers.*;
 
 import org.w3c.dom.Text;
 
@@ -19,8 +21,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity
+
+
+public class HomeActivity
+        extends AppCompatActivity
+        implements HomeProviderCallback
 {
+
+    private ArrayList<String> list = new ArrayList<String>();
+
+    @Override
+    public void onGetAreasFailure() {
+        System.out.println("Failure @ home!");
+    }
+
+    @Override
+    public void onGetAreasSuccess(ArrayList<String> options) {
+        ((MyArrayAdapter) ((ListView) findViewById(R.id.listview)).getAdapter()).updateWithData(options);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +73,7 @@ public class HomeActivity extends AppCompatActivity
         HomeHeaderView header = (HomeHeaderView) findViewById(R.id.homeHeaderView);
         header.updateWithData("Adriano", 5);
         setupListView();
-
+        getData();
     }
 
     void setupListView() {
@@ -66,11 +84,11 @@ public class HomeActivity extends AppCompatActivity
                 "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
                 "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
                 "Android", "iPhone", "WindowsMobile" };
-        final ArrayList<String> list = new ArrayList<String>();
+
         for (int i = 0; i < values.length; ++i) {
-            list.add(values[i]);
+            this.list.add(values[i]);
         }
-        final MyArrayAdapter adapter = new MyArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+        final MyArrayAdapter adapter = new MyArrayAdapter(this, android.R.layout.simple_list_item_1, this.list);
 
         listView.setAdapter(adapter);
 
@@ -87,6 +105,11 @@ public class HomeActivity extends AppCompatActivity
     public void onScheduleAppointmentPressed(View view) {
         System.out.println("MARCAR CONSULTA");
     }
+
+    void getData() {
+        BaseProvider provider = new BaseProvider();
+        provider.getPath("http://obscure-temple-3846.herokuapp.com/areas", this);
+    }
 }
 
 
@@ -98,6 +121,11 @@ class MyArrayAdapter extends ArrayAdapter<String>
         this.list = objects;
     }
 
+    public void updateWithData(ArrayList<String> data) {
+        this.list = data;
+        notifyDataSetChanged();
+    }
+
     @Override
     public long getItemId(int position) {
         return position;
@@ -106,6 +134,11 @@ class MyArrayAdapter extends ArrayAdapter<String>
     @Override
     public boolean hasStableIds() {
         return true;
+    }
+
+    @Override
+    public int getCount() {
+        return this.list.size();
     }
 
     @Override
