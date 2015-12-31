@@ -15,6 +15,10 @@ import dj_database_url
 
 DATABASES = {}
 DATABASES['default'] =  dj_database_url.config()
+if DATABASES['default'] == {}:
+    print("[db] Conexao com o Postgre nao rolou :(")
+else:
+    print("[db] Deu bom!")
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -92,3 +96,32 @@ TEMPLATE_DIRS = [os.path.join(os.path.join(BASE_DIR, 'server'), 'templates')]
 
 # Login required stuff
 LOGIN_URL = "/web_login"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'myLogs': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+        'djangoLogs': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'django.log',
+        },
+    },
+    'loggers': {
+        'server': { # for your app
+            'handlers': ['myLogs', 'djangoLogs'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django': { # for all django-internal messages
+            'handlers': ['djangoLogs'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}

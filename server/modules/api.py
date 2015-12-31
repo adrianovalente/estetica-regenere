@@ -2,6 +2,7 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 import json
+import logging
 from server.models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
@@ -10,6 +11,8 @@ from jose import jws
 # Internal modules
 from agenda import *
 from aux import *
+
+logger = logging.getLogger(__name__)
 
 @csrf_exempt
 def signup(request):
@@ -94,6 +97,7 @@ def home(request):
 
 
 def getAreas(request):
+    logger.debug("Getting areas")
     responseObject = {}
     responseObject['isSuccess'] = 1
     responseObject['content'] = {}
