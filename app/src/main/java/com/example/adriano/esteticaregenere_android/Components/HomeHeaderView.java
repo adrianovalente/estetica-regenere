@@ -1,4 +1,4 @@
-package com.example.adriano.esteticaregenere_android;
+package com.example.adriano.esteticaregenere_android.Components;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.adriano.esteticaregenere_android.R;
 
 /**
  * Created by Adriano on 10/28/15.

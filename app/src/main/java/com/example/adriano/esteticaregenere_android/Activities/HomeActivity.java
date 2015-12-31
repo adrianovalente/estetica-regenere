@@ -1,4 +1,4 @@
-package com.example.adriano.esteticaregenere_android;
+package com.example.adriano.esteticaregenere_android.Activities;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -10,15 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.example.adriano.esteticaregenere_android.Providers.*;
 
-import org.w3c.dom.Text;
+import com.example.adriano.esteticaregenere_android.Components.HomeHeaderView;
+import com.example.adriano.esteticaregenere_android.Providers.*;
+import com.example.adriano.esteticaregenere_android.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 
