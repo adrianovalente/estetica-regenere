@@ -1,6 +1,11 @@
 package com.example.adriano.esteticaregenere_android.Activities;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +14,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
+import com.example.adriano.esteticaregenere_android.Providers.LoginProvider;
+import com.example.adriano.esteticaregenere_android.Providers.LoginProviderCallback;
 import com.example.adriano.esteticaregenere_android.R;
 
-public class LoginActivity extends AppCompatActivity {
+import org.w3c.dom.Text;
+
+public class LoginActivity extends AppCompatActivity implements LoginProviderCallback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +81,51 @@ public class LoginActivity extends AppCompatActivity {
 
     void performLogin() {
         System.out.println("Performing login...");
+        String email = ((TextView)findViewById(R.id.loginTextView)).getText().toString();
+        String password = ((TextView)findViewById(R.id.passwordTextView)).getText().toString();
+        new LoginProvider().performLogin(this, email, password, this);
     }
 
+    // LoginProviderCallback
+    @Override
+    public void onLoginFailure() {
+        displayAlert("Falha na autenticação", "Será que você digitou seu usuário e senha corretamente?");
+    }
 
+    @Override
+    public void onLoginSuccess(String token) {
+        performTokenInSharedPreferences(token);
+        LoginActivity.this.startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+    }
+
+    private void performTokenInSharedPreferences(String token) {
+        System.out.println("Login successful: " + token);
+        SharedPreferences preferences = this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("auth-token", token);
+        editor.commit();
+    }
+
+    @Override
+    public void onResponseFailure() {
+        displayAlert("Falha na rede", "Tivemos uma falha. Por favor tente mais tarde");
+    }
+
+    @Override
+    public void onNetworkFailure() {
+        displayAlert("Falha na rede", "Parece que você está sem internet. Por favor tente mais tarde.");
+    }
+
+    void displayAlert(String title, String message) {
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle(title);
+        alertDialog.setMessage(message);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+    }
 }
