@@ -20,8 +20,6 @@ import com.example.adriano.esteticaregenere_android.Providers.LoginProvider;
 import com.example.adriano.esteticaregenere_android.Providers.LoginProviderCallback;
 import com.example.adriano.esteticaregenere_android.R;
 
-import org.w3c.dom.Text;
-
 public class LoginActivity extends AppCompatActivity implements LoginProviderCallback {
 
     @Override
@@ -56,8 +54,9 @@ public class LoginActivity extends AppCompatActivity implements LoginProviderCal
 
 
     void setup() {
-        hideActionBar();
+        findViewById(R.id.loadingLogin).setVisibility(View.GONE);
         setupBackgroundColor();
+
 
     }
 
@@ -81,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements LoginProviderCal
 
     void performLogin() {
         System.out.println("Performing login...");
+        findViewById(R.id.loadingLogin).setVisibility(View.VISIBLE);
         String email = ((TextView)findViewById(R.id.loginTextView)).getText().toString();
         String password = ((TextView)findViewById(R.id.passwordTextView)).getText().toString();
         new LoginProvider().performLogin(this, email, password, this);
@@ -89,12 +89,13 @@ public class LoginActivity extends AppCompatActivity implements LoginProviderCal
     // LoginProviderCallback
     @Override
     public void onLoginFailure() {
-        displayAlert("Falha na autenticação", "Será que você digitou seu usuário e senha corretamente?");
+        hideSpinAndShowAlert("Falha na autenticação", "Será que você digitou seu usuário e senha corretamente?");
     }
 
     @Override
     public void onLoginSuccess(String token) {
         performTokenInSharedPreferences(token);
+        findViewById(R.id.loadingLogin).setVisibility(View.GONE);
         LoginActivity.this.startActivity(new Intent(LoginActivity.this, HomeActivity.class));
     }
 
@@ -108,15 +109,16 @@ public class LoginActivity extends AppCompatActivity implements LoginProviderCal
 
     @Override
     public void onResponseFailure() {
-        displayAlert("Falha na rede", "Tivemos uma falha. Por favor tente mais tarde");
+        hideSpinAndShowAlert("Falha na rede", "Tivemos uma falha. Por favor tente mais tarde");
     }
 
     @Override
     public void onNetworkFailure() {
-        displayAlert("Falha na rede", "Parece que você está sem internet. Por favor tente mais tarde.");
+        hideSpinAndShowAlert("Falha na rede", "Parece que você está sem internet. Por favor tente mais tarde.");
     }
 
-    void displayAlert(String title, String message) {
+    void hideSpinAndShowAlert(String title, String message) {
+        findViewById(R.id.loadingLogin).setVisibility(View.GONE);
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle(title);
         alertDialog.setMessage(message);

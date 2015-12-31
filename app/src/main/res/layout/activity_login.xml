@@ -10,23 +10,21 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="120dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/loginImageView"
-        android:layout_alignBottom="@+id/loginLabel"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
-        android:src="@drawable/regenere" />
+        android:src="@drawable/regenere"
+        android:layout_centerHorizontal="true" />
 
     <TextView android:text="Olá, cliente! Aqui você pode marcar novas consultas e se lembrar das que já marcou!\nPara começar, digite seu email e sua senha" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/loginLabel"
         android:gravity="center"
         android:textSize="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="194dp"
         android:paddingRight="15dp"
-        android:paddingLeft="15dp" />
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_below="@id/loginImageView"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -34,10 +32,10 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/loginTextView"
-        android:layout_below="@+id/loginImageView"
-        android:layout_alignLeft="@+id/loginImageView"
-        android:layout_alignStart="@+id/loginImageView"
-        android:layout_marginTop="15dp" />
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/loginLabel"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -45,10 +43,9 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordTextView"
+        android:gravity="center"
         android:layout_below="@+id/loginTextView"
-        android:layout_alignLeft="@+id/loginTextView"
-        android:layout_alignStart="@+id/loginTextView"
-        android:layout_marginTop="15dp" />
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -57,8 +54,21 @@
         android:id="@+id/loginButton"
         android:layout_below="@+id/passwordTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         android:onClick="onLoginButtonPressed"/>
 
+
+    <RelativeLayout
+        android:id="@+id/loadingLogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#d0d0d0">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+    </RelativeLayout>
 
 </RelativeLayout>

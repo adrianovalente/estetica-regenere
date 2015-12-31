@@ -72,7 +72,6 @@ public class HomeActivity
         HomeHeaderView header = (HomeHeaderView) findViewById(R.id.homeHeaderView);
         header.updateWithData("Adriano", 5);
         setupListView();
-        getData();
     }
 
     void setupListView() {
@@ -105,10 +104,6 @@ public class HomeActivity
         System.out.println("MARCAR CONSULTA");
     }
 
-    void getData() {
-        BaseProvider provider = new BaseProvider();
-        provider.getPath("http://obscure-temple-3846.herokuapp.com/areas", this);
-    }
 }
 
 
