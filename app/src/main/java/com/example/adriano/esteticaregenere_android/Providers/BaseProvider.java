@@ -5,6 +5,7 @@ package com.example.adriano.esteticaregenere_android.Providers;
  */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.loopj.android.http.*;
 import org.json.*;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
+import cz.msebera.android.httpclient.message.BasicHeader;
 
 public class BaseProvider {
 
@@ -71,6 +73,20 @@ public class BaseProvider {
     public void get(String path, RequestParams params, final BaseProviderCallback callback) {
         this.callback = callback;
         getSharedClient().get(host + path, params, handler);
+    }
+
+    public void getAuthenticated(Context context, String path, RequestParams params, final AuthenticatedProviderCallback callback) {
+        this.callback = callback;
+        SharedPreferences preferences = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        String token =  preferences.getString("auth-token", "");
+        if (token == null || token == "") {
+            callback.onTokenMissing();
+        } else {
+            Header authHeader = new BasicHeader("REGENERETOKEN", token);
+            Header[] headers = {authHeader};
+            getSharedClient().get(context, host + path, headers, params, handler);
+
+        }
 
     }
 
@@ -101,11 +117,11 @@ public class BaseProvider {
                         String name = area.getString("name");
                         options.add(name);
                     }
-                    callback.onGetAreasSuccess(options);
+                    //callback.onGetAreasSuccess(options);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    callback.onGetAreasFailure();
+                    //callback.onGetAreasFailure();
                 }
                 super.onSuccess(statusCode, headers, response);
             }

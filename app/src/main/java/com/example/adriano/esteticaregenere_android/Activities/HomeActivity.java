@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.adriano.esteticaregenere_android.Components.HomeHeaderView;
+import com.example.adriano.esteticaregenere_android.Models.Appointment;
 import com.example.adriano.esteticaregenere_android.Providers.*;
 import com.example.adriano.esteticaregenere_android.R;
 
@@ -30,13 +31,33 @@ public class HomeActivity
     private ArrayList<String> list = new ArrayList<String>();
 
     @Override
-    public void onGetAreasFailure() {
-        System.out.println("Failure @ home!");
+    public void onSuccess(ArrayList<Appointment> appointments, String name) {
+        System.out.println("Hello " + name);
     }
 
     @Override
-    public void onGetAreasSuccess(ArrayList<String> options) {
-        ((MyArrayAdapter) ((ListView) findViewById(R.id.listview)).getAdapter()).updateWithData(options);
+    public void onAuthFailure() {
+      System.out.println("Deu ruim");
+    }
+
+    @Override
+    public void onTokenMissing() {
+        System.out.println("Deu ruim");
+    }
+
+    @Override
+    public void onFailure() {
+        System.out.println("Deu ruim");
+    }
+
+    @Override
+    public void onNetworkFailure() {
+        System.out.println("Deu ruim");
+    }
+
+    @Override
+    public void onResponseFailure() {
+        System.out.println("Deu ruim");
     }
 
     @Override
@@ -72,6 +93,7 @@ public class HomeActivity
         HomeHeaderView header = (HomeHeaderView) findViewById(R.id.homeHeaderView);
         header.updateWithData("Adriano", 5);
         setupListView();
+        (new HomeProvider()).getHomeInfo(this, this);
     }
 
     void setupListView() {
@@ -102,6 +124,7 @@ public class HomeActivity
 
     public void onScheduleAppointmentPressed(View view) {
         System.out.println("MARCAR CONSULTA");
+        (new HomeProvider()).getHomeInfo(this, this);
     }
 
 }

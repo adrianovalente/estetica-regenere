@@ -94,14 +94,15 @@ public class LoginActivity extends AppCompatActivity implements LoginProviderCal
 
     @Override
     public void onLoginSuccess(String token) {
-        performTokenInSharedPreferences(token);
+        persistTokenInSharedPreferences(token);
         findViewById(R.id.loadingLogin).setVisibility(View.GONE);
         LoginActivity.this.startActivity(new Intent(LoginActivity.this, HomeActivity.class));
     }
 
-    private void performTokenInSharedPreferences(String token) {
+    private void persistTokenInSharedPreferences(String token) {
         System.out.println("Login successful: " + token);
         SharedPreferences preferences = this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("auth-token", token);
         editor.commit();
