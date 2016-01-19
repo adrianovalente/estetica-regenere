@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.adriano.esteticaregenere_android.Components.HomeHeaderView;
 import com.example.adriano.esteticaregenere_android.Models.Appointment;
+import com.example.adriano.esteticaregenere_android.Models.AppointmentDate;
 import com.example.adriano.esteticaregenere_android.Providers.*;
 import com.example.adriano.esteticaregenere_android.R;
 
@@ -28,36 +29,49 @@ public class HomeActivity
         implements HomeProviderCallback
 {
 
-    private ArrayList<String> list = new ArrayList<String>();
+    private ArrayList<Appointment> list = new ArrayList<Appointment>();
+
+    public void hideLoadingView() {
+        findViewById(R.id.loadingHome).setVisibility(View.GONE);
+    }
 
     @Override
     public void onSuccess(ArrayList<Appointment> appointments, String name) {
-        System.out.println("Hello " + name);
+        HomeHeaderView header = (HomeHeaderView) findViewById(R.id.homeHeaderView);
+        header.updateWithData(name, appointments.size());
+        this.list = appointments;
+        setupListView(appointments);
+        hideLoadingView();
     }
 
     @Override
     public void onAuthFailure() {
-      System.out.println("Deu ruim");
+      System.out.println("AUTH FAILURE");
+        hideLoadingView();
     }
 
     @Override
     public void onTokenMissing() {
-        System.out.println("Deu ruim");
+        System.out.println("TOKEN MISSING");
+        hideLoadingView();
     }
 
     @Override
     public void onFailure() {
-        System.out.println("Deu ruim");
+        System.out.println("HOME FALIIURE");
+        hideLoadingView();
     }
 
     @Override
     public void onNetworkFailure() {
-        System.out.println("Deu ruim");
+        System.out.println("NET FAILURE");
+        hideLoadingView();
     }
 
     @Override
     public void onResponseFailure() {
-        System.out.println("Deu ruim");
+        System.out.println("RESPONSE FAILURE");
+        hideLoadingView();
     }
 
     @Override
@@ -90,26 +104,13 @@ public class HomeActivity
     }
 
     void setup() {
-        HomeHeaderView header = (HomeHeaderView) findViewById(R.id.homeHeaderView);
-        header.updateWithData("Adriano", 5);
-        setupListView();
         (new HomeProvider()).getHomeInfo(this, this);
     }
 
-    void setupListView() {
+    void setupListView(List<Appointment>list) {
 
         final ListView listView = (ListView) findViewById(R.id.listview);
-        String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
-                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-                "Android", "iPhone", "WindowsMobile" };
-
-        for (int i = 0; i < values.length; ++i) {
-            this.list.add(values[i]);
-        }
-        final MyArrayAdapter adapter = new MyArrayAdapter(this, android.R.layout.simple_list_item_1, this.list);
-
+        final MyArrayAdapter adapter = new MyArrayAdapter(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -123,22 +124,21 @@ public class HomeActivity
     }
 
     public void onScheduleAppointmentPressed(View view) {
-        System.out.println("MARCAR CONSULTA");
-        (new HomeProvider()).getHomeInfo(this, this);
+
     }
 
 }
 
 
-class MyArrayAdapter extends ArrayAdapter<String>
+class MyArrayAdapter extends ArrayAdapter<Appointment>
 {
-    private List<String> list;
-    public MyArrayAdapter(Context context, int textViewResourceId, List<String> objects) {
+    private List<Appointment> list;
+    public MyArrayAdapter(Context context, int textViewResourceId, List<Appointment> objects) {
         super(context, textViewResourceId, objects);
         this.list = objects;
     }
 
-    public void updateWithData(ArrayList<String> data) {
+    public void updateWithData(ArrayList<Appointment> data) {
         this.list = data;
         notifyDataSetChanged();
     }
@@ -160,13 +160,15 @@ class MyArrayAdapter extends ArrayAdapter<String>
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //return super.getView(position, convertView, parent);
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.custom_table_view_cell, parent, false);
         TextView primaryTxtView = (TextView) rowView.findViewById(R.id.firstLine);
-        primaryTxtView.setText(this.list.get(position));
+        primaryTxtView.setText(this.list.get(position).service);
         TextView secondaryTxtView = (TextView) rowView.findViewById(R.id.secondLine);
-        secondaryTxtView.setText("Subtitulo " + Integer.toString(position));
+        secondaryTxtView.setText(this.list.get(position).esteticista);
+        TextView dateTxtView = (TextView) rowView.findViewById(R.id.scheduleTime);
+        AppointmentDate date = this.list.get(position).date;
+        dateTxtView.setText(Integer.toString(date.day) + " de " + Integer.toString(date.month) + " de " + Integer.toString(date.year) + " às " + Integer.toString(date.hour) + ":" + Integer.toString(date.minute));
         return rowView;
 
     }

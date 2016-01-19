@@ -5,10 +5,10 @@ package com.example.adriano.esteticaregenere_android.Models;
  */
 public class Appointment {
 
-    int id;
-    AppointmentDate date;
-    String esteticista;
-    String service;
+    public int id;
+    public AppointmentDate date;
+    public String esteticista;
+    public String service;
 
 
     public Appointment(int id, AppointmentDate date, String esteticista, String service) {

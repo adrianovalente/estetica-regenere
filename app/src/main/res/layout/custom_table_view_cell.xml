@@ -23,7 +23,8 @@
         android:ellipsize="marquee"
         android:singleLine="true"
         android:text="Description"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:layout_above="@+id/scheduleTime"/>
 
     <TextView
         android:id="@+id/firstLine"
@@ -37,6 +38,17 @@
         android:gravity="center_vertical"
         android:text="Example application"
         android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scheduleTime"
+        android:gravity="center_vertical"
+        android:text="Time"
+        android:textSize="11sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/secondLine"
+        android:layout_alignStart="@+id/secondLine" />
 
 </RelativeLayout>
 

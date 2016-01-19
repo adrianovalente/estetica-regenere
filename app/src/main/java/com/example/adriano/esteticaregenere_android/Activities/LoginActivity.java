@@ -56,8 +56,15 @@ public class LoginActivity extends AppCompatActivity implements LoginProviderCal
     void setup() {
         findViewById(R.id.loadingLogin).setVisibility(View.GONE);
         setupBackgroundColor();
+        verifyIfUserIsAlreadyLogged();
 
+    }
 
+    void verifyIfUserIsAlreadyLogged() {
+        String token = getTokenFromSharedPreferences();
+        if (token != null) {
+            onLoginSuccess(token);
+        }
     }
 
     void hideActionBar() {
@@ -106,6 +113,11 @@ public class LoginActivity extends AppCompatActivity implements LoginProviderCal
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("auth-token", token);
         editor.commit();
+    }
+
+    private String getTokenFromSharedPreferences() {
+        SharedPreferences prefs = this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        return prefs.getString("auth-token", null);
     }
 
     @Override
