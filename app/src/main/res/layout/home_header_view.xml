@@ -1,26 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/primary_material_light"
     >
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+    >
+
+        <ImageView
+            android:layout_width="36px"
+            android:layout_height="36px"
+            android:src="@drawable/more"
+            android:onClick="toggleMenu"
+            android:layout_marginLeft="40px"
+            android:layout_centerVertical="true"
+            android:id="@+id/imageView" />
+
+        <ImageView
+            android:layout_width="185px"
+            android:layout_height="117px"
+            android:layout_marginTop="20px"
+            android:src="@drawable/regenere"
+            android:layout_alignTop="@+id/imageView"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:id="@+id/headerView_name"
+        android:gravity="center"
+        android:textSize="17dp"
+        android:fontFamily="Roboto"
+        android:text="Olá, cliente!"
+        android:layout_marginTop="12px"
+        android:textColor="#222222"
         />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:id="@+id/headerView_appointments"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:text="Bem vindo ao App Regenere"
+        android:layout_marginTop="5px"
+        android:textColor="#222222"
         />
 
     <Button
-        android:layout_width="307dp"
-        android:layout_height="57dp"
+        android:layout_width="307px"
+        android:layout_height="50px"
         android:onClick="onScheduleAppointmentPressed"
-        android:id="@+id/headerView_appointmentsButton" />
+        android:layout_gravity="center"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"
+        android:text="Marcar consulta"
+        android:textSize="14dp"
+        android:fontFamily="Roboto"
+        android:id="@+id/headerView_appointmentsButton"
+        android:background="@drawable/custombutton"
+        android:textColor="#519782" />
 
 </LinearLayout>

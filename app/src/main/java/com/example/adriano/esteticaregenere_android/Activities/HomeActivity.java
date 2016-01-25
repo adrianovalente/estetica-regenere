@@ -44,7 +44,7 @@ public class HomeActivity
         setupListView(appointments);
         hideLoadingView();
 
-        HomeActivity.this.startActivity(new Intent(HomeActivity.this, MenuPocActivity.class));
+        //HomeActivity.this.startActivity(new Intent(HomeActivity.this, MenuPocActivity.class));
     }
 
     @Override
@@ -127,52 +127,51 @@ public class HomeActivity
     }
 
     public void onScheduleAppointmentPressed(View view) {
-
     }
 
 }
 
 
-class MyArrayAdapter extends ArrayAdapter<Appointment>
-{
-    private List<Appointment> list;
-    public MyArrayAdapter(Context context, int textViewResourceId, List<Appointment> objects) {
-        super(context, textViewResourceId, objects);
-        this.list = objects;
-    }
-
-    public void updateWithData(ArrayList<Appointment> data) {
-        this.list = data;
-        notifyDataSetChanged();
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public boolean hasStableIds() {
-        return true;
-    }
-
-    @Override
-    public int getCount() {
-        return this.list.size();
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.custom_table_view_cell, parent, false);
-        TextView primaryTxtView = (TextView) rowView.findViewById(R.id.firstLine);
-        primaryTxtView.setText(this.list.get(position).service);
-        TextView secondaryTxtView = (TextView) rowView.findViewById(R.id.secondLine);
-        secondaryTxtView.setText(this.list.get(position).esteticista);
-        TextView dateTxtView = (TextView) rowView.findViewById(R.id.scheduleTime);
-        AppointmentDate date = this.list.get(position).date;
-        dateTxtView.setText(Integer.toString(date.day) + " de " + Integer.toString(date.month) + " de " + Integer.toString(date.year) + " às " + Integer.toString(date.hour) + ":" + Integer.toString(date.minute));
-        return rowView;
-
-    }
-}
+//class MyArrayAdapter extends ArrayAdapter<Appointment>
+//{
+//    private List<Appointment> list;
+//    public MyArrayAdapter(Context context, int textViewResourceId, List<Appointment> objects) {
+//        super(context, textViewResourceId, objects);
+//        this.list = objects;
+//    }
+//
+//    public void updateWithData(ArrayList<Appointment> data) {
+//        this.list = data;
+//        notifyDataSetChanged();
+//    }
+//
+//    @Override
+//    public long getItemId(int position) {
+//        return position;
+//    }
+//
+//    @Override
+//    public boolean hasStableIds() {
+//        return true;
+//    }
+//
+//    @Override
+//    public int getCount() {
+//        return this.list.size();
+//    }
+//
+//    @Override
+//    public View getView(int position, View convertView, ViewGroup parent) {
+//        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        View rowView = inflater.inflate(R.layout.custom_table_view_cell, parent, false);
+//        TextView primaryTxtView = (TextView) rowView.findViewById(R.id.firstLine);
+//        primaryTxtView.setText(this.list.get(position).service);
+//        TextView secondaryTxtView = (TextView) rowView.findViewById(R.id.secondLine);
+//        secondaryTxtView.setText(this.list.get(position).esteticista);
+//        TextView dateTxtView = (TextView) rowView.findViewById(R.id.scheduleTime);
+//        AppointmentDate date = this.list.get(position).date;
+//        dateTxtView.setText(Integer.toString(date.day) + " de " + Integer.toString(date.month) + " de " + Integer.toString(date.year) + " às " + Integer.toString(date.hour) + ":" + Integer.toString(date.minute));
+//        return rowView;
+//
+//    }
+//}
