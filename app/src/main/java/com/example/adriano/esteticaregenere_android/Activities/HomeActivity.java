@@ -1,6 +1,7 @@
 package com.example.adriano.esteticaregenere_android.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,10 +31,10 @@ public class HomeActivity
 {
 
     private ArrayList<Appointment> list = new ArrayList<Appointment>();
-
     public void hideLoadingView() {
         findViewById(R.id.loadingHome).setVisibility(View.GONE);
     }
+
 
     @Override
     public void onSuccess(ArrayList<Appointment> appointments, String name) {
@@ -42,6 +43,8 @@ public class HomeActivity
         this.list = appointments;
         setupListView(appointments);
         hideLoadingView();
+
+        HomeActivity.this.startActivity(new Intent(HomeActivity.this, MenuPocActivity.class));
     }
 
     @Override
