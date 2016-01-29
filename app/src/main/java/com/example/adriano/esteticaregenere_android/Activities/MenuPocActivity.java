@@ -1,11 +1,13 @@
 package com.example.adriano.esteticaregenere_android.Activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -17,6 +19,8 @@ import com.example.adriano.esteticaregenere_android.Components.HomeHeaderView;
 import com.example.adriano.esteticaregenere_android.Components.MenuContainer;
 import com.example.adriano.esteticaregenere_android.Models.Appointment;
 import com.example.adriano.esteticaregenere_android.Models.AppointmentDate;
+import com.example.adriano.esteticaregenere_android.Providers.DeleteAppointmentProvider;
+import com.example.adriano.esteticaregenere_android.Providers.DeleteAppointmentProviderCallback;
 import com.example.adriano.esteticaregenere_android.Providers.HomeProvider;
 import com.example.adriano.esteticaregenere_android.Providers.HomeProviderCallback;
 import com.example.adriano.esteticaregenere_android.R;
@@ -27,15 +31,54 @@ import java.util.List;
 /**
  * Created by Adriano on 1/23/16.
  */
+
+interface HomeMenuAdapterDelegate {
+    void onDeleteButtonPressed(int id);
+}
+
 public class MenuPocActivity
         extends Activity
-        implements HomeProviderCallback
+        implements HomeProviderCallback, HomeMenuAdapterDelegate, DeleteAppointmentProviderCallback
 {
     MenuContainer container;
     private ArrayList<Appointment> list = new ArrayList<Appointment>();
+    final MenuPocActivity thisActivity = this;
+
+
+
+    public void onDeleteButtonPressed(final int id) {
+        System.out.println("Ok guy! Number" + Integer.toString(id));
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MenuPocActivity.this);
+        alertDialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                showLoadingView();
+                (new DeleteAppointmentProvider()).deleteAppointment(thisActivity, id, thisActivity);
+
+            }
+        });
+        alertDialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog.setTitle("Excluir consulta");
+        alertDialog.setMessage("Tem certeza que deseja excluir essa consulta?");
+
+        alertDialog.create().show();
+
+
+    }
 
     public void hideLoadingView() {
         findViewById(R.id.loadingHome).setVisibility(View.GONE);
+    }
+
+    public void showLoadingView() {
+        findViewById(R.id.loadingHome).setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -50,13 +93,19 @@ public class MenuPocActivity
     }
 
     void setup() {
+        updateListView();
+        System.out.println("Hey, I'm alife!");
+    }
+
+    void updateListView() {
+        showLoadingView();
         (new HomeProvider()).getHomeInfo(this, this);
     }
 
     void setupListView(List<Appointment> list) {
 
         final ListView listView = (ListView) findViewById(R.id.listview);
-        final MyArrayAdapter adapter = new MyArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+        final HomeMenuAdapter adapter = new HomeMenuAdapter(this, android.R.layout.simple_list_item_1, list, this);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -73,33 +122,54 @@ public class MenuPocActivity
         toggleMenu(view);
     }
 
+
+    // Delete Appointment Delegate
+    @Override
+    public void onDeleteAppointmentFailure() {
+        showAlert("Tivemos uma falha ao excluir a consulta. Por favor tente novamente mais tarde");
+        hideLoadingView();
+    }
+
+    @Override
+    public void onDeleteAppointmentSuccess() {
+        showAlert("Sucesso!", "Consulta excluída com sucesso!");
+        updateListView();
+    }
+
+    @Override
+    public void onAuthFailed() {
+        onAuthFailure();
+    }
+
+
+    // Home Provider Delegate
     @Override
     public void onAuthFailure() {
-        System.out.println("AUTH FAILURE");
+        showAlert("AUTH FAILURE");
         hideLoadingView();
     }
 
     @Override
     public void onTokenMissing() {
-        System.out.println("TOKEN MISSING");
+        showAlert("TOKEN MISSING");
         hideLoadingView();
     }
 
     @Override
     public void onFailure() {
-        System.out.println("HOME FALIIURE");
+        showAlert("HOME FALIIURE");
         hideLoadingView();
     }
 
     @Override
     public void onNetworkFailure() {
-        System.out.println("NET FAILURE");
+        showAlert("NET FAILURE");
         hideLoadingView();
     }
 
     @Override
     public void onResponseFailure() {
-        System.out.println("RESPONSE FAILURE");
+        showAlert("RESPONSE FAILURE");
         hideLoadingView();
     }
 
@@ -121,15 +191,34 @@ public class MenuPocActivity
         container.toggleMenu();
         System.out.println("Menu");
     }
+
+    void showAlert(String title, String message) {
+        AlertDialog alertDialog = new AlertDialog.Builder(MenuPocActivity.this).create();
+        alertDialog.setTitle(title);
+        alertDialog.setMessage(message);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Ok", new AlertDialog.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog.show();
+    }
+
+    void showAlert(String message) {
+        showAlert("Atenção", message);
+    }
 }
 
 
-class MyArrayAdapter extends ArrayAdapter<Appointment>
+class HomeMenuAdapter extends ArrayAdapter<Appointment>
 {
     private List<Appointment> list;
-    public MyArrayAdapter(Context context, int textViewResourceId, List<Appointment> objects) {
+    private HomeMenuAdapterDelegate delegate;
+    public HomeMenuAdapter(Context context, int textViewResourceId, List<Appointment> objects, HomeMenuAdapterDelegate delegate) {
         super(context, textViewResourceId, objects);
         this.list = objects;
+        this.delegate = delegate;
     }
 
     public void updateWithData(ArrayList<Appointment> data) {
@@ -153,6 +242,11 @@ class MyArrayAdapter extends ArrayAdapter<Appointment>
     }
 
     @Override
+    public boolean isEnabled(int position) {
+        return false;
+    }
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.custom_table_view_cell, parent, false);
@@ -163,6 +257,16 @@ class MyArrayAdapter extends ArrayAdapter<Appointment>
         TextView dateTxtView = (TextView) rowView.findViewById(R.id.scheduleTime);
         AppointmentDate date = this.list.get(position).date;
         dateTxtView.setText(Integer.toString(date.day) + " de " + Integer.toString(date.month) + " de " + Integer.toString(date.year) + " às " + Integer.toString(date.hour) + ":" + Integer.toString(date.minute));
+        final int appointmentId = this.list.get(position).id;
+        rowView.findViewById(R.id.deleteButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                System.out.println("Clicked on " + Integer.toString(appointmentId));
+                delegate.onDeleteButtonPressed(appointmentId);
+
+            }
+        });
         return rowView;
 
     }

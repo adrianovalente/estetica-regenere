@@ -113,8 +113,8 @@ public class HomeActivity
     void setupListView(List<Appointment>list) {
 
         final ListView listView = (ListView) findViewById(R.id.listview);
-        final MyArrayAdapter adapter = new MyArrayAdapter(this, android.R.layout.simple_list_item_1, list);
-        listView.setAdapter(adapter);
+//        final HomeMenuAdapter adapter = new HomeMenuAdapter(this, android.R.layout.simple_list_item_1);
+//        listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -129,13 +129,17 @@ public class HomeActivity
     public void onScheduleAppointmentPressed(View view) {
     }
 
+    public void onDeleteButtonPressed(View view) {
+        System.out.println("Ups!");
+    }
+
 }
 
 
-//class MyArrayAdapter extends ArrayAdapter<Appointment>
+//class HomeMenuAdapter extends ArrayAdapter<Appointment>
 //{
 //    private List<Appointment> list;
-//    public MyArrayAdapter(Context context, int textViewResourceId, List<Appointment> objects) {
+//    public HomeMenuAdapter(Context context, int textViewResourceId, List<Appointment> objects) {
 //        super(context, textViewResourceId, objects);
 //        this.list = objects;
 //    }
