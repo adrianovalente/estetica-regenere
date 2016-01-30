@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity implements LoginProviderCal
     public void onLoginSuccess(String token) {
         persistTokenInSharedPreferences(token);
         findViewById(R.id.loadingLogin).setVisibility(View.GONE);
-        LoginActivity.this.startActivity(new Intent(LoginActivity.this, MenuPocActivity.class));
+        LoginActivity.this.startActivity(new Intent(LoginActivity.this, HomeActicity.class));
     }
 
     private void persistTokenInSharedPreferences(String token) {

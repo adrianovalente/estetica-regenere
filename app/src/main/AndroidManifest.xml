@@ -12,6 +12,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
+            android:noHistory="true"
             android:name=".Activities.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -23,13 +24,12 @@
 
 
         <activity
-            android:name=".Activities.HomeActivity"
-            android:label="@string/app_name" >
+            android:name=".Activities.BaseMenuActivity"
+            android:label="POC Menu">
         </activity>
 
-        <activity
-            android:name=".Activities.MenuPocActivity"
-            android:label="POC Menu">
+        <activity android:name=".Activities.HomeActicity"
+            android:label="Home Activity">
         </activity>
     </application>
 
