@@ -7,26 +7,56 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#444488"
+        android:background="#F5F5F5"
         android:orientation="vertical" >
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="toggleMenu"
-            android:text="Button 1" />
+        <ImageView
+            android:layout_width="234px"
+            android:layout_height="156px"
+            android:src="@drawable/regenere"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="65px"
+            />
 
-        <Button
+        <ListView
+            android:layout_marginTop="70px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="toggleMenu"
-            android:text="Button 2" />
+            android:id="@+id/menuListView"/>
 
-        <Button
+        <LinearLayout
+            android:background="#F5F5F5"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="toggleMenu"
-            android:text="Button 3" />
+            android:layout_height="100px"
+            android:onClick="onAboutButtonClicked"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="Roboto"
+                android:textColor="#909094"
+                android:text="Versão 0.1.0"
+                android:layout_marginTop="10px"
+                android:layout_marginBottom="0px"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0px"
+                android:layout_marginBottom="0px"
+                android:paddingTop="10px"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="Roboto"
+                android:textColor="#811320"
+                android:text="by dri9595"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
     </LinearLayout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
