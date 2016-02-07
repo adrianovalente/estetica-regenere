@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.example.adriano.esteticaregenere_android.Providers.AuthenticatedProviderCallback;
 
 import com.example.adriano.esteticaregenere_android.Components.MenuContainer;
 import com.example.adriano.esteticaregenere_android.Providers.MenuProvider;
@@ -33,7 +34,7 @@ interface MenuAdapterDelegate {
     void onMenuItemSelected(int ancient, int current);
 }
 
-public class BaseMenuActivity extends Activity implements MenuAdapterDelegate
+public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, AuthenticatedProviderCallback
 
 {
     MenuContainer container;
@@ -90,6 +91,7 @@ public class BaseMenuActivity extends Activity implements MenuAdapterDelegate
         LayoutInflater inflater = LayoutInflater.from(this);
         View inflatedLayout= inflater.inflate(viewId, null, false);
         ((ViewGroup)findViewById(R.id.page_container)).addView(inflatedLayout);
+        findViewById(R.id.loadingView).bringToFront();
     }
 
     @Override
@@ -143,6 +145,39 @@ public class BaseMenuActivity extends Activity implements MenuAdapterDelegate
         finish();
         startActivity(mIntent);
     }
+
+    void hideLoadingView() {
+        findViewById(R.id.loadingView).setVisibility(View.GONE);
+    }
+
+    void showLoadingView() {
+        findViewById(R.id.loadingView).setVisibility(View.VISIBLE);
+    }
+
+    // Basic Provider Callbacks
+
+    @Override
+    public void onTokenMissing() {
+        showAlert("TOKEN MISSING");
+        hideLoadingView();
+    }
+
+
+    @Override
+    public void onNetworkFailure() {
+        showAlert("NET FAILURE");
+        hideLoadingView();
+    }
+
+    @Override
+    public void onResponseFailure() {
+        showAlert("RESPONSE FAILURE");
+        hideLoadingView();
+    }
+
+
+
+
 }
 
 class MenuAdapter extends ArrayAdapter<MenuProvider>

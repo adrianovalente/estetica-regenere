@@ -64,6 +64,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/page_container">
 
+        <RelativeLayout
+            android:id="@+id/loadingView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#d0d0d0">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </com.example.adriano.esteticaregenere_android.Components.MenuContainer>

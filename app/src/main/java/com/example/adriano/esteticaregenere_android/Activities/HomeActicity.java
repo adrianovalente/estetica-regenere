@@ -73,14 +73,6 @@ public class HomeActicity extends BaseMenuActivity implements HomeProviderCallba
 
     }
 
-    public void hideLoadingView() {
-        findViewById(R.id.loadingHome).setVisibility(View.GONE);
-    }
-
-    public void showLoadingView() {
-        findViewById(R.id.loadingHome).setVisibility(View.VISIBLE);
-    }
-
     @Override
     public void onSuccess(ArrayList<Appointment> appointments, String name) {
         HomeHeaderView header = (HomeHeaderView) findViewById(R.id.homeHeaderView);
@@ -135,26 +127,8 @@ public class HomeActicity extends BaseMenuActivity implements HomeProviderCallba
     }
 
     @Override
-    public void onTokenMissing() {
-        showAlert("TOKEN MISSING");
-        hideLoadingView();
-    }
-
-    @Override
     public void onFailure() {
         showAlert("HOME FALIIURE");
-        hideLoadingView();
-    }
-
-    @Override
-    public void onNetworkFailure() {
-        showAlert("NET FAILURE");
-        hideLoadingView();
-    }
-
-    @Override
-    public void onResponseFailure() {
-        showAlert("RESPONSE FAILURE");
         hideLoadingView();
     }
 

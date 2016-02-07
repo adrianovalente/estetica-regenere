@@ -12,8 +12,7 @@ import com.example.adriano.esteticaregenere_android.R;
  * Created by Adriano on 1/30/16.
  */
 public class ScheduleAppointmentActivity
-        extends BaseMenuActivity
-implements AreasProviderCallback{
+        extends BaseMenuActivity {
 
     @Override
     int getRightMenuIndex() {
@@ -29,7 +28,7 @@ implements AreasProviderCallback{
 
     void setup() {
         setupHeaderView();
-        (new AreasProvider()).getAreas(this, this);
+        //(new AreasProvider()).getAreas(this, this);
     }
 
     void setupHeaderView() {
