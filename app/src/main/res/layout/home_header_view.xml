@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#ECECEC"
+    android:id="@+id/header_parent"
     >
 
 
@@ -52,6 +53,7 @@
         android:textSize="15dp"
         android:text="Bem vindo ao App Regenere"
         android:layout_marginTop="5px"
+        android:layout_marginBottom="10px"
         android:textColor="#222222"
         />
 
@@ -60,7 +62,6 @@
         android:layout_height="50px"
         android:onClick="onScheduleAppointmentPressed"
         android:layout_gravity="center"
-        android:layout_marginTop="10px"
         android:layout_marginBottom="10px"
         android:text="Marcar consulta"
         android:textSize="14dp"

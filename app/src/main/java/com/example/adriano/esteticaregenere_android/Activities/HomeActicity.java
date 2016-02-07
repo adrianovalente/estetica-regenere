@@ -36,6 +36,11 @@ public class HomeActicity extends BaseMenuActivity implements HomeProviderCallba
     final HomeActicity thisActivity = this;
 
     @Override
+    int getRightMenuIndex() {
+        return 0;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         System.out.println("Hello Home!");

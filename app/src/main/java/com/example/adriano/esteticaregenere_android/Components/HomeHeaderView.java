@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ public class HomeHeaderView extends LinearLayout {
         super(context);
     }
 
+
     public HomeHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -28,7 +30,17 @@ public class HomeHeaderView extends LinearLayout {
 
 
     public void updateWithData(String name, int appointments) {
+        updateWithData(name, "Essa semana você tem " + appointments + " consultas");
+    }
+
+    public void updateWithData(String name, String message) {
         ((TextView) findViewById(R.id.headerView_name)).setText("Olá, " + name);
-        ((TextView) findViewById((R.id.headerView_appointments))).setText("Essa semana você tem " + appointments + " consultas");
+        ((TextView) findViewById((R.id.headerView_appointments))).setText(message);
+    }
+
+    public void setHeaderType(HomeHeaderType type) {
+        if (type == HomeHeaderType.HomeHeaderTypeSimple) {
+            ((ViewGroup)findViewById(R.id.header_parent)).removeView(findViewById(R.id.headerView_appointmentsButton));
+        }
     }
 }

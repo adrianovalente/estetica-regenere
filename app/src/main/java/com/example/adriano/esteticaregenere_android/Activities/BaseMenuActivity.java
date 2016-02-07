@@ -22,16 +22,64 @@ import com.example.adriano.esteticaregenere_android.Components.MenuContainer;
 import com.example.adriano.esteticaregenere_android.Providers.MenuProvider;
 import com.example.adriano.esteticaregenere_android.R;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by Adriano on 1/23/16.
  */
 
-public class BaseMenuActivity extends Activity
+interface MenuAdapterDelegate {
+    void onMenuItemSelected(int ancient, int current);
+}
+
+public class BaseMenuActivity extends Activity implements MenuAdapterDelegate
 
 {
     MenuContainer container;
+    MenuAdapter adapter;
+    public final BaseMenuActivity thisActivity = this;
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (getRightMenuIndex() != this.adapter.getSelectedMenuOption()) restartThisActivity();
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        container = (MenuContainer) this.getLayoutInflater().inflate(R.layout.menu_poc, null);
+        setContentView(container);
+        setupMenuListView();
+    }
+
+    @Override
+    public void onMenuItemSelected(int ancient, int current) {
+        System.out.println("Hey! Changing from " + Integer.toString(ancient) + " to " + Integer.toString(current));
+        this.container.toggleMenu();
+        if (ancient == current) return;
+        Intent i;
+        switch(current) {
+            case 0:  i = new Intent(this, HomeActicity.class); break;
+            case 1:  i = new Intent(this, ScheduleAppointmentActivity.class); break;
+            default: i = new Intent(this, BaseMenuActivity.class); break;
+
+        }
+
+        /*
+        / TODO: Validar com usuários android esse comportamento.
+        / For me it makes perfect sense.
+        */
+        //if (ancient != 0) i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+        if (ancient != 0) finish();
+    }
+
+    int getRightMenuIndex() {
+        return 0;
+    }
 
     public void onAboutButtonClicked(View view) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://obscure-temple-3846.herokuapp.com/about_me"));
@@ -42,15 +90,6 @@ public class BaseMenuActivity extends Activity
         LayoutInflater inflater = LayoutInflater.from(this);
         View inflatedLayout= inflater.inflate(viewId, null, false);
         ((ViewGroup)findViewById(R.id.page_container)).addView(inflatedLayout);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        container = (MenuContainer) this.getLayoutInflater().inflate(R.layout.menu_poc, null);
-        setContentView(container);
-        setupMenuListView();
-
     }
 
     @Override
@@ -81,7 +120,13 @@ public class BaseMenuActivity extends Activity
 
     void setupMenuListView() {
         final ListView listView = (ListView) findViewById(R.id.menuListView);
-        final MenuAdapter menuAdapter = new MenuAdapter(this, android.R.layout.simple_list_item_1, MenuProvider.menuOptions(), 0);
+        int option = 0;
+        if (thisActivity.getClass().equals(HomeActicity.class)) option = 0;
+        if (thisActivity.getClass().equals(ScheduleAppointmentActivity.class)) option = 1;
+
+
+        final MenuAdapter menuAdapter = new MenuAdapter(this, android.R.layout.simple_list_item_1, MenuProvider.menuOptions(), option, this);
+        this.adapter = menuAdapter;
         listView.setAdapter(menuAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -92,21 +137,34 @@ public class BaseMenuActivity extends Activity
             }
         });
     }
+
+    void restartThisActivity() {
+        Intent mIntent = getIntent();
+        finish();
+        startActivity(mIntent);
+    }
 }
 
 class MenuAdapter extends ArrayAdapter<MenuProvider>
 {
     private List<MenuProvider> list;
     int selected;
-    public MenuAdapter(Context context, int textViewResourceId, List<MenuProvider> objects, int selected) {
+    MenuAdapterDelegate delegate;
+    public MenuAdapter(Context context, int textViewResourceId, List<MenuProvider> objects, int selected, MenuAdapterDelegate delegate) {
         super(context, textViewResourceId, objects);
         this.list = objects;
         this.selected = selected;
+        this.delegate = delegate;
     }
 
+    public int getSelectedMenuOption() { return this.selected; }
+
     public void select(int index) {
+        int previousSelected = this.selected;
         this.selected = index;
         notifyDataSetChanged();
+        this.delegate.onMenuItemSelected(previousSelected, index);
+
     }
 
     @Override

@@ -28,8 +28,14 @@
             android:label="POC Menu">
         </activity>
 
-        <activity android:name=".Activities.HomeActicity"
+        <activity
+            android:name=".Activities.HomeActicity"
             android:label="Home Activity">
+        </activity>
+
+        <activity
+            android:name=".Activities.ScheduleAppointmentActivity"
+            android:label="Marcar consulta">
         </activity>
     </application>
 
