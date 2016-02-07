@@ -5,4 +5,10 @@ package com.example.adriano.esteticaregenere_android.Models;
  */
 public class Area {
     public String id, name;
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }
+
