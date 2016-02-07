@@ -13,8 +13,11 @@ import android.widget.TextView;
 import com.example.adriano.esteticaregenere_android.Components.HomeHeaderType;
 import com.example.adriano.esteticaregenere_android.Components.HomeHeaderView;
 import com.example.adriano.esteticaregenere_android.Models.Area;
+import com.example.adriano.esteticaregenere_android.Models.Service;
 import com.example.adriano.esteticaregenere_android.Providers.AreasProvider;
 import com.example.adriano.esteticaregenere_android.Providers.AreasProviderCallback;
+import com.example.adriano.esteticaregenere_android.Providers.ServicesProvider;
+import com.example.adriano.esteticaregenere_android.Providers.ServicesProviderCallback;
 import com.example.adriano.esteticaregenere_android.R;
 
 import java.util.ArrayList;
@@ -25,8 +28,9 @@ import java.util.List;
  */
 public class ScheduleAppointmentActivity
         extends BaseMenuActivity
-        implements AreasProviderCallback{
+        implements AreasProviderCallback, ServicesProviderCallback {
 
+    public final ScheduleAppointmentActivity thisScheduleActivity = this;
     @Override
     int getRightMenuIndex() {
         return 1;
@@ -70,6 +74,8 @@ public class ScheduleAppointmentActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 System.out.println(areas.get(position));
+                (new ServicesProvider()).getServices(thisScheduleActivity, areas.get(position).id, thisScheduleActivity);
+                showLoadingView();
             }
 
             @Override
@@ -79,5 +85,38 @@ public class ScheduleAppointmentActivity
         });
         hideLoadingView();
 
+    }
+
+    // Get Services Callback
+
+    @Override
+    public void onGetServicesAuthFailed() {
+        showAlert("Auth failure, please log in again");
+        hideLoadingView();
+    }
+
+    @Override
+    public void onGetServicesFailure() {
+        showAlert("GET SERVICES FAILURE");
+        hideLoadingView();
+    }
+
+    @Override
+    public void onGetServicesSuccess(final ArrayList<Service> services) {
+        Spinner servicesSpinner = (Spinner)findViewById(R.id.servicesSpinner);
+        servicesSpinner.setAdapter(new ArrayAdapter<Service>(this, android.R.layout.simple_spinner_dropdown_item, services));
+        servicesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Service service = services.get(position);
+                System.out.println("Selected " + service.name + ", id: " + service.id);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                System.out.println("UPS!");
+            }
+        });
+        hideLoadingView();
     }
 }
