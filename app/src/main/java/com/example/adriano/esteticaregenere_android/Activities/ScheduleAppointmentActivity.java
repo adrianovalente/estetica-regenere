@@ -4,12 +4,16 @@ import android.os.Bundle;
 
 import com.example.adriano.esteticaregenere_android.Components.HomeHeaderType;
 import com.example.adriano.esteticaregenere_android.Components.HomeHeaderView;
+import com.example.adriano.esteticaregenere_android.Providers.AreasProvider;
+import com.example.adriano.esteticaregenere_android.Providers.AreasProviderCallback;
 import com.example.adriano.esteticaregenere_android.R;
 
 /**
  * Created by Adriano on 1/30/16.
  */
-public class ScheduleAppointmentActivity extends BaseMenuActivity {
+public class ScheduleAppointmentActivity
+        extends BaseMenuActivity
+implements AreasProviderCallback{
 
     @Override
     int getRightMenuIndex() {
@@ -25,6 +29,7 @@ public class ScheduleAppointmentActivity extends BaseMenuActivity {
 
     void setup() {
         setupHeaderView();
+        (new AreasProvider()).getAreas(this, this);
     }
 
     void setupHeaderView() {
