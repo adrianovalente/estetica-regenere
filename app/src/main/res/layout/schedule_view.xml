@@ -38,11 +38,42 @@
         <Spinner
             android:layout_marginLeft="20px"
             android:layout_marginRight="20px"
-            android:layout_marginBottom="20px"
+            android:layout_marginBottom="5px"
             android:layout_marginTop="0px"
             android:layout_width="match_parent"
             android:id="@+id/servicesSpinner"
             android:layout_height="wrap_content"></Spinner>
+
+        <Spinner
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:layout_marginBottom="5px"
+            android:layout_marginTop="0px"
+            android:layout_width="match_parent"
+            android:id="@+id/datesSpinner"
+            android:layout_height="wrap_content"></Spinner>
+
+        <Spinner
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="0px"
+            android:layout_width="match_parent"
+            android:id="@+id/timesSpinner"
+            android:layout_height="wrap_content"></Spinner>
+
+        <Button
+            android:layout_width="307px"
+            android:layout_height="50px"
+            android:onClick="onScheduleAppointmentPressed"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10px"
+            android:text="Marcar consulta"
+            android:textSize="14dp"
+            android:fontFamily="Roboto"
+            android:id="@+id/headerView_appointmentsButton"
+            android:background="@drawable/custombutton"
+            android:textColor="#519782" />
 
     </LinearLayout>
 

@@ -12,13 +12,18 @@ import android.widget.TextView;
 
 import com.example.adriano.esteticaregenere_android.Components.HomeHeaderType;
 import com.example.adriano.esteticaregenere_android.Components.HomeHeaderView;
+import com.example.adriano.esteticaregenere_android.Models.Appointment;
+import com.example.adriano.esteticaregenere_android.Models.AppointmentOption;
 import com.example.adriano.esteticaregenere_android.Models.Area;
 import com.example.adriano.esteticaregenere_android.Models.Service;
 import com.example.adriano.esteticaregenere_android.Providers.AreasProvider;
 import com.example.adriano.esteticaregenere_android.Providers.AreasProviderCallback;
+import com.example.adriano.esteticaregenere_android.Providers.GetDatesProvider;
+import com.example.adriano.esteticaregenere_android.Providers.GetDatesProviderCallback;
 import com.example.adriano.esteticaregenere_android.Providers.ServicesProvider;
 import com.example.adriano.esteticaregenere_android.Providers.ServicesProviderCallback;
 import com.example.adriano.esteticaregenere_android.R;
+import com.loopj.android.http.RequestParams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +33,10 @@ import java.util.List;
  */
 public class ScheduleAppointmentActivity
         extends BaseMenuActivity
-        implements AreasProviderCallback, ServicesProviderCallback {
+        implements AreasProviderCallback, ServicesProviderCallback, GetDatesProviderCallback {
 
     public final ScheduleAppointmentActivity thisScheduleActivity = this;
+    public String selectedService, selectedTime;
     @Override
     int getRightMenuIndex() {
         return 1;
@@ -73,7 +79,6 @@ public class ScheduleAppointmentActivity
         areasSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(areas.get(position));
                 (new ServicesProvider()).getServices(thisScheduleActivity, areas.get(position).id, thisScheduleActivity);
                 showLoadingView();
             }
@@ -83,7 +88,7 @@ public class ScheduleAppointmentActivity
                 System.out.println("UPS!");
             }
         });
-        hideLoadingView();
+        //hideLoadingView();
 
     }
 
@@ -109,12 +114,67 @@ public class ScheduleAppointmentActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Service service = services.get(position);
+                selectedService = service.id;
                 System.out.println("Selected " + service.name + ", id: " + service.id);
+                showLoadingView();
+                (new GetDatesProvider()).getDates(thisScheduleActivity, service.id, thisScheduleActivity);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 System.out.println("UPS!");
+            }
+        });
+        //hideLoadingView();
+    }
+
+    // Get Dates Callback
+
+    @Override
+    public void onGetDatesFailure() {
+        showAlert("GET DATES FAILURE");
+        hideLoadingView();
+    }
+
+    @Override
+    public void onGetDatesAuthFailed() {
+        showAlert("Auth failure, please log in again");
+        hideLoadingView();
+    }
+
+    @Override
+    public void onGetDatesSuccess(final ArrayList<AppointmentOption> options) {
+        System.out.println(options);
+        Spinner datesSpinner = (Spinner)findViewById(R.id.datesSpinner);
+        datesSpinner.setAdapter(new ArrayAdapter<AppointmentOption>(this, android.R.layout.simple_spinner_dropdown_item, options));
+        datesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                try {
+                    Spinner timesSpinner = (Spinner) findViewById(R.id.timesSpinner);
+                    final String selectedDate = options.get(position).date;
+                    final ArrayList<String> possibleTimes = options.get(position).times;
+                    System.out.println(options.get(position).times);
+                    timesSpinner.setAdapter(new ArrayAdapter<String>(thisScheduleActivity, android.R.layout.simple_spinner_dropdown_item, possibleTimes));
+                    timesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            selectedTime = String.format("%s-%d", selectedDate, possibleTimes.get(position));
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         hideLoadingView();
