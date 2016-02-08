@@ -34,6 +34,10 @@ interface MenuAdapterDelegate {
     void onMenuItemSelected(int ancient, int current);
 }
 
+interface AlertDelegate {
+    void onOkButtonPressed();
+}
+
 public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, AuthenticatedProviderCallback
 
 {
@@ -104,6 +108,10 @@ public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, A
     }
 
     void showAlert(String title, String message) {
+        showAlert(title, message, null);
+    }
+
+    void showAlert(String title, String message, final AlertDelegate delegate) {
         AlertDialog alertDialog = new AlertDialog.Builder(BaseMenuActivity.this).create();
         alertDialog.setTitle(title);
         alertDialog.setMessage(message);
@@ -111,6 +119,7 @@ public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, A
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
+                if(delegate!=null)delegate.onOkButtonPressed();
             }
         });
         alertDialog.show();

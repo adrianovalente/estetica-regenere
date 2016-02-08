@@ -101,36 +101,23 @@ public class BaseProvider {
         }
     }
 
-    //TODO: Remove this method once it's not used anymore
-    public void getPath(String path, final HomeProviderCallback callback) {
-        AsyncHttpClient client = new AsyncHttpClient();
-        client.get(path, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                System.out.println("Deu bom mlk");
-                ArrayList<String> options = new ArrayList<String>();
-                try {
-                    int success = response.getInt("isSuccess");
-                    JSONArray areas = response.getJSONObject("content").getJSONArray("areas");
-                    for (int i = 0; i < areas.length(); i++) {
-                        JSONObject area = (JSONObject) areas.get(i);
-                        String name = area.getString("name");
-                        options.add(name);
-                    }
-                    //callback.onGetAreasSuccess(options);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    //callback.onGetAreasFailure();
-                }
-                super.onSuccess(statusCode, headers, response);
+    public void postAuthenticated(Context context, String path, JSONObject body, final AuthenticatedProviderCallback callback) {
+        this.callback = callback;
+        SharedPreferences preferences = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        String token =  preferences.getString("auth-token", "");
+        if (token == null || token == "") {
+            callback.onTokenMissing();
+        } else {
+            Header authHeader = new BasicHeader("REGENERETOKEN", token);
+            Header[] headers = {authHeader};
+            try {
+                StringEntity entity = new StringEntity(body.toString());
+                getSharedClient().post(context, host+path, headers, entity, "application/json", handler);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                callback.onResponseFailure();
             }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-            }
-        });
+        }
     }
 
 }

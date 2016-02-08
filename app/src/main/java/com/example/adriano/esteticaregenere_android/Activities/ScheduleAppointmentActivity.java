@@ -20,6 +20,8 @@ import com.example.adriano.esteticaregenere_android.Providers.AreasProvider;
 import com.example.adriano.esteticaregenere_android.Providers.AreasProviderCallback;
 import com.example.adriano.esteticaregenere_android.Providers.GetDatesProvider;
 import com.example.adriano.esteticaregenere_android.Providers.GetDatesProviderCallback;
+import com.example.adriano.esteticaregenere_android.Providers.ScheduleAppointmentProvider;
+import com.example.adriano.esteticaregenere_android.Providers.ScheduleAppointmentProviderCallback;
 import com.example.adriano.esteticaregenere_android.Providers.ServicesProvider;
 import com.example.adriano.esteticaregenere_android.Providers.ServicesProviderCallback;
 import com.example.adriano.esteticaregenere_android.R;
@@ -33,7 +35,7 @@ import java.util.List;
  */
 public class ScheduleAppointmentActivity
         extends BaseMenuActivity
-        implements AreasProviderCallback, ServicesProviderCallback, GetDatesProviderCallback {
+        implements AreasProviderCallback, ServicesProviderCallback, GetDatesProviderCallback, ScheduleAppointmentProviderCallback, AlertDelegate {
 
     public final ScheduleAppointmentActivity thisScheduleActivity = this;
     public String selectedService, selectedTime;
@@ -59,6 +61,11 @@ public class ScheduleAppointmentActivity
         HomeHeaderView header = ((HomeHeaderView)findViewById(R.id.homeHeaderView));
         header.updateWithData("Adriano", "Vamos marcar uma consulta");
         header.setHeaderType(HomeHeaderType.HomeHeaderTypeSimple);
+    }
+
+    public void onScheduleAppointmentPressed(View v) {
+        showLoadingView();
+        (new ScheduleAppointmentProvider()).scheduleAppointment(this, selectedService, selectedTime, this);
     }
 
     // Get Areas Callback
@@ -129,7 +136,6 @@ public class ScheduleAppointmentActivity
     }
 
     // Get Dates Callback
-
     @Override
     public void onGetDatesFailure() {
         showAlert("GET DATES FAILURE");
@@ -159,7 +165,7 @@ public class ScheduleAppointmentActivity
                     timesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            selectedTime = String.format("%s-%d", selectedDate, possibleTimes.get(position));
+                            selectedTime = String.format("%s-%s", selectedDate, possibleTimes.get(position));
                         }
 
                         @Override
@@ -178,5 +184,32 @@ public class ScheduleAppointmentActivity
             }
         });
         hideLoadingView();
+    }
+
+    // ScheduleAppointment Callback
+
+    @Override
+    public void onScheduleAppointmentFailure() {
+        showAlert("Schedule Appointment Failure");
+        hideLoadingView();
+    }
+
+    @Override
+    public void onScheduleAppointmentAuthFailed() {
+        showAlert("Auth failure, please log in again");
+        hideLoadingView();
+    }
+
+    @Override
+    public void onScheduleAppointmentSuccess() {
+        showAlert("Parabéns", "Consulta marcada com sucesso", this);
+    }
+
+    //Alert Delegate
+
+    @Override
+    public void onOkButtonPressed() {
+        hideLoadingView();
+        finish();
     }
 }
