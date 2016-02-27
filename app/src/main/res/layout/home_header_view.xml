@@ -13,15 +13,19 @@
         android:orientation="horizontal"
 
     >
-
-        <ImageView
-            android:layout_width="36px"
-            android:layout_height="36px"
-            android:src="@drawable/more"
+        <RelativeLayout
+            android:layout_width="130px"
+            android:layout_height="130px"
+            android:layout_marginTop="20px"
             android:onClick="toggleMenu"
-            android:layout_marginLeft="40px"
-            android:layout_centerVertical="true"
-            android:id="@+id/imageView" />
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="36px"
+                android:layout_height="36px"
+                android:src="@drawable/more"
+                android:layout_centerVertical="true"
+                android:id="@+id/imageView" />
+        </RelativeLayout>
 
         <ImageView
             android:layout_width="185px"
