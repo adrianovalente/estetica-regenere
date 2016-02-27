@@ -9,11 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 import android.os.Handler;
 
+import com.example.adriano.esteticaregenere_android.Activities.MenuContainerDelegate;
+
 /**
  * Created by Adriano on 1/23/16.
  */
 public class MenuContainer extends LinearLayout {
 
+
+    private MenuContainerDelegate delegate;
     private View menu, controller;
     private static final int menuMargin = 150;
     protected int currentContentOffset = 0;
@@ -54,15 +58,21 @@ public class MenuContainer extends LinearLayout {
         switch(menuCurrentState) {
             case OPENING:
                 menuCurrentState = MenuState.OPEN;
+                if(this.delegate != null) delegate.onMenuOpen();
                 break;
             case CLOSING:
                 menuCurrentState = MenuState.CLOSED;
+                if(this.delegate != null) delegate.onMenuClose();
                 menu.setVisibility(View.GONE);
                 break;
             default:
                 return;
 
         }
+    }
+
+    public void setDelegate(MenuContainerDelegate delegate) {
+        this.delegate = delegate;
     }
 
 

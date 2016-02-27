@@ -65,6 +65,17 @@
         android:id="@+id/page_container">
 
         <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/click_view"
+            android:onClick="toggleMenu">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/loadingView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

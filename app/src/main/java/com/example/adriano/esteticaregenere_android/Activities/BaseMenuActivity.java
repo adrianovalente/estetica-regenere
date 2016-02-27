@@ -38,12 +38,13 @@ interface AlertDelegate {
     void onOkButtonPressed();
 }
 
-public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, AuthenticatedProviderCallback
+public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, AuthenticatedProviderCallback, MenuContainerDelegate
 
 {
     MenuContainer container;
     MenuAdapter adapter;
     public final BaseMenuActivity thisActivity = this;
+    View controllerView;
 
     @Override
     protected void onRestart() {
@@ -56,6 +57,7 @@ public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, A
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         container = (MenuContainer) this.getLayoutInflater().inflate(R.layout.menu_poc, null);
+        container.setDelegate(this);
         setContentView(container);
         setupMenuListView();
     }
@@ -93,8 +95,8 @@ public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, A
 
     public void setContentView(int viewId) {
         LayoutInflater inflater = LayoutInflater.from(this);
-        View inflatedLayout= inflater.inflate(viewId, null, false);
-        ((ViewGroup)findViewById(R.id.page_container)).addView(inflatedLayout);
+        this.controllerView = inflater.inflate(viewId, null, false);
+        ((ViewGroup)findViewById(R.id.page_container)).addView(controllerView);
         findViewById(R.id.loadingView).bringToFront();
     }
 
@@ -184,9 +186,21 @@ public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, A
         hideLoadingView();
     }
 
+    // Menu Container Delegate
 
 
+    @Override
+    public void onMenuClose() {
+        System.out.println("Menu just closed!");
+        findViewById(R.id.loadingView).bringToFront();
+        this.controllerView.bringToFront();
+    }
 
+    @Override
+    public void onMenuOpen() {
+        System.out.println("Menu just opened!");
+        findViewById(R.id.click_view).bringToFront();
+    }
 }
 
 class MenuAdapter extends ArrayAdapter<MenuProvider>
