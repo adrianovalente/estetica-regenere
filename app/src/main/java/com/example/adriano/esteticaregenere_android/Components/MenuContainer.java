@@ -1,11 +1,19 @@
 package com.example.adriano.esteticaregenere_android.Components;
 
+import android.animation.Animator;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.Menu;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
+import android.widget.Scroller;
+import android.os.Handler;
+
+import java.util.logging.LogRecord;
 
 /**
  * Created by Adriano on 1/23/16.
@@ -17,9 +25,51 @@ public class MenuContainer extends LinearLayout {
     protected int currentContentOffset = 0;
     protected MenuState menuCurrentState = MenuState.CLOSED;
 
-    public enum MenuState {
-        CLOSED, OPEN
+    // Animation objects
+    protected Scroller menuAnimationScroller = new Scroller(this.getContext(), new LinearInterpolator());
+    protected Runnable menuAnimationRunnable = new Runnable() {
+        @Override
+        public void run() {
+            boolean isAnimationOngoing = MenuContainer.this.menuAnimationScroller.computeScrollOffset();
+            MenuContainer.this.adjustContentPosition(isAnimationOngoing);
+        }
     };
+    protected Handler menuAnimationHandler = new Handler();
+
+    // Animation constants
+    private static final int menuAnimationDurating = 500;
+    private static final int menuAnimationPollingInterval = 16;
+
+    public enum MenuState {
+        CLOSED, OPEN, CLOSING, OPENING
+    };
+
+    public void adjustContentPosition(boolean isAnimationOnGoing) {
+        int scrollerOffset = menuAnimationScroller.getCurrX();
+        controller.offsetLeftAndRight(scrollerOffset - currentContentOffset);
+        this.currentContentOffset = scrollerOffset;
+        this.invalidate();
+        if(isAnimationOnGoing) {
+            menuAnimationHandler.postDelayed(menuAnimationRunnable, menuAnimationPollingInterval);
+        } else {
+            this.onMenuTransitionComplete();
+        }
+    }
+
+    public void onMenuTransitionComplete() {
+        switch(menuCurrentState) {
+            case OPENING:
+                menuCurrentState = MenuState.OPEN;
+                break;
+            case CLOSING:
+                menuCurrentState = MenuState.CLOSED;
+                menu.setVisibility(View.GONE);
+                break;
+            default:
+                return;
+
+        }
+    }
 
 
     public MenuContainer(Context context) {
@@ -66,19 +116,19 @@ public class MenuContainer extends LinearLayout {
     public void toggleMenu() {
         switch (this.menuCurrentState) {
             case CLOSED:
+                menuCurrentState = MenuState.OPENING;
                 menu.setVisibility(View.VISIBLE);
-                currentContentOffset = menu.getLayoutParams().width;
-                controller.offsetLeftAndRight(currentContentOffset);
-                menuCurrentState = MenuState.OPEN;
+                menuAnimationScroller.startScroll(0, 0, menu.getLayoutParams().width, menuAnimationDurating);
                 break;
             case OPEN:
-                controller.offsetLeftAndRight(-currentContentOffset);
-                currentContentOffset = 0;
-                menuCurrentState = MenuState.CLOSED;
-                menu.setVisibility(View.GONE);
+                menuCurrentState = MenuState.CLOSING;
+                menuAnimationScroller.startScroll(currentContentOffset, 0, -currentContentOffset, menuAnimationDurating);
+                break;
+            default:
                 break;
         }
 
-        invalidate();
+        menuAnimationHandler.postDelayed(menuAnimationRunnable, menuAnimationPollingInterval);
+
     }
 }
