@@ -1,19 +1,13 @@
 package com.example.adriano.esteticaregenere_android.Components;
 
-import android.animation.Animator;
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.view.Menu;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 import android.os.Handler;
-
-import java.util.logging.LogRecord;
 
 /**
  * Created by Adriano on 1/23/16.
@@ -26,7 +20,7 @@ public class MenuContainer extends LinearLayout {
     protected MenuState menuCurrentState = MenuState.CLOSED;
 
     // Animation objects
-    protected Scroller menuAnimationScroller = new Scroller(this.getContext(), new LinearInterpolator());
+    protected Scroller menuAnimationScroller = new Scroller(this.getContext(), new SmoothInterpolator());
     protected Runnable menuAnimationRunnable = new Runnable() {
         @Override
         public void run() {
@@ -130,5 +124,12 @@ public class MenuContainer extends LinearLayout {
 
         menuAnimationHandler.postDelayed(menuAnimationRunnable, menuAnimationPollingInterval);
 
+    }
+
+    protected class SmoothInterpolator implements android.view.animation.Interpolator {
+        @Override
+        public float getInterpolation(float t) {
+            return (float) Math.pow(t-1, 5) + 1;
+        }
     }
 }
