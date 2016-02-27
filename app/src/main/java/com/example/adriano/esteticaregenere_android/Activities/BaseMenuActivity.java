@@ -5,9 +5,11 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -20,6 +22,7 @@ import android.widget.TextView;
 import com.example.adriano.esteticaregenere_android.Providers.AuthenticatedProviderCallback;
 
 import com.example.adriano.esteticaregenere_android.Components.MenuContainer;
+import com.example.adriano.esteticaregenere_android.Providers.DeleteAppointmentProvider;
 import com.example.adriano.esteticaregenere_android.Providers.MenuProvider;
 import com.example.adriano.esteticaregenere_android.R;
 
@@ -66,6 +69,10 @@ public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, A
     public void onMenuItemSelected(int ancient, int current) {
         System.out.println("Hey! Changing from " + Integer.toString(ancient) + " to " + Integer.toString(current));
         this.container.toggleMenu();
+        if(current == 4) {
+            proceedToLogout();
+            return;
+        }
         if (ancient == current) return;
         Intent i;
         switch(current) {
@@ -82,6 +89,29 @@ public class BaseMenuActivity extends Activity implements MenuAdapterDelegate, A
         //if (ancient != 0) i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
         if (ancient != 0) finish();
+    }
+
+    void proceedToLogout() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(BaseMenuActivity.this);
+        alertDialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                SharedPreferences preferences = getSharedPreferences("MyPreferences", 0);
+                preferences.edit().remove("auth-token").commit();
+                finish();
+            }
+        });
+        alertDialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog.setTitle("Sair");
+        alertDialog.setMessage("Tem certeza que deseja fazer logout?");
+
+        alertDialog.create().show();
     }
 
     int getRightMenuIndex() {
@@ -207,6 +237,7 @@ class MenuAdapter extends ArrayAdapter<MenuProvider>
 {
     private List<MenuProvider> list;
     int selected;
+    MenuAdapter thisAdapter = this;
     MenuAdapterDelegate delegate;
     public MenuAdapter(Context context, int textViewResourceId, List<MenuProvider> objects, int selected, MenuAdapterDelegate delegate) {
         super(context, textViewResourceId, objects);
@@ -218,10 +249,17 @@ class MenuAdapter extends ArrayAdapter<MenuProvider>
     public int getSelectedMenuOption() { return this.selected; }
 
     public void select(int index) {
-        int previousSelected = this.selected;
+        final int previousSelected = this.selected;
         this.selected = index;
         notifyDataSetChanged();
         this.delegate.onMenuItemSelected(previousSelected, index);
+        if(index == 4) (new Handler()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                thisAdapter.selected = previousSelected;
+                thisAdapter.notifyDataSetChanged();
+            }
+        }, 100);
 
     }
 
